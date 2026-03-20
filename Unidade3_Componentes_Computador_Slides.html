@@ -713,36 +713,48 @@ h3 {
   <button class="toc-item" data-slide="2">O que é a CPU?</button>
   <button class="toc-item" data-slide="3">Componentes da CPU</button>
   <button class="toc-item" data-slide="4">Diagrama Funcional da CPU</button>
-  <button class="toc-item" data-slide="5">Organização dos Registradores</button>
-  <button class="toc-item" data-slide="6">CISC vs RISC</button>
-  <button class="toc-item" data-slide="7">Ciclo de Instrução</button>
+  <button class="toc-item" data-slide="5">Barramentos do Sistema</button>
+  <button class="toc-item" data-slide="6">Clock e Desempenho</button>
+  <button class="toc-item" data-slide="7">Organização dos Registradores</button>
+  <button class="toc-item" data-slide="8">CISC vs RISC</button>
+  <button class="toc-item" data-slide="9">Ciclo de Instrução</button>
+  <button class="toc-item" data-slide="10">Exercício: Processadores</button>
 
   <div class="toc-section-title">Aula 2 — Memória</div>
-  <button class="toc-item" data-slide="8">Seção: Memória Principal e Cache</button>
-  <button class="toc-item" data-slide="9">Hierarquia de Memória</button>
-  <button class="toc-item" data-slide="10">Classificação das Memórias</button>
-  <button class="toc-item" data-slide="11">RAM — Memória Principal</button>
-  <button class="toc-item" data-slide="12">ROM vs RAM</button>
-  <button class="toc-item" data-slide="13">Memória Cache</button>
-  <button class="toc-item" data-slide="14">Níveis de Cache</button>
+  <button class="toc-item" data-slide="11">Seção: Memória Principal e Cache</button>
+  <button class="toc-item" data-slide="12">Memória na Arq. Von Neumann</button>
+  <button class="toc-item" data-slide="13">Hierarquia de Memória</button>
+  <button class="toc-item" data-slide="14">Classificação das Memórias</button>
+  <button class="toc-item" data-slide="15">RAM — Memória Principal</button>
+  <button class="toc-item" data-slide="16">SRAM vs DRAM</button>
+  <button class="toc-item" data-slide="17">ROM vs RAM</button>
+  <button class="toc-item" data-slide="18">Memória Cache</button>
+  <button class="toc-item" data-slide="19">Níveis de Cache</button>
+  <button class="toc-item" data-slide="20">Mapeamento de Cache</button>
 
   <div class="toc-section-title">Aula 3 — Memória Secundária</div>
-  <button class="toc-item" data-slide="15">Seção: Memória Secundária</button>
-  <button class="toc-item" data-slide="16">Tipos de Memória Secundária</button>
-  <button class="toc-item" data-slide="17">HDD vs SSD</button>
-  <button class="toc-item" data-slide="18">Flash: NOR vs NAND</button>
-  <button class="toc-item" data-slide="19">Padrões de Interface</button>
+  <button class="toc-item" data-slide="21">Seção: Memória Secundária</button>
+  <button class="toc-item" data-slide="22">Tipos de Memória Secundária</button>
+  <button class="toc-item" data-slide="23">Disco Magnético — Estrutura</button>
+  <button class="toc-item" data-slide="24">HDD vs SSD</button>
+  <button class="toc-item" data-slide="25">Flash: NOR vs NAND</button>
+  <button class="toc-item" data-slide="26">Mídias Ópticas e Fitas</button>
+  <button class="toc-item" data-slide="27">Padrões de Interface</button>
 
   <div class="toc-section-title">Aula 4 — Dispositivos de E/S</div>
-  <button class="toc-item" data-slide="20">Seção: Entrada e Saída</button>
-  <button class="toc-item" data-slide="21">Dispositivos Externos</button>
-  <button class="toc-item" data-slide="22">Técnicas de E/S</button>
-  <button class="toc-item" data-slide="23">DMA — Acesso Direto à Memória</button>
-  <button class="toc-item" data-slide="24">Canais de E/S</button>
+  <button class="toc-item" data-slide="28">Seção: Entrada e Saída</button>
+  <button class="toc-item" data-slide="29">Dispositivos Externos</button>
+  <button class="toc-item" data-slide="30">Técnicas de E/S</button>
+  <button class="toc-item" data-slide="31">E/S Programada vs Interrupção</button>
+  <button class="toc-item" data-slide="32">DMA — Acesso Direto à Memória</button>
+  <button class="toc-item" data-slide="33">DMA — Passo a Passo</button>
+  <button class="toc-item" data-slide="34">Canais de E/S</button>
 
   <div class="toc-section-title">Encerramento</div>
-  <button class="toc-item" data-slide="25">Mapa Conceitual</button>
-  <button class="toc-item" data-slide="26">Referências</button>
+  <button class="toc-item" data-slide="35">Estudo de Caso: Biblioteca</button>
+  <button class="toc-item" data-slide="36">Questões para Reflexão</button>
+  <button class="toc-item" data-slide="37">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="38">Referências</button>
 </div>
 
 <!-- DECK -->
@@ -907,6 +919,132 @@ h3 {
   </p>
 </div>
 
+<!-- ══════════════════════ SLIDE: BARRAMENTOS ══════════════════════ -->
+<div class="slide" data-section="Aula 1 — CPU">
+  <div class="slide-tag anim anim-d1">Aula 1 · Barramentos</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-amber">Barramentos</span> do Sistema
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;margin-bottom:20px;">
+        Barramentos são <strong style="color:var(--text-primary)">vias de comunicação</strong> que transportam sinais elétricos entre os componentes do computador. São a "estrada" por onde trafegam dados, endereços e sinais de controle.
+      </p>
+      <div class="cards-grid" style="grid-template-columns:1fr;gap:10px;">
+        <div class="card" style="padding:18px 22px;">
+          <h4 style="font-size:15px;"><span class="pill cyan">DADOS</span></h4>
+          <p style="margin-top:6px;">Transporta os dados entre CPU, memória e periféricos. A largura (8, 16, 32, 64 bits) define a quantidade transferida por ciclo.</p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <h4 style="font-size:15px;"><span class="pill blue">ENDEREÇO</span></h4>
+          <p style="margin-top:6px;">Indica a posição de memória a ser acessada. A largura define o espaço máximo de endereçamento (ex: 32 bits = 4 GB).</p>
+        </div>
+        <div class="card" style="padding:18px 22px;">
+          <h4 style="font-size:15px;"><span class="pill purple">CONTROLE</span></h4>
+          <p style="margin-top:6px;">Sinais que coordenam as operações: leitura, escrita, interrupções, clock e status dos dispositivos.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;">
+      <div class="diagram-flow" style="flex-direction:column;gap:8px;">
+        <div class="diagram-box" style="border-color:rgba(6,182,212,0.3);width:180px;">
+          <div class="label" style="color:var(--accent-cyan);">CPU</div>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:center;">
+          <div style="width:3px;height:40px;background:var(--accent-cyan);border-radius:2px;"></div>
+          <div style="width:3px;height:40px;background:var(--accent-blue);border-radius:2px;"></div>
+          <div style="width:3px;height:40px;background:var(--accent-purple);border-radius:2px;"></div>
+        </div>
+        <div class="diagram-box" style="border-color:rgba(245,158,11,0.3);width:180px;">
+          <div class="label" style="color:var(--accent-amber);">Barramento</div>
+          <div class="sublabel">Dados | End. | Ctrl</div>
+        </div>
+        <div style="display:flex;gap:50px;justify-content:center;">
+          <div style="width:3px;height:30px;background:var(--text-muted);border-radius:2px;"></div>
+          <div style="width:3px;height:30px;background:var(--text-muted);border-radius:2px;"></div>
+        </div>
+        <div style="display:flex;gap:16px;">
+          <div class="diagram-box" style="border-color:rgba(59,130,246,0.3);">
+            <div class="label" style="color:var(--accent-blue);font-size:12px;">Memória</div>
+          </div>
+          <div class="diagram-box" style="border-color:rgba(16,185,129,0.3);">
+            <div class="label" style="color:var(--accent-green);font-size:12px;">E/S</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: CLOCK E DESEMPENHO ══════════════════════ -->
+<div class="slide" data-section="Aula 1 — CPU">
+  <div class="slide-tag anim anim-d1">Aula 1 · Clock e Desempenho</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Clock, Frequência e <span class="highlight-rose">Desempenho</span>
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;">
+        O <strong style="color:var(--accent-rose)">clock</strong> é um oscilador que define o ritmo das operações da CPU. Cada "tick" do clock permite a execução de parte de uma instrução.
+      </p>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
+          <h4 style="font-size:14px;color:var(--accent-cyan);margin-bottom:6px;">Multi-core</h4>
+          <p style="font-size:13px;color:var(--text-muted);">Múltiplos núcleos em um chip permitem executar várias tarefas em paralelo. Um i7 quad-core pode processar 4 threads simultaneamente.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
+          <h4 style="font-size:14px;color:var(--accent-purple);margin-bottom:6px;">FPU (Unid. Ponto Flutuante)</h4>
+          <p style="font-size:13px;color:var(--text-muted);">Coprocessador especializado em operações decimais. Essencial para jogos, renderização 3D e computação científica.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
+          <h4 style="font-size:14px;color:var(--accent-amber);margin-bottom:6px;">Pipeline</h4>
+          <p style="font-size:13px;color:var(--text-muted);">Técnica que permite iniciar uma nova instrução a cada ciclo de clock, sem esperar a anterior terminar completamente.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--bg-card);border-radius:16px;padding:28px;border:1px solid var(--border-subtle);">
+        <h4 style="color:var(--accent-rose);font-family:var(--font-mono);font-size:13px;letter-spacing:2px;margin-bottom:16px;">EVOLUÇÃO DO CLOCK</h4>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Intel 4004 (1971)</span>
+              <span style="font-size:13px;color:var(--accent-rose);font-family:var(--font-mono);">740 KHz</span>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Intel 8086 (1978)</span>
+              <span style="font-size:13px;color:var(--accent-rose);font-family:var(--font-mono);">5-10 MHz</span>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Pentium (1993)</span>
+              <span style="font-size:13px;color:var(--accent-rose);font-family:var(--font-mono);">60-200 MHz</span>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Core 2 (2006)</span>
+              <span style="font-size:13px;color:var(--accent-rose);font-family:var(--font-mono);">1.8-3.0 GHz</span>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Atual (2024+)</span>
+              <span style="font-size:13px;color:var(--accent-cyan);font-family:var(--font-mono);">3.0-6.0 GHz</span>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;font-style:italic;">
+          Frequência estabilizou ~2005. Ganhos agora vêm de mais núcleos e melhor arquitetura.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════ SLIDE 5: REGISTRADORES ══════════════════════ -->
 <div class="slide" data-section="Aula 1 — CPU">
   <div class="slide-tag anim anim-d1">Aula 1 · Registradores</div>
@@ -1023,6 +1161,57 @@ h3 {
   </p>
 </div>
 
+<!-- ══════════════════════ SLIDE: EXERCÍCIO CPU ══════════════════════ -->
+<div class="slide" data-section="Aula 1 — CPU">
+  <div class="slide-tag anim anim-d1">Aula 1 · Exercício Prático</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    Exercício: Comparando <span class="highlight-cyan">Processadores</span>
+  </div>
+  <div class="anim anim-d3" style="margin-top:16px;">
+    <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;margin-bottom:20px;">
+      Uma empresa está escolhendo entre dois processadores para seu servidor. Analise as especificações e discuta qual seria a melhor escolha para cada cenário.
+    </p>
+    <div class="comparison">
+      <div class="comparison-col" style="border-color:rgba(6,182,212,0.2);">
+        <h4 style="color:var(--accent-cyan);">Processador Alpha</h4>
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Arquitetura CISC</p>
+        <ul>
+          <li>Clock: 4.5 GHz</li>
+          <li>Núcleos: 8</li>
+          <li>Cache L3: 16 MB</li>
+          <li>Palavra: 64 bits</li>
+          <li>TDP: 125W</li>
+          <li>Foco: alta frequência por núcleo</li>
+        </ul>
+      </div>
+      <div class="comparison-vs">VS</div>
+      <div class="comparison-col" style="border-color:rgba(16,185,129,0.2);">
+        <h4 style="color:var(--accent-green);">Processador Beta</h4>
+        <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Arquitetura RISC</p>
+        <ul>
+          <li>Clock: 3.2 GHz</li>
+          <li>Núcleos: 16</li>
+          <li>Cache L3: 32 MB</li>
+          <li>Palavra: 64 bits</li>
+          <li>TDP: 95W</li>
+          <li>Foco: paralelismo e eficiência</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:16px;">
+      <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:14px;border:1px solid var(--border-subtle);">
+        <p style="font-size:12px;color:var(--text-muted);">🎮 <strong style="color:var(--text-primary)">Gaming:</strong> Qual é melhor?</p>
+      </div>
+      <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:14px;border:1px solid var(--border-subtle);">
+        <p style="font-size:12px;color:var(--text-muted);">🖥️ <strong style="color:var(--text-primary)">Servidor Web:</strong> Qual é melhor?</p>
+      </div>
+      <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:14px;border:1px solid var(--border-subtle);">
+        <p style="font-size:12px;color:var(--text-muted);">🔋 <strong style="color:var(--text-primary)">Eficiência:</strong> Qual é melhor?</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════ SLIDE 8: SEÇÃO MEMÓRIA ══════════════════════ -->
 <div class="slide section-divider" data-section="Aula 2 — Memória">
   <span class="section-number">02</span>
@@ -1032,6 +1221,42 @@ h3 {
   </div>
   <div class="slide-subtitle anim anim-d3">
     RAM, ROM, hierarquia de memória e os diferentes níveis de cache.
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: VON NEUMANN E MEMÓRIA ══════════════════════ -->
+<div class="slide" data-section="Aula 2 — Memória">
+  <div class="slide-tag anim anim-d1">Aula 2 · A Memória na Arquitetura</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Memória na <span class="highlight-blue">Arquitetura Von Neumann</span>
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;">
+        Na arquitetura de <strong style="color:var(--text-primary)">Von Neumann</strong>, instruções e dados compartilham a mesma memória. A CPU busca instruções e dados pelo mesmo barramento — o chamado <strong style="color:var(--accent-blue)">gargalo de Von Neumann</strong>.
+      </p>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;margin-top:16px;">
+        A hierarquia de memória surgiu para mitigar esse gargalo: memórias rápidas e pequenas perto da CPU, lentas e grandes mais distantes.
+      </p>
+    </div>
+    <div>
+      <div class="diagram-flow" style="flex-direction:column;align-items:center;gap:8px;">
+        <div class="diagram-box" style="border-color:rgba(6,182,212,0.3);width:200px;">
+          <div class="label" style="color:var(--accent-cyan);">CPU</div>
+          <div class="sublabel">Processamento</div>
+        </div>
+        <div class="diagram-arrow" style="transform:rotate(90deg);">⟶</div>
+        <div class="diagram-box" style="border-color:rgba(59,130,246,0.3);width:200px;">
+          <div class="label" style="color:var(--accent-blue);">Barramento Único</div>
+          <div class="sublabel">Dados + Instruções</div>
+        </div>
+        <div class="diagram-arrow" style="transform:rotate(90deg);">⟶</div>
+        <div class="diagram-box" style="border-color:rgba(139,92,246,0.3);width:200px;">
+          <div class="label" style="color:var(--accent-purple);">Memória</div>
+          <div class="sublabel">Dados e Programas</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1211,6 +1436,44 @@ h3 {
   </div>
 </div>
 
+<!-- ══════════════════════ SLIDE: SRAM vs DRAM ══════════════════════ -->
+<div class="slide" data-section="Aula 2 — Memória">
+  <div class="slide-tag anim anim-d1">Aula 2 · SRAM vs DRAM</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-cyan">SRAM</span> vs <span class="highlight-blue">DRAM</span>
+  </div>
+  <div class="comparison anim anim-d3">
+    <div class="comparison-col" style="border-color:rgba(6,182,212,0.2);">
+      <h4 style="color:var(--accent-cyan);">SRAM</h4>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Static RAM</p>
+      <ul>
+        <li>Usa flip-flops (6 transistores por bit)</li>
+        <li>Não precisa de refresh</li>
+        <li>Muito rápida (~1-10 ns)</li>
+        <li>Consome mais energia</li>
+        <li>Custo alto por bit</li>
+        <li>Usada em memória <strong>Cache</strong></li>
+      </ul>
+    </div>
+    <div class="comparison-vs">VS</div>
+    <div class="comparison-col" style="border-color:rgba(59,130,246,0.2);">
+      <h4 style="color:var(--accent-blue);">DRAM</h4>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Dynamic RAM</p>
+      <ul>
+        <li>Usa capacitores (1 transistor + 1 capacitor)</li>
+        <li>Precisa de refresh constante (ms)</li>
+        <li>Mais lenta (~50-70 ns)</li>
+        <li>Consome menos energia</li>
+        <li>Custo baixo por bit</li>
+        <li>Usada em memória <strong>Principal (RAM)</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p class="anim anim-d4" style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:20px;font-style:italic;">
+    O refresh da DRAM é necessário porque os capacitores perdem carga elétrica com o tempo.
+  </p>
+</div>
+
 <!-- ══════════════════════ SLIDE 12: ROM vs RAM ══════════════════════ -->
 <div class="slide" data-section="Aula 2 — Memória">
   <div class="slide-tag anim anim-d1">Aula 2 · ROM vs RAM</div>
@@ -1320,6 +1583,41 @@ h3 {
   </div>
 </div>
 
+<!-- ══════════════════════ SLIDE: MAPEAMENTO DE CACHE ══════════════════════ -->
+<div class="slide" data-section="Aula 2 — Memória">
+  <div class="slide-tag anim anim-d1">Aula 2 · Mapeamento de Cache</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Técnicas de <span class="highlight-purple">Mapeamento</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3" style="margin-top:24px;">
+    <div class="card" style="border-color:rgba(6,182,212,0.2);">
+      <div class="card-icon cyan">D</div>
+      <h4>Mapeamento Direto</h4>
+      <p>Cada bloco da memória principal só pode ocupar <strong style="color:var(--text-primary)">uma posição fixa</strong> na cache. Simples e rápido, mas gera conflitos.</p>
+    </div>
+    <div class="card" style="border-color:rgba(139,92,246,0.2);">
+      <div class="card-icon purple">A</div>
+      <h4>Totalmente Associativo</h4>
+      <p>Qualquer bloco pode ir para <strong style="color:var(--text-primary)">qualquer posição</strong> da cache. Menos conflitos, porém hardware mais complexo e caro.</p>
+    </div>
+    <div class="card" style="border-color:rgba(16,185,129,0.2);">
+      <div class="card-icon green">C</div>
+      <h4>Conjunto Associativo</h4>
+      <p>Meio-termo: cache dividida em conjuntos e cada bloco pode ir para <strong style="color:var(--text-primary)">qualquer posição dentro de um conjunto</strong>.</p>
+    </div>
+  </div>
+  <div class="anim anim-d4" style="margin-top:24px;display:flex;gap:20px;">
+    <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:13px;color:var(--accent-amber);margin-bottom:6px;">Política de Substituição</h4>
+      <p style="font-size:12px;color:var(--text-muted);">Quando a cache está cheia: <strong style="color:var(--text-primary)">LRU</strong> (Least Recently Used) — remove o bloco menos recentemente acessado.</p>
+    </div>
+    <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:13px;color:var(--accent-rose);margin-bottom:6px;">Coerência de Cache</h4>
+      <p style="font-size:12px;color:var(--text-muted);">Em multi-core, garantir que todos os núcleos vejam os mesmos dados atualizados na cache.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════ SLIDE 15: SEÇÃO MEM SEC ══════════════════════ -->
 <div class="slide section-divider" data-section="Aula 3 — Memória Secundária">
   <span class="section-number">03</span>
@@ -1372,6 +1670,64 @@ h3 {
     <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:18px;border:1px solid var(--border-subtle);">
       <h4 style="font-size:13px;color:var(--accent-purple);margin-bottom:6px;">📦 Alta capacidade</h4>
       <p style="font-size:13px;color:var(--text-muted);">Armazenam terabytes de dados a custos acessíveis.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: DISCO MAGNÉTICO ══════════════════════ -->
+<div class="slide" data-section="Aula 3 — Memória Secundária">
+  <div class="slide-tag anim anim-d1">Aula 3 · Disco Magnético</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Disco Magnético — <span class="highlight-amber">Estrutura</span> e Tempos
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:15px;margin-bottom:20px;">
+        O HDD é composto por <strong style="color:var(--text-primary)">pratos magnéticos</strong> que giram em alta velocidade (5400-7200 RPM). Uma cabeça de leitura/escrita se move sobre as trilhas concêntricas.
+      </p>
+      <div class="cards-grid" style="grid-template-columns:1fr;gap:10px;">
+        <div class="card" style="padding:16px 20px;">
+          <h4 style="font-size:14px;"><span class="pill amber">Trilha</span></h4>
+          <p style="margin-top:6px;font-size:13px;">Circunferência concêntrica na superfície do disco.</p>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <h4 style="font-size:14px;"><span class="pill blue">Setor</span></h4>
+          <p style="margin-top:6px;font-size:13px;">Menor unidade endereçável (tipicamente 512 bytes).</p>
+        </div>
+        <div class="card" style="padding:16px 20px;">
+          <h4 style="font-size:14px;"><span class="pill purple">Cilindro</span></h4>
+          <p style="margin-top:6px;font-size:13px;">Conjunto de trilhas na mesma posição em diferentes pratos.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--bg-card);border-radius:16px;padding:24px;border:1px solid var(--border-subtle);">
+        <h4 style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:13px;letter-spacing:2px;margin-bottom:16px;">TEMPOS DE ACESSO</h4>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Seek Time</span>
+              <span style="font-size:13px;color:var(--accent-amber);font-family:var(--font-mono);">3-15 ms</span>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);">Tempo para mover a cabeça até a trilha correta.</p>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Latência Rotacional</span>
+              <span style="font-size:13px;color:var(--accent-blue);font-family:var(--font-mono);">2-6 ms</span>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);">Tempo para o setor girar até a cabeça.</p>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:13px;color:var(--text-primary);font-weight:600;">Transferência</span>
+              <span style="font-size:13px;color:var(--accent-green);font-family:var(--font-mono);">< 1 ms</span>
+            </div>
+            <p style="font-size:12px;color:var(--text-muted);">Tempo efetivo de leitura/escrita dos dados.</p>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--accent-amber);margin-top:16px;font-weight:600;">Tempo total = Seek + Latência + Transferência</p>
+      </div>
     </div>
   </div>
 </div>
@@ -1430,6 +1786,48 @@ h3 {
         <tr><td>Capacidade</td><td>Menor</td><td>Maior</td></tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: MÍDIAS ÓPTICAS E FITAS ══════════════════════ -->
+<div class="slide" data-section="Aula 3 — Memória Secundária">
+  <div class="slide-tag anim anim-d1">Aula 3 · Mídias Ópticas e Fitas Magnéticas</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-purple">Ópticas</span> e <span class="highlight-amber">Fitas</span> Magnéticas
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <h3 style="font-size:18px;color:var(--accent-purple);margin-bottom:16px;">Mídias Ópticas</h3>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+        Utilizam <strong style="color:var(--text-primary)">laser</strong> para ler e gravar dados em discos com sulcos microscópicos. Tecnologia em declínio devido à nuvem e ao streaming.
+      </p>
+      <div class="table-container">
+        <table class="styled-table">
+          <thead><tr><th>Mídia</th><th>Capacidade</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td>CD</td><td>700 MB</td><td>Áudio, dados</td></tr>
+            <tr><td>DVD</td><td>4,7 GB</td><td>Vídeo, software</td></tr>
+            <tr><td>Blu-ray</td><td>25-50 GB</td><td>Filmes HD, jogos</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:18px;color:var(--accent-amber);margin-bottom:16px;">Fitas Magnéticas</h3>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+        Armazenamento <strong style="color:var(--text-primary)">sequencial</strong> de altíssima capacidade e custo muito baixo por GB. Ainda amplamente usadas em backup corporativo.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid var(--border-subtle);">
+          <h4 style="font-size:13px;color:var(--accent-green);margin-bottom:4px;">✓ Vantagens</h4>
+          <p style="font-size:12px;color:var(--text-muted);">Custo/TB imbatível, durabilidade de 30+ anos, capacidade de petabytes.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid var(--border-subtle);">
+          <h4 style="font-size:13px;color:var(--accent-rose);margin-bottom:4px;">✗ Limitações</h4>
+          <p style="font-size:12px;color:var(--text-muted);">Acesso sequencial lento, não adequada para operações em tempo real.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1529,6 +1927,42 @@ h3 {
   </div>
 </div>
 
+<!-- ══════════════════════ SLIDE: E/S PROGRAMADA E INTERRUPÇÃO ══════════════════════ -->
+<div class="slide" data-section="Aula 4 — Dispositivos de E/S">
+  <div class="slide-tag anim anim-d1">Aula 4 · E/S Programada e por Interrupção</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    <span class="highlight-rose">E/S Programada</span> vs <span class="highlight-amber">Interrupção</span>
+  </div>
+  <div class="comparison anim anim-d3">
+    <div class="comparison-col" style="border-color:rgba(244,63,94,0.2);">
+      <h4 style="color:var(--accent-rose);">E/S Programada (Polling)</h4>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Verificação contínua</p>
+      <ul>
+        <li>CPU executa um loop verificando o status do dispositivo</li>
+        <li>Enquanto espera, não faz mais nada (busy waiting)</li>
+        <li>Simples de implementar</li>
+        <li>Desperdiça ciclos de CPU</li>
+        <li>Adequada apenas para sistemas simples e embarcados</li>
+      </ul>
+    </div>
+    <div class="comparison-vs">VS</div>
+    <div class="comparison-col" style="border-color:rgba(245,158,11,0.2);">
+      <h4 style="color:var(--accent-amber);">E/S por Interrupção</h4>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:16px;font-family:var(--font-mono);">Notificação por hardware</p>
+      <ul>
+        <li>Dispositivo envia um sinal (IRQ) quando pronto</li>
+        <li>CPU pode executar outras tarefas enquanto aguarda</li>
+        <li>Mais complexa — exige tratador de interrupções</li>
+        <li>Muito mais eficiente que polling</li>
+        <li>Usada em todos os sistemas operacionais modernos</li>
+      </ul>
+    </div>
+  </div>
+  <p class="anim anim-d4" style="text-align:center;color:var(--text-muted);font-size:13px;margin-top:20px;font-style:italic;">
+    Evolução: E/S Programada → E/S por Interrupção → DMA → Canais de E/S
+  </p>
+</div>
+
 <!-- ══════════════════════ SLIDE 23: DMA ══════════════════════ -->
 <div class="slide" data-section="Aula 4 — Dispositivos de E/S">
   <div class="slide-tag anim anim-d1">Aula 4 · DMA</div>
@@ -1583,6 +2017,49 @@ h3 {
   </div>
 </div>
 
+<!-- ══════════════════════ SLIDE: DMA PASSO A PASSO ══════════════════════ -->
+<div class="slide" data-section="Aula 4 — Dispositivos de E/S">
+  <div class="slide-tag anim anim-d1">Aula 4 · DMA — Funcionamento</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    DMA — <span class="highlight-green">Passo a Passo</span>
+  </div>
+  <div class="cycle-steps anim anim-d3" style="margin-top:20px;">
+    <div class="cycle-step" style="border-color:rgba(6,182,212,0.15);">
+      <div class="cycle-num" style="color:var(--accent-cyan);">PASSO 1</div>
+      <h4 style="color:var(--accent-cyan);">Solicitação</h4>
+      <p>CPU programa o controlador DMA com endereço, quantidade de dados e direção da transferência.</p>
+    </div>
+    <div class="cycle-arrow">→</div>
+    <div class="cycle-step" style="border-color:rgba(59,130,246,0.15);">
+      <div class="cycle-num" style="color:var(--accent-blue);">PASSO 2</div>
+      <h4 style="color:var(--accent-blue);">Arbitragem</h4>
+      <p>DMA solicita acesso ao barramento. Quando concedido, assume o controle da transferência.</p>
+    </div>
+    <div class="cycle-arrow">→</div>
+    <div class="cycle-step" style="border-color:rgba(139,92,246,0.15);">
+      <div class="cycle-num" style="color:var(--accent-purple);">PASSO 3</div>
+      <h4 style="color:var(--accent-purple);">Transferência</h4>
+      <p>Dados fluem diretamente entre dispositivo e memória, sem passar pela CPU.</p>
+    </div>
+    <div class="cycle-arrow">→</div>
+    <div class="cycle-step" style="border-color:rgba(16,185,129,0.15);">
+      <div class="cycle-num" style="color:var(--accent-green);">PASSO 4</div>
+      <h4 style="color:var(--accent-green);">Interrupção</h4>
+      <p>Ao concluir, o DMA envia uma interrupção à CPU informando que a operação terminou.</p>
+    </div>
+  </div>
+  <div class="anim anim-d4" style="margin-top:24px;display:flex;gap:20px;">
+    <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:13px;color:var(--accent-amber);margin-bottom:6px;">⚠ Desafios do DMA</h4>
+      <p style="font-size:12px;color:var(--text-muted);">Sincronização com a CPU pelo barramento, segurança de acesso à memória e coerência de cache.</p>
+    </div>
+    <div style="flex:1;background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid var(--border-subtle);">
+      <h4 style="font-size:13px;color:var(--accent-green);margin-bottom:6px;">✓ Benefício Principal</h4>
+      <p style="font-size:12px;color:var(--text-muted);">CPU fica livre para executar outras tarefas durante toda a transferência de dados.</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════════════════ SLIDE 24: CANAIS E/S ══════════════════════ -->
 <div class="slide" data-section="Aula 4 — Dispositivos de E/S">
   <div class="slide-tag anim anim-d1">Aula 4 · Canais de E/S</div>
@@ -1627,6 +2104,87 @@ h3 {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: ESTUDO DE CASO ══════════════════════ -->
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Encerramento · Estudo de Caso</div>
+  <div class="slide-title anim anim-d2" style="font-size:32px;">
+    Estudo de Caso: <span class="highlight-cyan">Biblioteca Central</span>
+  </div>
+  <div class="two-col anim anim-d3" style="margin-top:16px;">
+    <div>
+      <p style="color:var(--text-secondary);line-height:1.8;font-size:14px;">
+        A Biblioteca Central de São Paulo enfrenta lentidão e falhas no sistema. Equipamentos antigos não suportam o volume de dados. A equipe de TI precisa modernizar a infraestrutura.
+      </p>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid rgba(6,182,212,0.15);">
+          <h4 style="font-size:13px;color:var(--accent-cyan);">1. CPU</h4>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Processador sobrecarregado, ciclos maximizados, registradores no limite.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid rgba(59,130,246,0.15);">
+          <h4 style="font-size:13px;color:var(--accent-blue);">2. Memória</h4>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">RAM sempre cheia, alto índice de cache misses, acesso excessivo ao disco.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid rgba(139,92,246,0.15);">
+          <h4 style="font-size:13px;color:var(--accent-purple);">3. Mem. Secundária</h4>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Discos magnéticos lentos, mídias de backup obsoletas.</p>
+        </div>
+        <div style="background:var(--bg-card);border-radius:12px;padding:16px;border:1px solid rgba(16,185,129,0.15);">
+          <h4 style="font-size:13px;color:var(--accent-green);">4. E/S</h4>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:4px;">Dispositivos antigos, sem DMA, canais de E/S saturados.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="background:var(--bg-card);border-radius:16px;padding:24px;border:1px solid rgba(16,185,129,0.2);">
+        <h4 style="color:var(--accent-green);font-family:var(--font-mono);font-size:13px;letter-spacing:2px;margin-bottom:16px;">SOLUÇÃO PROPOSTA</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="pill cyan" style="min-width:22px;text-align:center;">✓</span>
+            <span style="font-size:13px;color:var(--text-secondary);">Processador multi-core de alta frequência</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="pill blue" style="min-width:22px;text-align:center;">✓</span>
+            <span style="font-size:13px;color:var(--text-secondary);">Expansão de RAM + cache multinível</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="pill purple" style="min-width:22px;text-align:center;">✓</span>
+            <span style="font-size:13px;color:var(--text-secondary);">Substituição de HDD por SSD + NAS/SAN</span>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="pill green" style="min-width:22px;text-align:center;">✓</span>
+            <span style="font-size:13px;color:var(--text-secondary);">Interfaces com DMA + USB 3.x / Thunderbolt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ SLIDE: QUESTÕES PARA REFLEXÃO ══════════════════════ -->
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Encerramento · Reflexão</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Questões para <span class="highlight-amber">Reflexão</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3" style="margin-top:24px;">
+    <div class="card" style="border-color:rgba(6,182,212,0.2);">
+      <div class="card-icon cyan">1</div>
+      <h4>CPU e Desempenho</h4>
+      <p>Como a frequência e o número de núcleos de um processador afetam o desempenho de um sistema computacional?</p>
+    </div>
+    <div class="card" style="border-color:rgba(139,92,246,0.2);">
+      <div class="card-icon purple">2</div>
+      <h4>Memória Cache</h4>
+      <p>De que maneira as estratégias de gerenciamento de cache contribuem para a otimização da performance?</p>
+    </div>
+    <div class="card" style="border-color:rgba(16,185,129,0.2);">
+      <div class="card-icon green">3</div>
+      <h4>E/S em Tempo Real</h4>
+      <p>Quais são os desafios envolvidos na coordenação entre dispositivos de E/S e a CPU em sistemas que exigem respostas em tempo real?</p>
     </div>
   </div>
 </div>
@@ -1719,7 +2277,7 @@ h3 {
   <div class="nav-section" id="navSection">Abertura</div>
   <div class="nav-progress">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="current" id="navCounter">1 / 27</div>
+    <div class="current" id="navCounter">1 / 39</div>
   </div>
   <div class="nav-controls">
     <button class="nav-btn" onclick="prev()" title="Anterior (←)">◀</button>
