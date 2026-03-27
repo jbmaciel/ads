@@ -9,9 +9,10 @@ Abra o [`index.html`](index.html) no navegador ou acesse via GitHub Pages.
 ## Estrutura
 
 ```
-index.html                        # Pagina inicial (hub de navegacao)
-Unidade3_Componentes_Computador_Slides.html  # Slides da Unidade 3
-assets/                           # Logos e imagens
+index.html                                    # Pagina inicial (hub de navegacao)
+Unidade3_Componentes_Computador_Slides.html   # Slides da Unidade 3
+Unidade4_Algebra_Booleana_Slides.html         # Slides da Unidade 4
+assets/                                       # Logos e imagens
 ```
 
 ## Disciplinas
@@ -21,6 +22,7 @@ assets/                           # Logos e imagens
 | Unidade | Tema | Slides |
 |---------|------|--------|
 | 3 | Componentes Basicos de um Computador | 39 |
+| 4 | Algebra Booleana e Logica Digital | 26 |
 
 **Conteudo da Unidade 3:**
 
@@ -28,6 +30,14 @@ assets/                           # Logos e imagens
 - **Aula 2** — Memoria Principal e Cache: hierarquia, RAM, ROM, SRAM vs DRAM, niveis e mapeamento de cache
 - **Aula 3** — Memoria Secundaria: disco magnetico, HDD vs SSD, Flash, midias opticas, padroes de interface
 - **Aula 4** — Dispositivos de E/S: perifericos, E/S programada, interrupcao, DMA, canais de E/S
+
+**Conteudo da Unidade 4:**
+
+- **Fundamentos** — Algebra booleana, variaveis binarias, operacoes AND, OR, NOT
+- **Tabelas Verdade** — Tabelas para AND, OR, NOT com exemplos praticos
+- **Portas Logicas** — NAND, XOR, NOR, XNOR, portas universais e simplificacao de circuitos
+- **Propriedades** — Comutatividade, associatividade, distributividade, De Morgan
+- **Exercicio Pratico** — Projeto de seguranca residencial com sensores + simulador interativo
 
 ## Tutor
 
