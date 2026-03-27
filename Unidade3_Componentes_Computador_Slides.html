@@ -690,6 +690,51 @@ h3 {
   .cycle-steps { flex-direction: column; }
   .cycle-arrow { transform: rotate(90deg); justify-content: center; }
   .stats-row { flex-wrap: wrap; }
+  .diagram-flow { justify-content: center; }
+  .diagram-box { min-width: 100px; padding: 12px 16px; }
+  .hierarchy-label { min-width: auto; }
+  .nav-bar { padding: 0 16px; }
+  .progress-bar { width: 120px; }
+}
+
+@media (max-width: 600px) {
+  .slide { padding: 28px 20px; }
+  .slide-tag { font-size: 11px; letter-spacing: 2px; }
+  .slide-title { font-size: clamp(24px, 6vw, 36px) !important; }
+  .slide-subtitle { font-size: 16px; }
+  .section-number { font-size: 80px; }
+  .cards-grid.cols-2, .cards-grid.cols-3, .cards-grid.cols-4 { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+  .card h4 { font-size: 15px; }
+  .card p { font-size: 13px; }
+  .styled-table { font-size: 12px; }
+  .styled-table thead th { padding: 10px 12px; font-size: 11px; }
+  .styled-table tbody td { padding: 8px 12px; }
+  .stat-number { font-size: 36px !important; }
+  .stat-label { font-size: 11px; }
+  .stats-row { gap: 20px; justify-content: center; }
+  .hierarchy-item { padding: 10px 14px; gap: 10px; }
+  .hierarchy-label { font-size: 13px; }
+  .hierarchy-desc { font-size: 11px; }
+  .comparison-col { padding: 20px; }
+  .comparison-col h4 { font-size: 16px; }
+  .cycle-step { padding: 14px 12px; }
+  .cycle-step h4 { font-size: 13px; }
+  .diagram-flow { gap: 8px; }
+  .diagram-box { min-width: 80px; padding: 10px 12px; }
+  .diagram-box .label { font-size: 11px; }
+  .diagram-box .sublabel { font-size: 10px; }
+  .diagram-arrow { font-size: 16px; }
+  .nav-bar { height: 48px; padding: 0 12px; }
+  .nav-section { font-size: 10px; max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nav-progress .current { font-size: 12px; }
+  .progress-bar { width: 80px; }
+  .nav-btn { width: 32px; height: 32px; font-size: 14px; }
+  .toc-panel { width: 280px; left: -280px; padding: 64px 16px 16px; }
+  .toc-section-title { font-size: 10px; }
+  .toc-item { font-size: 12px; padding: 8px 10px; }
+  h3 { font-size: 18px; }
+  .two-col { gap: 20px; }
 }
 </style>
 </head>
@@ -2202,7 +2247,7 @@ h3 {
         <div style="font-size:16px;font-weight:800;color:var(--accent-cyan);">Componentes Básicos de um Computador</div>
       </div>
       <!-- Branches -->
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;max-width:900px;">
+      <div class="cards-grid cols-4" style="gap:16px;max-width:900px;">
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
           <div style="width:3px;height:20px;background:var(--accent-cyan);border-radius:2px;"></div>
           <div style="background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:12px;padding:14px;text-align:center;width:100%;">
