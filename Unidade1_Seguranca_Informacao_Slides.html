@@ -743,9 +743,10 @@ html, body {
   <button class="toc-item" data-slide="21">Principais Técnicas</button>
 
   <div class="toc-section-title">Encerramento</div>
-  <button class="toc-item" data-slide="22">Estudo de Caso Final</button>
-  <button class="toc-item" data-slide="23">Mapa Conceitual</button>
-  <button class="toc-item" data-slide="24">Referências</button>
+  <button class="toc-item" data-slide="22">Estudo de Caso: Cenário</button>
+  <button class="toc-item" data-slide="23">Estudo de Caso: Solução</button>
+  <button class="toc-item" data-slide="24">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="25">Referências</button>
 </div>
 
 <div class="deck" id="deck">
@@ -1497,34 +1498,95 @@ html, body {
   </div>
 </div>
 
+<!-- ESTUDO DE CASO: CONTEXTO -->
 <div class="slide" data-section="Encerramento">
   <div class="slide-tag anim anim-d1">Bloco Final · Estudo de Caso</div>
   <div class="slide-title anim anim-d2" style="font-size:34px;">
-    Maximus Financeira: defesa <span class="highlight-cyan">em camadas</span>
+    Maximus Financeira: <span class="highlight-amber">o cenário</span>
   </div>
   <div class="two-col anim anim-d3">
-    <div class="callout">
-      <div class="pill cyan" style="margin-bottom:14px;">Desafio</div>
-      <p>
-        A empresa cresce entre matriz e filial, mantém servidores no datacenter e precisa garantir disponibilidade, troca segura de dados, treinamento do time e resistência a ataques.
-      </p>
+    <div>
+      <div class="callout" style="border-color:rgba(245,158,11,0.24);">
+        <div class="pill amber" style="margin-bottom:14px;">Contexto</div>
+        <p>
+          Fintech em expansão com <strong style="color:var(--text-primary);">matriz em Londrina (PR)</strong> e nova filial em <strong style="color:var(--text-primary);">Recife (PE)</strong>. Os servidores ficam centralizados no datacenter de Londrina, o que exige comunicação constante e segura entre as duas cidades.
+        </p>
+      </div>
+      <div class="callout" style="margin-top:16px;border-color:rgba(244,63,94,0.24);">
+        <div class="pill rose" style="margin-bottom:14px;">Problema</div>
+        <p>
+          Dados da empresa e dos clientes estão <strong style="color:var(--accent-rose);">muito vulneráveis</strong>. Quanto mais a empresa cresce, maior a superfície de ataque — e maior o risco de comprometer informações financeiras sensíveis.
+        </p>
+      </div>
     </div>
     <div>
+      <p style="color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:16px;">
+        <strong style="color:var(--text-primary);">Perguntas que a empresa precisa responder:</strong>
+      </p>
       <div class="checklist">
         <div class="check-item">
-          <div class="marker">01</div>
-          <p>Firewall bem configurado, autenticação forte, biometria no datacenter e uso de VPN.</p>
+          <div class="marker">?</div>
+          <p>Assim que nos conectamos à internet, o que deve ser protegido?</p>
         </div>
         <div class="check-item">
-          <div class="marker">02</div>
-          <p>IDS/IPS, antimalware atualizado, registros de auditoria e revisão periódica da proteção.</p>
+          <div class="marker">?</div>
+          <p>Por que uma empresa financeira pode ser alvo de hackers?</p>
         </div>
         <div class="check-item">
-          <div class="marker">03</div>
-          <p>Criptografia para dados em trânsito e em armazenamento, além de treinamento e restrições operacionais.</p>
+          <div class="marker">?</div>
+          <p>Quais ataques e proteções mais sofisticadas existem hoje?</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">?</div>
+          <p>Como garantir que matriz e filial se comuniquem com segurança?</p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ESTUDO DE CASO: SOLUÇÃO -->
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Bloco Final · Estudo de Caso</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    Maximus Financeira: <span class="highlight-cyan">a solução</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon cyan">🛡</div>
+      <h4>Perímetro e Rede</h4>
+      <p>Firewall configurado contra DoS e outros ataques. <strong style="color:var(--accent-cyan);">VPN</strong> para conexão segura entre Londrina e Recife via internet pública.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">🏢</div>
+      <h4>Datacenter Físico</h4>
+      <p><strong style="color:var(--accent-amber);">Biometria</strong> no acesso ao datacenter em Londrina. Controle rigoroso de quem entra e o que pode operar nos servidores.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">🔍</div>
+      <h4>Monitoramento</h4>
+      <p><strong style="color:var(--accent-rose);">IDS e IPS</strong> para detectar atividades maliciosas, ataques laterais e violações em servidores e estações de trabalho.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">🔐</div>
+      <h4>Criptografia</h4>
+      <p>Dados em trânsito (entre filiais) e em armazenamento protegidos. Antivírus com suporte à implementação de criptografia.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">👤</div>
+      <h4>Identidade e Acesso</h4>
+      <p>Autenticação forte para todos os acessos remotos. Registros de auditoria e revisão periódica de permissões.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon blue">🎓</div>
+      <h4>Pessoas e Processos</h4>
+      <p>Treinamento e conscientização dos colaboradores. <strong style="color:var(--accent-blue);">Restrição</strong> a downloads não autorizados e uso de pendrives.</p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:20px;border-color:rgba(52,211,153,0.22);">
+    <p>
+      Com a colaboração de todos e <strong style="color:var(--accent-green);">revisões periódicas</strong>, a empresa estará razoavelmente protegida — segurança não é um estado final, é um processo contínuo.
+    </p>
   </div>
 </div>
 
@@ -1601,7 +1663,7 @@ html, body {
   <div class="nav-section" id="navSection">Abertura</div>
   <div class="nav-progress">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="current" id="navCounter">1 / 25</div>
+    <div class="current" id="navCounter">1 / 26</div>
   </div>
   <div class="nav-controls">
     <button class="nav-btn" onclick="prev()" title="Anterior (←)">◀</button>
