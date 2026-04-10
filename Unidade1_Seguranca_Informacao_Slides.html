@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidade 1 — Segurança da Informação</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0b0f17;
+  --bg-secondary: #101827;
+  --bg-card: #182233;
+  --bg-card-hover: #1d2a40;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-green: #34d399;
+  --accent-amber: #f59e0b;
+  --accent-rose: #fb7185;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(148, 163, 184, 0.14);
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --glow-amber: 0 0 40px rgba(245, 158, 11, 0.18);
+  --glow-cyan: 0 0 40px rgba(34, 211, 238, 0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-glow {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.14;
+}
+
+.bg-glow-1 { top: -180px; right: -120px; background: var(--accent-rose); }
+.bg-glow-2 { bottom: -220px; left: -140px; background: var(--accent-cyan); }
+
+.deck {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.slide-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.slide-title {
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.slide-title .highlight-cyan { color: var(--accent-cyan); }
+.slide-title .highlight-blue { color: var(--accent-blue); }
+.slide-title .highlight-green { color: var(--accent-green); }
+.slide-title .highlight-amber { color: var(--accent-amber); }
+.slide-title .highlight-rose { color: var(--accent-rose); }
+.slide-title .highlight-purple { color: var(--accent-purple); }
+
+.slide-subtitle {
+  max-width: 760px;
+  font-size: 20px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+.section-divider {
+  background:
+    radial-gradient(circle at top right, rgba(251, 113, 133, 0.16), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.14), transparent 34%);
+}
+
+.section-number {
+  position: absolute;
+  top: 42px;
+  right: 80px;
+  font-family: var(--font-mono);
+  font-size: 88px;
+  font-weight: 700;
+  color: rgba(148, 163, 184, 0.08);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.cards-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 24px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyan);
+}
+
+.card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-icon.cyan { background: rgba(34, 211, 238, 0.14); color: var(--accent-cyan); }
+.card-icon.blue { background: rgba(96, 165, 250, 0.14); color: var(--accent-blue); }
+.card-icon.green { background: rgba(52, 211, 153, 0.14); color: var(--accent-green); }
+.card-icon.amber { background: rgba(245, 158, 11, 0.14); color: var(--accent-amber); }
+.card-icon.rose { background: rgba(251, 113, 133, 0.14); color: var(--accent-rose); }
+.card-icon.purple { background: rgba(167, 139, 250, 0.14); color: var(--accent-purple); }
+
+.card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card p,
+.card li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
+
+.pill.cyan { background: rgba(34, 211, 238, 0.12); color: var(--accent-cyan); }
+.pill.green { background: rgba(52, 211, 153, 0.12); color: var(--accent-green); }
+.pill.amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+.pill.rose { background: rgba(251, 113, 133, 0.12); color: var(--accent-rose); }
+.pill.blue { background: rgba(96, 165, 250, 0.12); color: var(--accent-blue); }
+.pill.purple { background: rgba(167, 139, 250, 0.12); color: var(--accent-purple); }
+
+.callout {
+  background: linear-gradient(180deg, rgba(24, 34, 51, 0.96), rgba(14, 20, 31, 0.96));
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.callout p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 0;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.comparison-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.comparison-col h4 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.comparison-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comparison-col li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.comparison-col li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.comparison-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--text-muted);
+  padding-top: 22px;
+}
+
+.timeline {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 16px;
+  align-items: start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.timeline-year {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+}
+
+.timeline-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.flow-box {
+  min-width: 128px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.flow-box strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.flow-box span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.flow-arrow {
+  font-size: 22px;
+  color: var(--text-muted);
+}
+
+.table-container {
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.styled-table thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  border-bottom: 2px solid rgba(34, 211, 238, 0.18);
+}
+
+.styled-table tbody td {
+  padding: 14px 16px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.matrix-grid {
+  display: grid;
+  grid-template-columns: 180px repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.matrix-cell {
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  min-height: 86px;
+}
+
+.matrix-head {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.matrix-risk {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.risk-low { background: rgba(52, 211, 153, 0.08); border-color: rgba(52, 211, 153, 0.18); }
+.risk-med { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.18); }
+.risk-high { background: rgba(251, 113, 133, 0.08); border-color: rgba(251, 113, 133, 0.18); }
+
+.checklist {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.check-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.check-item .marker {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(34, 211, 238, 0.14);
+  color: var(--accent-cyan);
+}
+
+.check-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.toc-toggle,
+.home-btn {
+  position: fixed;
+  top: 18px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: rgba(11, 15, 23, 0.9);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toc-toggle:hover,
+.home-btn:hover {
+  border-color: rgba(34, 211, 238, 0.22);
+  box-shadow: var(--glow-cyan);
+}
+
+.toc-toggle { left: 18px; }
+.home-btn { left: 70px; }
+
+.toc-panel {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  z-index: 19;
+  width: 320px;
+  height: 100%;
+  padding: 72px 18px 18px;
+  background: rgba(11, 15, 23, 0.96);
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  transition: left 0.25s ease;
+}
+
+.toc-panel.open { left: 0; }
+
+.toc-section-title {
+  margin: 20px 0 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.toc-item {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toc-item:hover,
+.toc-item.active {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: rgba(34, 211, 238, 0.18);
+  color: var(--text-primary);
+}
+
+.nav-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: min(880px, calc(100% - 24px));
+  height: 56px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(11, 15, 23, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.nav-section {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+}
+
+.nav-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  width: min(360px, 46vw);
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-amber), var(--accent-cyan));
+}
+
+.nav-progress .current {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  border-color: rgba(245, 158, 11, 0.22);
+  box-shadow: var(--glow-amber);
+}
+
+.anim {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.anim-d1 { animation-delay: 0.1s; }
+.anim-d2 { animation-delay: 0.2s; }
+.anim-d3 { animation-delay: 0.3s; }
+.anim-d4 { animation-delay: 0.4s; }
+.anim-d5 { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 980px) {
+  .slide { padding: 54px 54px 82px; }
+  .section-number { right: 54px; font-size: 72px; }
+  .two-col { grid-template-columns: 1fr; }
+  .cards-grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparison { grid-template-columns: 1fr; gap: 14px; }
+  .comparison-vs { display: none; }
+  .matrix-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .slide { padding: 62px 22px 92px; }
+  .slide-title { font-size: clamp(28px, 8vw, 40px); }
+  .slide-subtitle { font-size: 17px; }
+  .section-number { top: 58px; right: 22px; font-size: 52px; }
+  .cards-grid.cols-2,
+  .cards-grid.cols-3,
+  .cards-grid.cols-4,
+  .stats-row,
+  .matrix-grid { grid-template-columns: 1fr; }
+  .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+  .flow-arrow { transform: rotate(90deg); }
+  .nav-bar { height: 52px; padding: 0 10px; gap: 10px; }
+  .nav-section { max-width: 86px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .progress-bar { width: 94px; }
+  .toc-panel { width: 280px; left: -280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<button class="toc-toggle" onclick="toggleTOC()" title="Índice">☰</button>
+<a href="index.html" class="home-btn" title="Voltar ao Início">⌂</a>
+
+<div class="toc-panel" id="tocPanel">
+  <div class="toc-section-title">Abertura</div>
+  <button class="toc-item" data-slide="0">Capa — Unidade 1</button>
+  <button class="toc-item" data-slide="1">Roteiro da Aula Presencial</button>
+  <button class="toc-item" data-slide="2">Ponto de Partida</button>
+
+  <div class="toc-section-title">Fundamentos</div>
+  <button class="toc-item" data-slide="3">O que é Segurança da Informação?</button>
+  <button class="toc-item" data-slide="4">Princípios CID</button>
+  <button class="toc-item" data-slide="5">Princípios Complementares</button>
+  <button class="toc-item" data-slide="6">Conceitos Essenciais</button>
+  <button class="toc-item" data-slide="7">Cadeia do Incidente</button>
+  <button class="toc-item" data-slide="8">Elementos a Proteger</button>
+  <button class="toc-item" data-slide="9">Caso: Confidencialidade</button>
+
+  <div class="toc-section-title">Riscos e Controles</div>
+  <button class="toc-item" data-slide="10">Seção: Gestão de Riscos</button>
+  <button class="toc-item" data-slide="11">Mapeamento e Matriz</button>
+  <button class="toc-item" data-slide="12">Tratamento dos Riscos</button>
+  <button class="toc-item" data-slide="13">Controles de Segurança</button>
+
+  <div class="toc-section-title">Segurança de Redes</div>
+  <button class="toc-item" data-slide="14">Seção: Segurança de Redes</button>
+  <button class="toc-item" data-slide="15">Vulnerabilidades de Rede</button>
+  <button class="toc-item" data-slide="16">Ameaças e Ataques</button>
+  <button class="toc-item" data-slide="17">Proteção em Camadas</button>
+
+  <div class="toc-section-title">Criptografia</div>
+  <button class="toc-item" data-slide="18">Seção: Criptografia</button>
+  <button class="toc-item" data-slide="19">Aplicações e Benefícios</button>
+  <button class="toc-item" data-slide="20">Linha do Tempo</button>
+  <button class="toc-item" data-slide="21">Principais Técnicas</button>
+
+  <div class="toc-section-title">Encerramento</div>
+  <button class="toc-item" data-slide="22">Estudo de Caso Final</button>
+  <button class="toc-item" data-slide="23">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="24">Referências</button>
+</div>
+
+<div class="deck" id="deck">
+
+<div class="slide section-divider active" data-section="Abertura">
+  <span class="section-number">01</span>
+  <div class="slide-tag anim anim-d1">Segurança e Auditoria de Sistemas</div>
+  <div class="slide-title anim anim-d2">
+    Segurança da<br><span class="highlight-amber">Informação</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Unidade 1 — pack consolidado, cobrindo princípios, riscos, redes e criptografia.
+  </div>
+</div>
+
+<div class="slide" data-section="Abertura">
+  <div class="slide-tag anim anim-d1">Roteiro da Aula Presencial</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Como vamos <span class="highlight-cyan">conduzir</span> a aula?
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon amber">1</div>
+      <h4>Fundamentos</h4>
+      <p>Conceitos centrais, princípios CID, autenticidade, não repúdio, legalidade e ativos a proteger.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">2</div>
+      <h4>Riscos e Redes</h4>
+      <p>Mapeamento de riscos, contramedidas, vulnerabilidades de rede, ataques e proteção em camadas.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">3</div>
+      <h4>Criptografia</h4>
+      <p>Evolução histórica, aplicações práticas, técnicas principais e fechamento com estudo de caso.</p>
+    </div>
+  </div>
+  <div class="stats-row anim anim-d4">
+    <div class="stat">
+      <div class="stat-title">Carga Horária</div>
+      <div class="stat-value" style="color:var(--accent-cyan);">4h</div>
+      <div class="stat-label">Aula presencial com exposição, exemplos, discussão e fechamento prático.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Blocos Temáticos</div>
+      <div class="stat-value" style="color:var(--accent-amber);">4</div>
+      <div class="stat-label">Fundamentos, riscos, segurança de redes e criptografia.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Funções NIST</div>
+      <div class="stat-value" style="color:var(--accent-rose);">5</div>
+      <div class="stat-label">Identificar, proteger, detectar, responder e recuperar — fio condutor da unidade.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Estudo de Caso</div>
+      <div class="stat-value" style="color:var(--accent-green);">1</div>
+      <div class="stat-label">Encerramento integrador para consolidar toda a unidade na prática.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Abertura">
+  <div class="slide-tag anim anim-d1">Ponto de Partida</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Estamos mesmo <span class="highlight-rose">seguros</span>?
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="font-size:16px;line-height:1.85;color:var(--text-secondary);">
+        Se você usa computador, smartphone, internet, nuvem ou qualquer dispositivo conectado, então já convive com <strong style="color:var(--text-primary);">riscos digitais</strong> — queira ou não.
+      </p>
+      <p style="font-size:16px;line-height:1.85;color:var(--text-secondary);margin-top:14px;">
+        Ataques a dados, vazamentos de cartões, roubo de projetos, indisponibilidade de serviços e exploração de vulnerabilidades fazem parte do cenário atual. Segurança absoluta não existe, mas <strong style="color:var(--accent-amber);">estratégias de defesa</strong> reduzem danos e ampliam a resiliência.
+      </p>
+      <p style="font-size:16px;line-height:1.85;color:var(--text-secondary);margin-top:14px;">
+        Como proteger a informação em um ambiente onde pessoas, processos e tecnologia estão permanentemente expostos?
+      </p>
+    </div>
+    <div class="callout">
+      <div class="pill rose" style="margin-bottom:14px;">Cenário inicial</div>
+      <p>
+        Um funcionário deixa o computador desbloqueado e um colega acessa informações confidenciais do cliente. O incidente parece simples, mas já compromete um princípio essencial: a <strong style="color:var(--accent-rose);">confidencialidade</strong>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    O que é <span class="highlight-amber">Segurança da Informação</span>?
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="marker">AB</div>
+          <p>Pela ABNT ISO/IEC 27002:2013, a segurança da informação protege a informação contra ameaças para garantir continuidade do negócio, reduzir danos e maximizar retorno dos investimentos.</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">NI</div>
+          <p>Pelo NIST, o processo é contínuo e envolve cinco funções: <strong style="color:var(--accent-cyan);">identificação</strong>, <strong style="color:var(--accent-green);">proteção</strong>, <strong style="color:var(--accent-amber);">detecção</strong>, <strong style="color:var(--accent-rose);">resposta</strong> e <strong style="color:var(--accent-blue);">recuperação</strong>.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="cards-grid cols-2" style="margin-top:0;">
+        <div class="card">
+          <div class="card-icon cyan">ID</div>
+          <h4>Identificar</h4>
+          <p>Conhecer ativos, ameaças, vulnerabilidades, contexto e impacto.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon green">PR</div>
+          <h4>Proteger</h4>
+          <p>Aplicar controles, segmentação, políticas, autenticação e criptografia.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon amber">DT</div>
+          <h4>Detectar</h4>
+          <p>Monitorar, registrar eventos e perceber comportamento anormal.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon rose">RR</div>
+          <h4>Responder e Recuperar</h4>
+          <p>Conter o incidente, restaurar serviços e aprender com o ocorrido.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos · Tríade CID</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Princípios <span class="highlight-cyan">essenciais</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon cyan">C</div>
+      <h4>Confidencialidade</h4>
+      <p>A informação só deve estar disponível para indivíduos, entidades ou processos autorizados.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">I</div>
+      <h4>Integridade</h4>
+      <p>Os ativos e dados devem manter exatidão, completeza e proteção contra alteração indevida.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">D</div>
+      <h4>Disponibilidade</h4>
+      <p>Dados e serviços precisam estar acessíveis no tempo certo para quem precisa utilizá-los.</p>
+    </div>
+  </div>
+  <div class="comparison anim anim-d4">
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-cyan);">Quando falha</h4>
+      <ul>
+        <li>Vazamento de dados e exposição indevida.</li>
+        <li>Alteração não autorizada de registros.</li>
+        <li>Paralisação de sistemas e indisponibilidade.</li>
+      </ul>
+    </div>
+    <div class="comparison-vs">→</div>
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-green);">Como fortalecer</h4>
+      <ul>
+        <li>Controle de acesso, políticas e conscientização.</li>
+        <li>Logs, hash, auditoria e verificação de consistência.</li>
+        <li>Redundância, backup, monitoramento e recuperação.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos · Expansão da Tríade</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Princípios <span class="highlight-purple">complementares</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon purple">A</div>
+      <h4>Autenticidade</h4>
+      <p>Garante que pessoa, sistema ou origem da informação seja realmente quem afirma ser.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">NR</div>
+      <h4>Não Repúdio</h4>
+      <p>Impede que o autor negue a realização de uma ação ou a geração de um conteúdo.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">LG</div>
+      <h4>Legalidade</h4>
+      <p>Conecta a segurança ao atendimento de normas, legislação e exigências regulatórias.</p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px;border-color:rgba(167,139,250,0.24);">
+    <p>
+      Esses princípios não são conceitos isolados. Eles funcionam como <strong style="color:var(--accent-purple);">critérios de decisão</strong> para políticas, controles, auditorias e resposta a incidentes.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos · Conceitos Essenciais</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Vocabulário base da <span class="highlight-amber">disciplina</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon amber">IN</div>
+      <h4>Informação</h4>
+      <p>Ativo valioso para o negócio e, por isso, precisa ser adequadamente protegido.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">AT</div>
+      <h4>Ativo</h4>
+      <p>Qualquer elemento com valor para a organização: pessoas, dados, equipamentos e sistemas.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">AG</div>
+      <h4>Agente de ameaça</h4>
+      <p>Quem explora intencionalmente uma vulnerabilidade por meio de métodos de ataque.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">TA</div>
+      <h4>Técnica de ataque</h4>
+      <p>Padrões de atividade usados por atores de ameaça para explorar fraquezas do ambiente.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">AM</div>
+      <h4>Ameaça</h4>
+      <p>Causa potencial de incidente que pode gerar dano a ativo, processo ou organização.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon blue">VU</div>
+      <h4>Vulnerabilidade</h4>
+      <p>Ponto fraco explorável em pessoa, processo, hardware, software, protocolo ou rede.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos · Dinâmica do Incidente</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Da <span class="highlight-rose">vulnerabilidade</span> ao impacto
+  </div>
+  <div class="flow-row anim anim-d3" style="justify-content:center;">
+    <div class="flow-box" style="border-color:rgba(96,165,250,0.22);">
+      <strong style="color:var(--accent-blue);">Vulnerabilidade</strong>
+      <span>Fraqueza explorável</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(251,113,133,0.22);">
+      <strong style="color:var(--accent-rose);">Ameaça</strong>
+      <span>Possibilidade de ação hostil</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(245,158,11,0.22);">
+      <strong style="color:var(--accent-amber);">Risco</strong>
+      <span>Probabilidade × impacto</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(34,211,238,0.22);">
+      <strong style="color:var(--accent-cyan);">Evento</strong>
+      <span>Possível violação observada</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(167,139,250,0.22);">
+      <strong style="color:var(--accent-purple);">Incidente</strong>
+      <span>Comprometimento real</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(52,211,153,0.22);">
+      <strong style="color:var(--accent-green);">Impacto</strong>
+      <span>Dano operacional e reputacional</span>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:26px;border-color:rgba(251,113,133,0.22);">
+    <p>
+      <strong style="color:var(--text-primary);">Ameaças só se concretizam quando encontram vulnerabilidades.</strong> Por isso, tratar vulnerabilidades é uma das formas mais objetivas de reduzir risco.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Fundamentos · Proteção</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Elementos a <span class="highlight-cyan">proteger</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon rose">👥</div>
+      <h4>Pessoas</h4>
+      <p>Podem ser alvo e vetor de incidentes. Engenharia social, boa vontade, descuido e suborno exploram o fator humano.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">💾</div>
+      <h4>Ativos</h4>
+      <p>Incluem hardware, instalações, dispositivos, sistemas operacionais, aplicações e infraestrutura tecnológica.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">📄</div>
+      <h4>Informação</h4>
+      <p>É o elemento central. Circula por pessoas e ativos, exigindo proteção ao longo de todo o fluxo.</p>
+    </div>
+  </div>
+  <div class="stats-row anim anim-d4">
+    <div class="stat">
+      <div class="stat-value" style="color:var(--accent-rose);">Humano</div>
+      <div class="stat-label">Treinamento, conscientização, cultura e responsabilidade compartilhada.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="color:var(--accent-cyan);">Físico</div>
+      <div class="stat-label">Ambiente, equipamentos, acesso a salas, datacenter e dispositivos.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="color:var(--accent-amber);">Digital</div>
+      <div class="stat-label">Sistemas, aplicações, redes, comunicação e armazenamento.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="color:var(--accent-green);">Camadas</div>
+      <div class="stat-label">A proteção precisa ocorrer de forma múltipla, contínua e integrada.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Fundamentos">
+  <div class="slide-tag anim anim-d1">Vamos Exercitar?</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    Caso prático: falha de <span class="highlight-rose">confidencialidade</span>
+  </div>
+  <div class="two-col anim anim-d3">
+    <div class="callout">
+      <div class="pill rose" style="margin-bottom:14px;">Situação</div>
+      <p>
+        Um colaborador deixa o computador desbloqueado com dados confidenciais visíveis e um colega acessa o conteúdo. O incidente viola a confidencialidade e pode gerar perda de confiança, responsabilização da empresa e danos ao cliente.
+      </p>
+    </div>
+    <div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="marker">01</div>
+          <p>Bloquear a estação sempre que se afastar do posto de trabalho.</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">02</div>
+          <p>Evitar dados sensíveis expostos na tela e aplicar política de mesa e tela limpas.</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">03</div>
+          <p>Usar senha forte e reforçar treinamento, política interna e campanhas de conscientização.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide section-divider" data-section="Riscos e Controles">
+  <span class="section-number">02</span>
+  <div class="slide-tag anim anim-d1">Bloco 2</div>
+  <div class="slide-title anim anim-d2">
+    Gestão de <span class="highlight-cyan">Riscos</span> e Controles
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    O SGSI e a análise de riscos orientam a seleção de contramedidas e priorizam a proteção do ambiente.
+  </div>
+</div>
+
+<div class="slide" data-section="Riscos e Controles">
+  <div class="slide-tag anim anim-d1">Riscos em Segurança da Informação</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Mapeamento, <span class="highlight-amber">classificação</span> e matriz
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <p style="font-size:16px;line-height:1.85;color:var(--text-secondary);">
+        A gestão de riscos é contínua e depende da identificação de ativos, vulnerabilidades, ameaças e agentes de ameaça. A análise acontece pelo cálculo da <strong style="color:var(--accent-amber);">probabilidade</strong> e do <strong style="color:var(--accent-rose);">impacto</strong>.
+      </p>
+      <div class="callout" style="margin-top:18px;border-color:rgba(245,158,11,0.22);">
+        <p><strong style="color:var(--text-primary);">R = P × I</strong><br>Risco = Probabilidade de ocorrência × Impacto gerado.</p>
+      </div>
+    </div>
+    <div>
+      <div class="matrix-grid">
+        <div class="matrix-cell">
+          <div class="matrix-head">Impacto \ Prob.</div>
+        </div>
+        <div class="matrix-cell"><div class="matrix-head">Baixa</div></div>
+        <div class="matrix-cell"><div class="matrix-head">Média</div></div>
+        <div class="matrix-cell"><div class="matrix-head">Alta</div></div>
+        <div class="matrix-cell"><div class="matrix-head">Baixo</div></div>
+        <div class="matrix-cell risk-low"><div class="matrix-risk">Aceitável</div></div>
+        <div class="matrix-cell risk-low"><div class="matrix-risk">Monitorar</div></div>
+        <div class="matrix-cell risk-med"><div class="matrix-risk">Planejar ação</div></div>
+        <div class="matrix-cell"><div class="matrix-head">Médio</div></div>
+        <div class="matrix-cell risk-low"><div class="matrix-risk">Monitorar</div></div>
+        <div class="matrix-cell risk-med"><div class="matrix-risk">Tratar</div></div>
+        <div class="matrix-cell risk-high"><div class="matrix-risk">Prioridade alta</div></div>
+        <div class="matrix-cell"><div class="matrix-head">Alto</div></div>
+        <div class="matrix-cell risk-med"><div class="matrix-risk">Tratar</div></div>
+        <div class="matrix-cell risk-high"><div class="matrix-risk">Resposta imediata</div></div>
+        <div class="matrix-cell risk-high"><div class="matrix-risk">Crítico</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Riscos e Controles">
+  <div class="slide-tag anim anim-d1">Contramedidas dos Riscos</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Como a organização pode <span class="highlight-green">tratar</span> riscos?
+  </div>
+  <div class="cards-grid cols-4 anim anim-d3">
+    <div class="card">
+      <div class="card-icon green">M</div>
+      <h4>Mitigar</h4>
+      <p>Aplicar controles para reduzir probabilidade ou impacto.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">A</div>
+      <h4>Aceitar</h4>
+      <p>Assumir o risco quando o custo do controle é maior que o benefício esperado.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">E</div>
+      <h4>Eliminar</h4>
+      <p>Remover o ativo, o processo ou a condição que gera o risco.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">T</div>
+      <h4>Transferir</h4>
+      <p>Deslocar parte do risco por contrato, seguro ou terceirização especializada.</p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px;border-color:rgba(52,211,153,0.22);">
+    <p>
+      Aceitar risco não significa ignorá-lo. Significa registrar a decisão, justificar o motivo e manter <strong style="color:var(--accent-green);">monitoramento contínuo</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Riscos e Controles">
+  <div class="slide-tag anim anim-d1">Controles de Segurança</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Mecanismos de defesa em <span class="highlight-cyan">camadas</span>
+  </div>
+  <div class="cards-grid cols-2 anim anim-d3">
+    <div class="card">
+      <div class="card-icon amber">F</div>
+      <h4>Físicos</h4>
+      <p>Biometria, trancas, câmeras, alarmes, guardas, controle de entrada em áreas restritas.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">T</div>
+      <h4>Tecnológicos</h4>
+      <p>Firewall, VPN, IDS/IPS, antivírus, autenticação forte, criptografia e segmentação.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">P</div>
+      <h4>Processuais</h4>
+      <p>Políticas de senhas, backup, resposta a incidentes, gestão de acessos e conscientização.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">R</div>
+      <h4>Regulatórios</h4>
+      <p>Conformidade com normas internas, família ISO 27000 e legislação como a LGPD.</p>
+    </div>
+  </div>
+  <div class="comparison anim anim-d4">
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-green);">Prevenção</h4>
+      <ul>
+        <li>Evita que o risco vire incidente.</li>
+        <li>Exemplos: firewall, criptografia, MFA.</li>
+      </ul>
+    </div>
+    <div class="comparison-vs">•</div>
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-amber);">Detecção e Resposta</h4>
+      <ul>
+        <li>Percebe comportamento suspeito e reage.</li>
+        <li>Exemplos: IDS, logs, restauração, análise forense.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide section-divider" data-section="Segurança de Redes">
+  <span class="section-number">03</span>
+  <div class="slide-tag anim anim-d1">Bloco 3</div>
+  <div class="slide-title anim anim-d2">
+    Segurança de <span class="highlight-cyan">Redes</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Em um cenário de internet, nuvem e IoT, a defesa da rede depende de antecipação, monitoramento e proteção multicamada.
+  </div>
+</div>
+
+<div class="slide" data-section="Segurança de Redes">
+  <div class="slide-tag anim anim-d1">Vulnerabilidades de Rede</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Onde a rede pode ser <span class="highlight-rose">explorada</span>?
+  </div>
+  <div class="cards-grid cols-4 anim anim-d3">
+    <div class="card">
+      <div class="card-icon blue">HW</div>
+      <h4>Hardware</h4>
+      <p>Falhas em switches, roteadores, firewalls e dispositivos defeituosos.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">SW</div>
+      <h4>Software</h4>
+      <p>Bugs, falhas de segurança, sistemas desatualizados e aplicativos vulneráveis.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">PR</div>
+      <h4>Protocolos</h4>
+      <p>Fragilidades em TCP/IP, DNS, BGP e serviços expostos podem permitir interceptação e spoofing.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">AP</div>
+      <h4>Aplicações</h4>
+      <p>Falhas em apps web, e-mail, banco de dados e serviços publicados na internet.</p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px;">
+    <p>
+      Segurança de rede não é apenas infraestrutura. Ela envolve <strong style="color:var(--text-primary);">camadas técnicas, operacionais e humanas</strong>, além de atualização contínua e educação do usuário.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Segurança de Redes">
+  <div class="slide-tag anim anim-d1">Ameaças e Ataques</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Principais <span class="highlight-amber">vetores</span> de ataque
+  </div>
+  <div class="table-container anim anim-d3">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Ameaça</th>
+          <th>Como atua</th>
+          <th>Efeito típico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Malware</td>
+          <td>Vírus, trojan, worm, ransomware, backdoor, hoax.</td>
+          <td>Roubo de dados, paralisação, persistência e fraude.</td>
+        </tr>
+        <tr>
+          <td>Phishing e engenharia social</td>
+          <td>Mensagens falsas e manipulação da confiança do usuário.</td>
+          <td>Captura de credenciais, dados pessoais e acesso indevido.</td>
+        </tr>
+        <tr>
+          <td>DoS / DDoS</td>
+          <td>Sobrecarrega serviço ou rede com alto volume de requisições.</td>
+          <td>Indisponibilidade e interrupção do negócio.</td>
+        </tr>
+        <tr>
+          <td>Força bruta</td>
+          <td>Tentativas repetidas de adivinhar senhas.</td>
+          <td>Comprometimento de contas e sistemas com credenciais fracas.</td>
+        </tr>
+        <tr>
+          <td>MitM / Spoofing</td>
+          <td>Intermedia ou falsifica a comunicação.</td>
+          <td>Leitura, alteração ou injeção de dados em trânsito.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="slide" data-section="Segurança de Redes">
+  <div class="slide-tag anim anim-d1">Proteção à Rede</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Estratégia de proteção em <span class="highlight-green">camadas</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon cyan">🛡</div>
+      <h4>Perímetro</h4>
+      <p>Firewall, DMZ, VPN, segmentação de rede e controle rigoroso de portas e serviços.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">👤</div>
+      <h4>Identidade</h4>
+      <p>MFA, políticas de senha forte, controle de acesso e menor privilégio.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">📈</div>
+      <h4>Visibilidade</h4>
+      <p>IDS/IPS, logs, monitoramento contínuo, auditoria e plano de resposta a incidentes.</p>
+    </div>
+  </div>
+  <div class="comparison anim anim-d4">
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-cyan);">DMZ</h4>
+      <ul>
+        <li>Isola serviços expostos à internet.</li>
+        <li>Adiciona camada entre rede pública e rede interna.</li>
+        <li>Reduz a propagação de comprometimentos.</li>
+      </ul>
+    </div>
+    <div class="comparison-vs">+</div>
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-green);">Boas práticas contínuas</h4>
+      <ul>
+        <li>Atualização de software e aplicação de patches.</li>
+        <li>Backup com restauração testada.</li>
+        <li>Treinamento dos usuários e revisão periódica das políticas.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide section-divider" data-section="Criptografia">
+  <span class="section-number">04</span>
+  <div class="slide-tag anim anim-d1">Bloco 4</div>
+  <div class="slide-title anim anim-d2">
+    <span class="highlight-amber">Criptografia</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Um dos mecanismos mais importantes para preservar confidencialidade, integridade e autenticação em dados e comunicações.
+  </div>
+</div>
+
+<div class="slide" data-section="Criptografia">
+  <div class="slide-tag anim anim-d1">Aplicações e Benefícios</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Onde a criptografia gera <span class="highlight-cyan">valor</span>?
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon cyan">↔</div>
+      <h4>Dados em trânsito</h4>
+      <p>HTTPS, TLS, SSL, VPN e comunicações móveis protegem o tráfego contra interceptação.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">💽</div>
+      <h4>Dados em repouso</h4>
+      <p>Discos, nuvem, USB, notebooks e servidores podem ser protegidos contra leitura não autorizada.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">✔</div>
+      <h4>Integridade e autenticação</h4>
+      <p>Hash, assinatura digital e certificados ajudam a validar origem e conteúdo.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">⚖</div>
+      <h4>Conformidade</h4>
+      <p>Ajuda no atendimento de exigências legais e regulatórias em diferentes setores.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">🧷</div>
+      <h4>Proteção de senhas</h4>
+      <p>Reduz exposição em caso de vazamento de banco de dados.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon blue">🧯</div>
+      <h4>Redução de danos</h4>
+      <p>Mesmo com invasão, dados cifrados dificultam fraude, uso indevido e extorsão.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Criptografia">
+  <div class="slide-tag anim anim-d1">Criptografia ao Longo do Tempo</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Linha do tempo da <span class="highlight-amber">evolução</span>
+  </div>
+  <div class="timeline anim anim-d3">
+    <div class="timeline-item">
+      <div class="timeline-year">50 a.C.</div>
+      <div class="timeline-text"><strong style="color:var(--text-primary);">Cifra de César</strong>: deslocamento fixo de letras, um dos marcos mais antigos da criptografia.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">séc. XVI</div>
+      <div class="timeline-text"><strong style="color:var(--text-primary);">Cifra de Vigenère</strong>: chave para múltiplos deslocamentos, mais sofisticada que cifras monoalfabéticas.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">séc. XVIII-XX</div>
+      <div class="timeline-text"><strong style="color:var(--text-primary);">Jefferson, Morse e Enigma</strong>: evolução de técnicas mecânicas e de comunicação codificada.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1970-1985</div>
+      <div class="timeline-text"><strong style="color:var(--text-primary);">Diffie-Hellman, RSA e ECC</strong>: base da criptografia moderna para internet e transações online.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">séc. XXI</div>
+      <div class="timeline-text"><strong style="color:var(--text-primary);">Criptografia quântica e pós-quântica</strong>: resposta à evolução das ameaças e da capacidade computacional.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Criptografia">
+  <div class="slide-tag anim anim-d1">Principais Técnicas</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Técnicas de <span class="highlight-rose">criptografia</span> em foco
+  </div>
+  <div class="table-container anim anim-d3">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Técnica</th>
+          <th>Uso principal</th>
+          <th>Exemplos citados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Simétrica</td>
+          <td>Mesma chave para cifrar e decifrar; rápida para uso em grande volume.</td>
+          <td>AES, DES, 3DES, IDEA</td>
+        </tr>
+        <tr>
+          <td>Assimétrica</td>
+          <td>Par de chaves pública e privada; muito usada em comunicação segura.</td>
+          <td>RSA, DSA, ECC</td>
+        </tr>
+        <tr>
+          <td>Hash criptográfico</td>
+          <td>Resumo fixo para integridade e apoio a assinatura digital.</td>
+          <td>SHA-256, MD5</td>
+        </tr>
+        <tr>
+          <td>Curva elíptica</td>
+          <td>Alta segurança com chaves menores, útil em dispositivos limitados.</td>
+          <td>ECDSA, ECDH</td>
+        </tr>
+        <tr>
+          <td>Quântica e pós-quântica</td>
+          <td>Proteção frente à nova geração de ataques e capacidades computacionais.</td>
+          <td>QKD, BB84, padronização NIST</td>
+        </tr>
+        <tr>
+          <td>Container e e-mail</td>
+          <td>Proteção de disco, arquivos e mensagens.</td>
+          <td>BitLocker, FileVault, PGP, S/MIME</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Bloco Final · Estudo de Caso</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    Maximus Financeira: defesa <span class="highlight-cyan">em camadas</span>
+  </div>
+  <div class="two-col anim anim-d3">
+    <div class="callout">
+      <div class="pill cyan" style="margin-bottom:14px;">Desafio</div>
+      <p>
+        A empresa cresce entre matriz e filial, mantém servidores no datacenter e precisa garantir disponibilidade, troca segura de dados, treinamento do time e resistência a ataques.
+      </p>
+    </div>
+    <div>
+      <div class="checklist">
+        <div class="check-item">
+          <div class="marker">01</div>
+          <p>Firewall bem configurado, autenticação forte, biometria no datacenter e uso de VPN.</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">02</div>
+          <p>IDS/IPS, antimalware atualizado, registros de auditoria e revisão periódica da proteção.</p>
+        </div>
+        <div class="check-item">
+          <div class="marker">03</div>
+          <p>Criptografia para dados em trânsito e em armazenamento, além de treinamento e restrições operacionais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Mapa Conceitual</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Visão integrada da <span class="highlight-amber">Unidade 1</span>
+  </div>
+  <div class="flow-row anim anim-d3" style="justify-content:center;">
+    <div class="flow-box" style="border-color:rgba(245,158,11,0.22);">
+      <strong style="color:var(--accent-amber);">Princípios</strong>
+      <span>CID + autenticidade + não repúdio</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(34,211,238,0.22);">
+      <strong style="color:var(--accent-cyan);">Conceitos</strong>
+      <span>ativo, ameaça, vulnerabilidade, risco</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(251,113,133,0.22);">
+      <strong style="color:var(--accent-rose);">Controles</strong>
+      <span>físicos, tecnológicos, processuais, regulatórios</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(52,211,153,0.22);">
+      <strong style="color:var(--accent-green);">Redes</strong>
+      <span>monitoramento, segmentação, IDS/IPS, DMZ</span>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="border-color:rgba(167,139,250,0.22);">
+      <strong style="color:var(--accent-purple);">Criptografia</strong>
+      <span>trânsito, repouso, integridade e autenticação</span>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:30px;border-color:rgba(245,158,11,0.24);">
+    <p>
+      Proteger informação exige <strong style="color:var(--text-primary);">conhecimento, prevenção, resposta rápida e melhoria contínua</strong>. Segurança da informação é prática estratégica, não apenas ferramenta.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Referências Bibliográficas</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-cyan">Referências</span>
+  </div>
+  <div class="cards-grid cols-2 anim anim-d3">
+    <div class="card">
+      <h4>Normas e Frameworks</h4>
+      <ul>
+        <li>ABNT NBR ISO/IEC 27001:2013.</li>
+        <li>ABNT NBR ISO/IEC 27002:2013.</li>
+        <li>ABNT NBR ISO/IEC 27005:2011.</li>
+        <li>NIST Cybersecurity Framework, 2020.</li>
+        <li>ISO/IEC 13335-1:2004.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Bibliografia-base da unidade</h4>
+      <ul>
+        <li>NAKAMURA, E. T. Segurança da informação e de redes, 2016.</li>
+        <li>NAKAMURA, E. T. Segurança de dados, 2020.</li>
+        <li>NAKAMURA, E. T.; GEUS, P. L. de. Segurança de redes em ambientes cooperativos, 2007.</li>
+        <li>MORAES, A. F. D. Redes de computadores: fundamentos, 2020.</li>
+        <li>BARRETO, Jeanine S. et al. Fundamentos de segurança da informação, 2018.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="nav-bar">
+  <div class="nav-section" id="navSection">Abertura</div>
+  <div class="nav-progress">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="current" id="navCounter">1 / 25</div>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="prev()" title="Anterior (←)">◀</button>
+    <button class="nav-btn" onclick="next()" title="Próximo (→)">▶</button>
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+
+function goTo(n) {
+  if (n < 0 || n >= total || n === current) return;
+  const prev = current;
+  const dir = n > current;
+  slides[current].classList.remove('active');
+  if (dir) slides[current].classList.add('exit-left');
+  current = n;
+  slides[current].classList.add('active');
+  setTimeout(() => slides[prev].classList.remove('exit-left'), 500);
+  updateNav();
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+function updateNav() {
+  document.getElementById('navCounter').textContent = `${current + 1} / ${total}`;
+  document.getElementById('progressFill').style.width = `${((current + 1) / total) * 100}%`;
+  document.getElementById('navSection').textContent = slides[current].dataset.section || '';
+  document.querySelectorAll('.toc-item').forEach((btn) => {
+    btn.classList.toggle('active', parseInt(btn.dataset.slide, 10) === current);
+  });
+}
+
+function toggleTOC() {
+  document.getElementById('tocPanel').classList.toggle('open');
+}
+
+function closeTOC() {
+  document.getElementById('tocPanel').classList.remove('open');
+}
+
+document.querySelectorAll('.toc-item').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    goTo(parseInt(btn.dataset.slide, 10));
+    closeTOC();
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') {
+    e.preventDefault();
+    next();
+  }
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    prev();
+  }
+  if (e.key === 'Escape') {
+    closeTOC();
+  }
+});
+
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+document.addEventListener('touchend', (e) => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(diff) > 60) {
+    diff < 0 ? next() : prev();
+  }
+});
+
+updateNav();
+</script>
+</body>
+</html>
