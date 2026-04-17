@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidade 2 — Política e Cultura de Segurança</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0b0f17;
+  --bg-secondary: #101827;
+  --bg-card: #182233;
+  --bg-card-hover: #1d2a40;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-green: #34d399;
+  --accent-amber: #f59e0b;
+  --accent-rose: #fb7185;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(148, 163, 184, 0.14);
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --glow-amber: 0 0 40px rgba(245, 158, 11, 0.18);
+  --glow-cyan: 0 0 40px rgba(34, 211, 238, 0.16);
+  --glow-purple: 0 0 40px rgba(167, 139, 250, 0.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-glow {
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.14;
+}
+
+.bg-glow-1 { top: -180px; right: -120px; background: var(--accent-purple); }
+.bg-glow-2 { bottom: -220px; left: -140px; background: var(--accent-cyan); }
+
+.deck {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 80px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.slide.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.slide-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.slide-title {
+  font-size: clamp(34px, 5vw, 62px);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.slide-title .highlight-cyan { color: var(--accent-cyan); }
+.slide-title .highlight-blue { color: var(--accent-blue); }
+.slide-title .highlight-green { color: var(--accent-green); }
+.slide-title .highlight-amber { color: var(--accent-amber); }
+.slide-title .highlight-rose { color: var(--accent-rose); }
+.slide-title .highlight-purple { color: var(--accent-purple); }
+
+.slide-subtitle {
+  max-width: 760px;
+  font-size: 20px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: var(--text-secondary);
+}
+
+.section-divider {
+  background:
+    radial-gradient(circle at top right, rgba(167, 139, 250, 0.16), transparent 34%),
+    radial-gradient(circle at bottom left, rgba(34, 211, 238, 0.14), transparent 34%);
+}
+
+.section-number {
+  position: absolute;
+  top: 42px;
+  right: 80px;
+  font-family: var(--font-mono);
+  font-size: 88px;
+  font-weight: 700;
+  color: rgba(148, 163, 184, 0.08);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.cards-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cards-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cards-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 24px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-cyan);
+}
+
+.card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card-icon.cyan { background: rgba(34, 211, 238, 0.14); color: var(--accent-cyan); }
+.card-icon.blue { background: rgba(96, 165, 250, 0.14); color: var(--accent-blue); }
+.card-icon.green { background: rgba(52, 211, 153, 0.14); color: var(--accent-green); }
+.card-icon.amber { background: rgba(245, 158, 11, 0.14); color: var(--accent-amber); }
+.card-icon.rose { background: rgba(251, 113, 133, 0.14); color: var(--accent-rose); }
+.card-icon.purple { background: rgba(167, 139, 250, 0.14); color: var(--accent-purple); }
+
+.card h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card p,
+.card li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.5px;
+}
+
+.pill.cyan { background: rgba(34, 211, 238, 0.12); color: var(--accent-cyan); }
+.pill.green { background: rgba(52, 211, 153, 0.12); color: var(--accent-green); }
+.pill.amber { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+.pill.rose { background: rgba(251, 113, 133, 0.12); color: var(--accent-rose); }
+.pill.blue { background: rgba(96, 165, 250, 0.12); color: var(--accent-blue); }
+.pill.purple { background: rgba(167, 139, 250, 0.12); color: var(--accent-purple); }
+
+.callout {
+  background: linear-gradient(180deg, rgba(24, 34, 51, 0.96), rgba(14, 20, 31, 0.96));
+  border: 1px solid rgba(167, 139, 250, 0.24);
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.callout p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.stat-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  gap: 0;
+  align-items: start;
+  margin-top: 28px;
+}
+
+.comparison-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.comparison-col h4 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.comparison-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comparison-col li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.comparison-col li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.comparison-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--text-muted);
+  padding-top: 22px;
+}
+
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.flow-box {
+  min-width: 128px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.flow-box strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.flow-box span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.flow-arrow {
+  font-size: 22px;
+  color: var(--text-muted);
+}
+
+.table-container {
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.styled-table thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+  border-bottom: 2px solid rgba(34, 211, 238, 0.18);
+}
+
+.styled-table tbody td {
+  padding: 14px 16px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.checklist {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.check-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.check-item .marker {
+  min-width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(34, 211, 238, 0.14);
+  color: var(--accent-cyan);
+}
+
+.check-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* PDCA Cycle */
+.pdca-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.pdca-card {
+  border-radius: 18px;
+  padding: 22px 20px;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.pdca-card .pdca-letter {
+  font-family: var(--font-mono);
+  font-size: 42px;
+  font-weight: 700;
+  opacity: 0.18;
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  line-height: 1;
+}
+
+.pdca-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.pdca-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.pdca-plan { background: rgba(34, 211, 238, 0.08); border-color: rgba(34, 211, 238, 0.2); }
+.pdca-do   { background: rgba(52, 211, 153, 0.08); border-color: rgba(52, 211, 153, 0.2); }
+.pdca-check{ background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.2); }
+.pdca-act  { background: rgba(251, 113, 133, 0.08); border-color: rgba(251, 113, 133, 0.2); }
+
+.pdca-plan h4 { color: var(--accent-cyan); }
+.pdca-do h4   { color: var(--accent-green); }
+.pdca-check h4{ color: var(--accent-amber); }
+.pdca-act h4  { color: var(--accent-rose); }
+
+/* Access model badges */
+.model-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.model-badge.dac    { background: rgba(34,211,238,0.14); color: var(--accent-cyan); }
+.model-badge.mac    { background: rgba(251,113,133,0.14); color: var(--accent-rose); }
+.model-badge.rbac   { background: rgba(96,165,250,0.14); color: var(--accent-blue); }
+.model-badge.abac   { background: rgba(167,139,250,0.14); color: var(--accent-purple); }
+
+/* Exercise scenario box */
+.scenario-box {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.22);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 24px;
+}
+
+.scenario-box .scenario-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.scenario-box p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.scenario-box ul {
+  margin-top: 12px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scenario-box ul li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  padding-left: 18px;
+  position: relative;
+}
+
+.scenario-box ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-amber);
+}
+
+/* TOC / Nav */
+.toc-toggle,
+.home-btn {
+  position: fixed;
+  top: 18px;
+  z-index: 20;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: rgba(11, 15, 23, 0.9);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toc-toggle:hover,
+.home-btn:hover {
+  border-color: rgba(34, 211, 238, 0.22);
+  box-shadow: var(--glow-cyan);
+}
+
+.toc-toggle { left: 18px; }
+.home-btn { left: 70px; }
+
+.toc-panel {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  z-index: 19;
+  width: 320px;
+  height: 100%;
+  padding: 72px 18px 18px;
+  background: rgba(11, 15, 23, 0.96);
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  transition: left 0.25s ease;
+}
+
+.toc-panel.open { left: 0; }
+
+.toc-section-title {
+  margin: 20px 0 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.toc-item {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-secondary);
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toc-item:hover,
+.toc-item.active {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: rgba(34, 211, 238, 0.18);
+  color: var(--text-primary);
+}
+
+.nav-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: min(880px, calc(100% - 24px));
+  height: 56px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(11, 15, 23, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.nav-section {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+}
+
+.nav-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  width: min(360px, 46vw);
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+}
+
+.nav-progress .current {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  border-color: rgba(167, 139, 250, 0.22);
+  box-shadow: var(--glow-purple);
+}
+
+.anim {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.anim-d1 { animation-delay: 0.1s; }
+.anim-d2 { animation-delay: 0.2s; }
+.anim-d3 { animation-delay: 0.3s; }
+.anim-d4 { animation-delay: 0.4s; }
+.anim-d5 { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 980px) {
+  .slide { padding: 54px 54px 82px; }
+  .section-number { right: 54px; font-size: 72px; }
+  .two-col { grid-template-columns: 1fr; }
+  .cards-grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .comparison { grid-template-columns: 1fr; gap: 14px; }
+  .comparison-vs { display: none; }
+  .pdca-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .slide { padding: 62px 22px 92px; }
+  .slide-title { font-size: clamp(28px, 8vw, 40px); }
+  .slide-subtitle { font-size: 17px; }
+  .section-number { top: 58px; right: 22px; font-size: 52px; }
+  .cards-grid.cols-2,
+  .cards-grid.cols-3,
+  .cards-grid.cols-4,
+  .stats-row,
+  .pdca-grid { grid-template-columns: 1fr; }
+  .flow-arrow { transform: rotate(90deg); }
+  .nav-bar { height: 52px; padding: 0 10px; gap: 10px; }
+  .nav-section { max-width: 86px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .progress-bar { width: 94px; }
+  .toc-panel { width: 280px; left: -280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+
+<button class="toc-toggle" onclick="toggleTOC()" title="Índice">☰</button>
+<a href="index.html" class="home-btn" title="Voltar ao Início">⌂</a>
+
+<div class="toc-panel" id="tocPanel">
+  <div class="toc-section-title">Abertura</div>
+  <button class="toc-item" data-slide="0">Capa — Unidade 2</button>
+  <button class="toc-item" data-slide="1">Roteiro da Aula Presencial</button>
+  <button class="toc-item" data-slide="2">Ponto de Partida</button>
+
+  <div class="toc-section-title">Aula 1 — Gestão e Políticas</div>
+  <button class="toc-item" data-slide="3">Seção: Gestão de Segurança</button>
+  <button class="toc-item" data-slide="4">O que é SGSI?</button>
+  <button class="toc-item" data-slide="5">Requisitos do SGSI</button>
+  <button class="toc-item" data-slide="6">PSI — Política de Segurança</button>
+  <button class="toc-item" data-slide="7">Ciclo PDCA no SGSI</button>
+  <button class="toc-item" data-slide="8">Aspectos Não-Tecnológicos</button>
+  <button class="toc-item" data-slide="9">Família ISO 27000</button>
+  <button class="toc-item" data-slide="10">LGPD e Conformidade</button>
+  <button class="toc-item" data-slide="11">Exercício: O Gerente Descuidado</button>
+
+  <div class="toc-section-title">Aula 2 — Cultura de Segurança</div>
+  <button class="toc-item" data-slide="12">Seção: Cultura de Segurança</button>
+  <button class="toc-item" data-slide="13">O que é Cultura de Segurança?</button>
+  <button class="toc-item" data-slide="14">Desenvolvimento Seguro</button>
+  <button class="toc-item" data-slide="15">Ética e Aspectos Legais</button>
+  <button class="toc-item" data-slide="16">Tendências Tecnológicas</button>
+  <button class="toc-item" data-slide="17">Ameaças Emergentes</button>
+  <button class="toc-item" data-slide="18">Exercício: A Senha Compartilhada</button>
+
+  <div class="toc-section-title">Aula 3 — Controle de Acesso</div>
+  <button class="toc-item" data-slide="19">Seção: Controle de Acesso</button>
+  <button class="toc-item" data-slide="20">Autenticação vs Autorização</button>
+  <button class="toc-item" data-slide="21">Modelos de Controle de Acesso</button>
+  <button class="toc-item" data-slide="22">Mecanismos de Autenticação</button>
+  <button class="toc-item" data-slide="23">Autenticação Multi-fator</button>
+  <button class="toc-item" data-slide="24">IAM — Gestão de Identidade</button>
+  <button class="toc-item" data-slide="25">Exercício: Organização Financeira</button>
+
+  <div class="toc-section-title">Encerramento</div>
+  <button class="toc-item" data-slide="26">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="27">Referências</button>
+</div>
+
+<div class="deck" id="deck">
+
+<!-- ═══════════ ABERTURA ═══════════ -->
+
+<div class="slide section-divider active" data-section="Abertura">
+  <span class="section-number">02</span>
+  <div class="slide-tag anim anim-d1">Segurança e Auditoria de Sistemas</div>
+  <div class="slide-title anim anim-d2">
+    Política e Cultura de<br><span class="highlight-purple">Segurança</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Unidade 2 — Gestão e políticas de segurança, cultura organizacional e controle de acesso.
+  </div>
+</div>
+
+<div class="slide" data-section="Abertura">
+  <div class="slide-tag anim anim-d1">Roteiro da Aula Presencial</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Como vamos <span class="highlight-cyan">conduzir</span> a aula?
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon purple">1</div>
+      <h4>Gestão e Políticas</h4>
+      <p>SGSI, PSI, ciclo PDCA, aspectos físico/humano/natural, família ISO 27000 e LGPD.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">2</div>
+      <h4>Cultura de Segurança</h4>
+      <p>Desenvolvimento seguro, ética, aspectos legais, tendências tecnológicas e ameaças emergentes.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">3</div>
+      <h4>Controle de Acesso</h4>
+      <p>Modelos DAC/MAC/RBAC/ABAC, mecanismos de autenticação, 2FA, biometria e IAM.</p>
+    </div>
+  </div>
+  <div class="stats-row anim anim-d4">
+    <div class="stat">
+      <div class="stat-title">Carga Horária</div>
+      <div class="stat-value" style="color:var(--accent-cyan);">4h</div>
+      <div class="stat-label">Aula presencial com exposição, discussão e exercícios práticos.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Aulas</div>
+      <div class="stat-value" style="color:var(--accent-purple);">3</div>
+      <div class="stat-label">Políticas, cultura e controle de acesso.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Normas ISO</div>
+      <div class="stat-value" style="color:var(--accent-amber);">5+</div>
+      <div class="stat-label">27001, 27002, 27005, 27701, 19011 — e a LGPD brasileira.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Exercícios</div>
+      <div class="stat-value" style="color:var(--accent-rose);">2</div>
+      <div class="stat-label">Gerente descuidado e organização financeira com falha de autenticação.</div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Abertura">
+  <div class="slide-tag anim anim-d1">Ponto de Partida</div>
+  <div class="slide-title anim anim-d2" style="font-size:38px;">
+    Por que <span class="highlight-purple">normas e cultura</span> importam?
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon amber">🏢</div>
+      <h4>Tecnologia não basta</h4>
+      <p>Firewall, antivírus e criptografia protegem sistemas — mas quem protege contra o funcionário que anota a senha num post-it?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">📋</div>
+      <h4>Normas criam padrão</h4>
+      <p>Sem regras claras, cada equipe age de forma diferente. Uma PSI define o que é permitido, proibido e obrigatório para todos.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">🔑</div>
+      <h4>Acesso é poder</h4>
+      <p>Controlar quem pode fazer o quê nos sistemas é tão importante quanto trancar a porta do servidor. Uma brecha de acesso pode comprometer tudo.</p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px;">
+    <p>
+      <strong style="color:var(--text-primary);">90% das violações de segurança</strong> envolvem erro humano — senhas fracas, cliques em phishing ou permissões excessivas. Normas e cultura de segurança existem exatamente para reduzir esse risco.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════ AULA 1 ═══════════ -->
+
+<div class="slide section-divider" data-section="Aula 1 — Gestão">
+  <span class="section-number">01</span>
+  <div class="slide-tag anim anim-d1">Aula 1</div>
+  <div class="slide-title anim anim-d2">
+    Gestão e Políticas de<br><span class="highlight-purple">Segurança</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    SGSI, PSI, PDCA, ISO 27000 e LGPD — como estruturar a segurança de forma sistemática.
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Sistema de Gestão de Segurança da Informação</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    O que é <span class="highlight-purple">SGSI</span>?
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="callout" style="border-color:rgba(167,139,250,0.24);">
+        <p>
+          O <strong style="color:var(--text-primary);">SGSI</strong> é um conjunto de políticas, procedimentos, processos e sistemas que gerencia os riscos de segurança da informação de forma sistemática e contínua.
+        </p>
+        <p style="margin-top:14px;">
+          Pense no SGSI como o "manual de operações" de segurança de uma empresa: ele define quem faz o quê, como e quando — para manter as informações protegidas.
+          <em style="color:var(--text-muted);">Ex.: um hospital tem regras sobre quem pode acessar prontuários, como são armazenados e quem responde por vazamentos.</em>
+        </p>
+      </div>
+    </div>
+    <div class="cards-grid cols-2" style="margin-top:0;">
+      <div class="card">
+        <div class="card-icon purple">📌</div>
+        <h4>Objetivo</h4>
+        <p>Proteger a confidencialidade, integridade e disponibilidade das informações de forma sistemática.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon cyan">🔄</div>
+        <h4>Método</h4>
+        <p>Ciclo PDCA: planejar, implementar, monitorar e melhorar continuamente.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon amber">📜</div>
+        <h4>Base normativa</h4>
+        <p>ISO/IEC 27001 — a principal certificação para SGSI no mundo.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon rose">🏢</div>
+        <h4>Abrangência</h4>
+        <p>Cobre pessoas, processos, tecnologias e até o ambiente físico da organização.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">SGSI</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Requisitos para<br><span class="highlight-cyan">implementar</span> um SGSI
+  </div>
+  <div class="checklist anim anim-d3">
+    <div class="check-item">
+      <div class="marker">1</div>
+      <p><strong style="color:var(--text-primary);">Contexto da organização</strong> — entender o ambiente interno (cultura, processos) e externo (concorrência, legislação) antes de definir qualquer controle.</p>
+    </div>
+    <div class="check-item">
+      <div class="marker">2</div>
+      <p><strong style="color:var(--text-primary);">Liderança e comprometimento</strong> — a alta direção precisa apoiar e patrocinar o SGSI. Sem suporte da gestão, políticas viram papelada ignorada.</p>
+    </div>
+    <div class="check-item">
+      <div class="marker">3</div>
+      <p><strong style="color:var(--text-primary);">Avaliação de riscos</strong> — identificar ativos, ameaças e vulnerabilidades para priorizar o que proteger primeiro.
+      <em style="color:var(--text-muted);">Ex.: o servidor de pagamentos é mais crítico que o servidor de RH.</em></p>
+    </div>
+    <div class="check-item">
+      <div class="marker">4</div>
+      <p><strong style="color:var(--text-primary);">Controles e tratamento de riscos</strong> — para cada risco identificado, escolher: aceitar, mitigar, transferir ou eliminar.</p>
+    </div>
+    <div class="check-item">
+      <div class="marker">5</div>
+      <p><strong style="color:var(--text-primary);">Monitoramento e melhoria</strong> — auditorias internas, revisões periódicas e correção de não-conformidades para manter o SGSI eficaz.</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Política de Segurança da Informação</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    PSI — <span class="highlight-amber">Política de Segurança</span> da Informação
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="callout" style="border-color:rgba(245,158,11,0.24);">
+        <p>
+          A <strong style="color:var(--text-primary);">PSI</strong> é o documento mestre que define as diretrizes, regras e responsabilidades para proteger as informações da organização. É como um "regulamento interno" de segurança.
+        </p>
+        <p style="margin-top:12px;">
+          <em style="color:var(--text-muted);">Ex.: "Senhas devem ter no mínimo 12 caracteres, incluindo letras, números e símbolos. Nenhum colaborador pode compartilhar sua senha, mesmo com superiores."</em>
+        </p>
+      </div>
+      <div class="cards-grid cols-2" style="margin-top:16px;">
+        <div class="card">
+          <h4 style="color:var(--accent-cyan);">📋 Deve conter</h4>
+          <ul>
+            <li>Objetivos e escopo</li>
+            <li>Definição de papéis e responsabilidades</li>
+            <li>Regras de uso de ativos</li>
+            <li>Penalidades por descumprimento</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4 style="color:var(--accent-amber);">⚠️ Falhas comuns</h4>
+          <ul>
+            <li>PSI genérica, sem contexto real</li>
+            <li>Ninguém lê ou assina</li>
+            <li>Desatualizada por anos</li>
+            <li>Sem treinamento associado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="height:100%;">
+        <h4 style="margin-bottom:14px;">Estrutura típica de uma PSI</h4>
+        <div class="flow-row" style="flex-direction:column; margin-top:0; gap:8px;">
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-purple);">1. Introdução e objetivos</strong>
+            <span>Por que esta política existe</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-cyan);">2. Escopo</strong>
+            <span>A quem e ao quê se aplica</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-blue);">3. Diretrizes gerais</strong>
+            <span>Regras de uso de e-mail, internet, dispositivos</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-green);">4. Controles de acesso</strong>
+            <span>Senhas, permissões, identificação</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-amber);">5. Responsabilidades</strong>
+            <span>TI, gestores e todos os colaboradores</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left;">
+            <strong style="color:var(--accent-rose);">6. Penalidades</strong>
+            <span>Advertência, suspensão, demissão, processo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Gestão Contínua</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Ciclo <span class="highlight-green">PDCA</span> aplicado ao SGSI
+  </div>
+  <div class="slide-subtitle anim anim-d3" style="font-size:16px; margin-bottom:0;">
+    O PDCA garante que o SGSI não seja implantado uma vez e esquecido — ele deve evoluir continuamente.
+  </div>
+  <div class="pdca-grid anim anim-d4">
+    <div class="pdca-card pdca-plan">
+      <div class="pdca-letter">P</div>
+      <h4>Plan — Planejar</h4>
+      <p>Definir escopo do SGSI, política de segurança, avaliação de riscos e seleção de controles.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "Quais são nossos ativos críticos e quais ameaças os cercam?"</em></p>
+    </div>
+    <div class="pdca-card pdca-do">
+      <div class="pdca-letter">D</div>
+      <h4>Do — Implementar</h4>
+      <p>Colocar em prática os controles planejados: instalar firewalls, treinar funcionários, aplicar políticas.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "Hoje vamos exigir 2FA para todos os sistemas críticos."</em></p>
+    </div>
+    <div class="pdca-card pdca-check">
+      <div class="pdca-letter">C</div>
+      <h4>Check — Monitorar</h4>
+      <p>Auditar, medir e revisar se os controles estão funcionando. Comparar com os objetivos definidos.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "Quantos incidentes ocorreram este mês? Os logs estão sendo analisados?"</em></p>
+    </div>
+    <div class="pdca-card pdca-act">
+      <div class="pdca-letter">A</div>
+      <h4>Act — Melhorar</h4>
+      <p>Corrigir falhas encontradas, tratar não-conformidades e atualizar políticas com base na experiência.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "Depois do incidente, reforçamos o treinamento de phishing."</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Além da Tecnologia</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Aspectos <span class="highlight-amber">Não-Tecnológicos</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3" style="font-size:16px; margin-bottom:0;">
+    Segurança não é só software e firewall — envolve o espaço físico, as pessoas e o ambiente natural.
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4">
+    <div class="card">
+      <div class="card-icon amber">🏗️</div>
+      <h4>Aspecto Físico</h4>
+      <p>Controle de entrada nas instalações, câmeras, travas, salas de servidor com acesso restrito.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: um intruso entra na empresa fingindo ser técnico, pluga um pen drive no servidor e vaza dados. Nenhum firewall impede isso.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">👤</div>
+      <h4>Aspecto Humano</h4>
+      <p>Treinamentos, conscientização, cultura de segurança, políticas de uso aceitável e gestão de acessos.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: funcionário clica em link de phishing no e-mail, instala malware sem saber. Treinamento regular reduz esse risco.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">🌪️</div>
+      <h4>Aspecto Natural</h4>
+      <p>Proteção contra desastres naturais: incêndios, enchentes, quedas de energia. Inclui backups e redundância.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: o data center inundou durante a chuva. Sem backup offsite, todos os dados foram perdidos.</em></p>
+    </div>
+  </div>
+  <div class="callout anim anim-d5" style="margin-top:24px;">
+    <p>
+      Uma segurança completa precisa dos três: não adianta ter o melhor sistema de TI se a sala do servidor não tem controle de acesso físico, ou se os funcionários não foram treinados para reconhecer golpes.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Normas Internacionais</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Família <span class="highlight-cyan">ISO 27000</span>
+  </div>
+  <div class="table-container anim anim-d3">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Norma</th>
+          <th>Nome</th>
+          <th>O que define</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pill cyan" style="padding:4px 10px;font-size:12px;">ISO 27001</span></td>
+          <td>Requisitos do SGSI</td>
+          <td>Define O QUE uma organização precisa fazer para ter um SGSI certificado. É a norma que se audita.</td>
+        </tr>
+        <tr>
+          <td><span class="pill blue" style="padding:4px 10px;font-size:12px;">ISO 27002</span></td>
+          <td>Código de prática</td>
+          <td>Define COMO implementar os controles de segurança listados no Anexo A da 27001. Guia prático.</td>
+        </tr>
+        <tr>
+          <td><span class="pill amber" style="padding:4px 10px;font-size:12px;">ISO 27005</span></td>
+          <td>Gestão de riscos</td>
+          <td>Metodologia para identificar, avaliar e tratar riscos de segurança da informação.</td>
+        </tr>
+        <tr>
+          <td><span class="pill green" style="padding:4px 10px;font-size:12px;">ISO 27701</span></td>
+          <td>Privacidade (PIMS)</td>
+          <td>Extensão da 27001 focada em privacidade — alinha o SGSI com a LGPD e o GDPR europeu.</td>
+        </tr>
+        <tr>
+          <td><span class="pill purple" style="padding:4px 10px;font-size:12px;">ISO 19011</span></td>
+          <td>Auditoria de sistemas</td>
+          <td>Diretrizes para conduzir auditorias de sistemas de gestão, incluindo o SGSI.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px; border-color:rgba(34,211,238,0.22);">
+    <p>
+      A <strong style="color:var(--text-primary);">ISO 27001</strong> é a única que pode ser certificada — empresas passam por auditoria externa para receber o selo. As demais servem de suporte técnico para implementar e manter o SGSI.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Legislação Brasileira</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-rose">LGPD</span> e Conformidade
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="callout" style="border-color:rgba(251,113,133,0.24);">
+        <p>
+          A <strong style="color:var(--text-primary);">Lei Geral de Proteção de Dados (Lei 13.709/2018)</strong> regula o tratamento de dados pessoais no Brasil. Qualquer empresa que coleta, armazena ou processa dados de pessoas físicas precisa cumpri-la.
+        </p>
+        <p style="margin-top:12px;">
+          <em style="color:var(--text-muted);">Ex.: uma loja que guarda CPF, endereço e histórico de compras dos clientes deve proteger esses dados, obter consentimento e notificar vazamentos em até 72 horas.</em>
+        </p>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h4>Relação com a ISO 27000</h4>
+        <p>A ISO 27701 é o "ponte" entre o SGSI (27001) e a LGPD: ao implementar a 27701, a empresa já atende grande parte das exigências de privacidade da lei.</p>
+      </div>
+    </div>
+    <div class="cards-grid cols-2" style="margin-top:0;">
+      <div class="card">
+        <div class="card-icon cyan">✅</div>
+        <h4>Princípios LGPD</h4>
+        <ul>
+          <li>Finalidade — dados coletados com propósito definido</li>
+          <li>Adequação — uso compatível com o que foi informado</li>
+          <li>Necessidade — coletar apenas o mínimo necessário</li>
+          <li>Transparência — titular sabe o que acontece com seus dados</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon rose">⚖️</div>
+        <h4>Penalidades</h4>
+        <ul>
+          <li>Advertência com prazo para correção</li>
+          <li>Multa de até 2% do faturamento</li>
+          <li>Limite: R$ 50 milhões por infração</li>
+          <li>Bloqueio ou eliminação dos dados</li>
+          <li>Publicização da infração</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 1 — Gestão">
+  <div class="slide-tag anim anim-d1">Exercício Prático — Aula 1</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    O <span class="highlight-amber">Gerente</span> Descuidado
+  </div>
+  <div class="scenario-box anim anim-d3">
+    <div class="scenario-label">Cenário</div>
+    <p>
+      João é gerente de TI de uma empresa de logística. Trabalha com dados sensíveis de clientes e fornecedores. Sob pressão de prazo, ele anota sua senha de administrador num post-it colado no monitor e a compartilha com dois colegas para agilizar o trabalho durante as férias dele.
+    </p>
+    <ul>
+      <li>Um dos colegas acessa acidentalmente registros financeiros que não deveria ver.</li>
+      <li>O post-it fica visível durante uma visita de auditoria externa.</li>
+      <li>Semanas depois, um acesso suspeito à conta de João é detectado fora do horário comercial.</li>
+    </ul>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-icon rose">❓</div>
+      <h4>Quais princípios foram violados?</h4>
+      <p>Pense na tríade CID e nos princípios da PSI. Compartilhar senha viola qual deles diretamente?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">❓</div>
+      <h4>Qual norma ISO se aplica?</h4>
+      <p>Qual seção da ISO 27002 trata de gestão de senhas e controle de acesso? O que ela recomenda?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">❓</div>
+      <h4>Como prevenir?</h4>
+      <p>Que controles técnicos e procedimentos da PSI evitariam este cenário? Pense em pelo menos três medidas.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ AULA 2 ═══════════ -->
+
+<div class="slide section-divider" data-section="Aula 2 — Cultura">
+  <span class="section-number">02</span>
+  <div class="slide-tag anim anim-d1">Aula 2</div>
+  <div class="slide-title anim anim-d2">
+    Cultura de<br><span class="highlight-cyan">Segurança</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Comportamentos, ética, aspectos legais, tendências tecnológicas e ameaças emergentes.
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">Cultura Organizacional</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    O que é <span class="highlight-cyan">Cultura de Segurança</span>?
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="callout" style="border-color:rgba(34,211,238,0.24);">
+        <p>
+          Cultura de segurança é o conjunto de <strong style="color:var(--text-primary);">atitudes, crenças, valores e comportamentos</strong> que os membros de uma organização compartilham em relação à segurança da informação.
+        </p>
+        <p style="margin-top:12px;">
+          Não basta ter políticas escritas — a cultura existe quando as pessoas <em>agem com segurança mesmo sem ninguém vigiando</em>.
+          <em style="color:var(--text-muted);">Ex.: travar o computador ao sair da mesa, mesmo que a sala seja "segura".</em>
+        </p>
+      </div>
+    </div>
+    <div class="cards-grid cols-2" style="margin-top:0;">
+      <div class="card">
+        <div class="card-icon green">📚</div>
+        <h4>Como construir</h4>
+        <ul>
+          <li>Treinamentos periódicos</li>
+          <li>Simulações de phishing</li>
+          <li>Campanhas de conscientização</li>
+          <li>Reconhecer boas práticas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon rose">🚨</div>
+        <h4>Sinais de cultura fraca</h4>
+        <ul>
+          <li>Senhas coladas no monitor</li>
+          <li>"Não é meu problema"</li>
+          <li>Contornar regras de TI</li>
+          <li>Incidentes nunca reportados</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon amber">🏆</div>
+        <h4>Liderança importa</h4>
+        <p>Se o gestor não cumpre as políticas, ninguém cumpre. O "tom vem de cima".</p>
+      </div>
+      <div class="card">
+        <div class="card-icon purple">🔁</div>
+        <h4>Processo contínuo</h4>
+        <p>Cultura não se instala, se cultiva. Treinamento anual não é suficiente — precisa ser constante.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">Ambiente de Desenvolvimento</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Desenvolvimento <span class="highlight-blue">Seguro</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3" style="font-size:16px; margin-bottom:0;">
+    Segurança deve ser construída no software desde o início — não adicionada depois como um "patch".
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4">
+    <div class="card">
+      <div class="card-icon blue">🔒</div>
+      <h4>Security by Design</h4>
+      <p>Segurança planejada na arquitetura do sistema, não corrigida após o lançamento.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: validar inputs do usuário desde o início evita SQL Injection — corrigir depois é 10x mais caro.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">🧪</div>
+      <h4>Testes de Segurança</h4>
+      <p>SAST (análise estática), DAST (análise dinâmica), pentest e revisão de código focada em vulnerabilidades.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: ferramenta de SAST detecta senhas hardcoded no código antes de ir para produção.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">📦</div>
+      <h4>Dependências Seguras</h4>
+      <p>Bibliotecas desatualizadas são vetores de ataque. Manter dependências atualizadas e monitorar CVEs (vulnerabilidades conhecidas).</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: Log4Shell (2021) — uma lib desatualizada comprometeu milhões de servidores.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">🛡️</div>
+      <h4>Princípio do Menor Privilégio</h4>
+      <p>Cada parte do sistema acessa apenas o que precisa. O módulo de relatórios não precisa escrever no banco.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">🔐</div>
+      <h4>Gestão de Segredos</h4>
+      <p>Senhas, tokens e chaves nunca no código-fonte. Usar variáveis de ambiente e cofres de segredos (Vault, AWS Secrets Manager).</p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">📝</div>
+      <h4>Logs e Auditoria</h4>
+      <p>Registrar ações críticas no sistema para detectar anomalias e investigar incidentes.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "Quem deletou esses registros às 3h da manhã?"</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">Ética e Legislação</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Ética e <span class="highlight-rose">Aspectos Legais</span>
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="cards-grid cols-2" style="margin-top:0;">
+        <div class="card">
+          <div class="card-icon rose">⚖️</div>
+          <h4>Marco Civil da Internet (BR)</h4>
+          <p>Lei 12.965/2014 — garante neutralidade de rede, privacidade de dados de conexão e responsabilidade de plataformas.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon purple">🔏</div>
+          <h4>LGPD (BR)</h4>
+          <p>Lei 13.709/2018 — protege dados pessoais, exige consentimento explícito e define direitos dos titulares.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon blue">🌍</div>
+          <h4>GDPR (UE)</h4>
+          <p>General Data Protection Regulation — referência mundial. Empresas brasileiras que atendem europeus também precisam cumprir.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon amber">💻</div>
+          <h4>Lei Carolina Dieckmann (BR)</h4>
+          <p>Lei 12.737/2012 — criminaliza invasão de dispositivos, interceptação de dados e interrupção de serviços de informática.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="callout" style="border-color:rgba(251,113,133,0.24);">
+        <p><strong style="color:var(--text-primary);">Ética em segurança</strong> vai além da lei:</p>
+        <ul style="margin-top:12px; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="font-size:14px; color:var(--text-secondary);">
+            <strong style="color:var(--text-primary);">Consentimento</strong> — nunca coletar ou processar dados sem que o usuário saiba e concorde.
+          </li>
+          <li style="font-size:14px; color:var(--text-secondary);">
+            <strong style="color:var(--text-primary);">Transparência</strong> — ser claro sobre como os dados são usados. Não esconder nos "termos e condições".
+          </li>
+          <li style="font-size:14px; color:var(--text-secondary);">
+            <strong style="color:var(--text-primary);">Divulgação responsável</strong> — ao descobrir uma vulnerabilidade, notificar o responsável antes de tornar público (responsible disclosure).
+          </li>
+          <li style="font-size:14px; color:var(--text-secondary);">
+            <strong style="color:var(--text-primary);">Não-maleficência</strong> — habilidades técnicas em segurança nunca devem ser usadas para causar dano.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">O Futuro da Segurança</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Tendências <span class="highlight-blue">Tecnológicas</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon blue">🤖</div>
+      <h4>IA e Machine Learning</h4>
+      <p>IA detecta padrões anômalos em tempo real, automatiza resposta a incidentes e identifica ataques antes que causem dano.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: seu banco bloqueia o cartão automaticamente ao detectar uma compra fora do padrão — IA em ação.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">⚛️</div>
+      <h4>Computação Quântica</h4>
+      <p>Computadores quânticos podem quebrar a criptografia RSA atual em horas. Prepara-se com algoritmos pós-quânticos (NIST já padronizou em 2024).</p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">⛓️</div>
+      <h4>Blockchain</h4>
+      <p>Registros imutáveis e distribuídos para rastreabilidade de transações, autenticidade de documentos e contratos inteligentes.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: diplomas universitários registrados em blockchain — impossível falsificar.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">📡</div>
+      <h4>5G e IoT</h4>
+      <p>Bilhões de dispositivos conectados ampliam exponencialmente a superfície de ataque. Geladeiras e câmeras viram vetores de invasão.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: botnet Mirai (2016) usou câmeras IoT para derrubar metade da internet dos EUA.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">🌐</div>
+      <h4>Edge Computing</h4>
+      <p>Processamento na borda da rede reduz latência mas distribui o risco: cada nó de borda é um ponto de ataque potencial.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">☁️</div>
+      <h4>Zero Trust</h4>
+      <p>Modelo "nunca confie, sempre verifique" — todo acesso, mesmo interno, deve ser autenticado e autorizado explicitamente.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: Google adotou Zero Trust internamente após o ataque Operation Aurora (2010).</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">Ameaças do Presente</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Ameaças <span class="highlight-rose">Emergentes</span>
+  </div>
+  <div class="cards-grid cols-2 anim anim-d3">
+    <div class="card">
+      <div class="card-icon rose">🔒</div>
+      <h4>Ransomware Avançado</h4>
+      <p>Malware que criptografa dados e exige resgate. Versões modernas exfiltram dados antes de cifrar (dupla extorsão): "pague ou publicamos tudo".</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: ataque ao Tribunal de Justiça do RS (2021) — sistemas fora do ar por dias, dados de processos expostos.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">🎭</div>
+      <h4>Deepfakes</h4>
+      <p>Vídeos e áudios falsificados com IA são usados em golpes de engenharia social — o CEO "ligou" pedindo transferência urgente.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: empresa britânica perdeu £200 mil após funcionário receber "ligação do CEO" gerada por IA.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">⚔️</div>
+      <h4>IA Ofensiva</h4>
+      <p>Phishing gerado por IA, personalizado e gramaticalmente perfeito. Exploração automática de vulnerabilidades em velocidade inédita.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: IA cria e-mails de phishing adaptados ao perfil LinkedIn da vítima — quase impossível distinguir do real.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">🌐</div>
+      <h4>Guerras Cibernéticas</h4>
+      <p>Estados-nação usam ataques digitais contra infraestruturas críticas de países adversários: energia, água, finanças e comunicações.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: ataque à Ucrânia em 2022 derrubou redes de energia e sistemas bancários antes da invasão terrestre.</em></p>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:20px; border-color:rgba(251,113,133,0.24);">
+    <p>
+      O cenário de ameaças muda mais rápido do que qualquer política consegue acompanhar. Por isso, <strong style="color:var(--text-primary);">inteligência de ameaças (Threat Intelligence)</strong> e atualização constante das equipes são diferenciais competitivos em segurança.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 2 — Cultura">
+  <div class="slide-tag anim anim-d1">Exercício Prático — Aula 2</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    A <span class="highlight-amber">Senha</span> Compartilhada
+  </div>
+  <div class="scenario-box anim anim-d3">
+    <div class="scenario-label">Cenário</div>
+    <p>
+      Maria e João trabalham no mesmo time de desenvolvimento. Para agilizar o trabalho, Maria compartilha sua senha de acesso ao ambiente de produção com João. Dias depois, um deploy incorreto em produção causa uma indisponibilidade de 4 horas no sistema. A empresa precisa identificar o responsável para o relatório de incidente.
+    </p>
+    <ul>
+      <li>Os logs mostram que o deploy foi feito com as credenciais de Maria.</li>
+      <li>Maria alega que foi João quem executou, usando a senha dela.</li>
+      <li>Não há como comprovar quem realmente realizou a ação.</li>
+      <li>A empresa perde a rastreabilidade do incidente — fundamental para auditoria.</li>
+    </ul>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-icon rose">❓</div>
+      <h4>Qual princípio de segurança foi violado?</h4>
+      <p>Pense em não-repúdio, responsabilidade individual e rastreabilidade. Qual a relação com a PSI?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">❓</div>
+      <h4>Qual o impacto para a empresa?</h4>
+      <p>Além da indisponibilidade técnica, quais são os riscos jurídicos e de conformidade com a LGPD neste cenário?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">❓</div>
+      <h4>Como estruturar o acesso corretamente?</h4>
+      <p>Que modelo de controle de acesso evitaria este problema? Como garantir rastreabilidade individual em equipes?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ AULA 3 ═══════════ -->
+
+<div class="slide section-divider" data-section="Aula 3 — Acesso">
+  <span class="section-number">03</span>
+  <div class="slide-tag anim anim-d1">Aula 3</div>
+  <div class="slide-title anim anim-d2">
+    Controle de Acesso e<br><span class="highlight-green">Autenticação</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3">
+    Quem pode acessar o quê, como provar identidade e como gerenciar isso em escala.
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Fundamentos</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-cyan">Autenticação</span> vs <span class="highlight-green">Autorização</span>
+  </div>
+  <div class="comparison anim anim-d3">
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-cyan);">🔑 Autenticação</h4>
+      <ul>
+        <li><strong>Pergunta:</strong> "Você é quem diz ser?"</li>
+        <li><strong>Processo:</strong> verificar a identidade do usuário</li>
+        <li><strong>Mecanismos:</strong> senha, biometria, token, certificado digital</li>
+        <li><strong>Ocorre:</strong> no momento do login</li>
+        <li><em style="color:var(--text-muted);">Ex.: digitar usuário e senha para entrar no sistema</em></li>
+      </ul>
+    </div>
+    <div class="comparison-vs">≠</div>
+    <div class="comparison-col">
+      <h4 style="color:var(--accent-green);">🛡️ Autorização</h4>
+      <ul>
+        <li><strong>Pergunta:</strong> "O que você pode fazer?"</li>
+        <li><strong>Processo:</strong> verificar permissões do usuário autenticado</li>
+        <li><strong>Mecanismos:</strong> ACLs, perfis de acesso, roles, políticas</li>
+        <li><strong>Ocorre:</strong> em cada operação realizada</li>
+        <li><em style="color:var(--text-muted);">Ex.: usuário logado tenta deletar um registro — o sistema verifica se tem permissão</em></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px; border-color:rgba(34,211,238,0.22);">
+    <p>
+      Atenção: são etapas diferentes e sequenciais. Você pode estar <strong style="color:var(--text-primary);">autenticado</strong> (logado) mas não <strong style="color:var(--text-primary);">autorizado</strong> a executar certas operações. Um estagiário logado no sistema não pode acessar a folha de pagamento.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Modelos de Controle</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Modelos de <span class="highlight-blue">Controle de Acesso</span>
+  </div>
+  <div class="cards-grid cols-2 anim anim-d3">
+    <div class="card">
+      <div class="model-badge dac">DAC</div>
+      <h4>Discretionary Access Control</h4>
+      <p>O <strong>dono do recurso</strong> decide quem pode acessá-lo. Flexível, mas depende da responsabilidade do usuário.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: você cria um arquivo no Google Drive e compartilha com quem quiser. Você é o dono e decide as permissões.</em></p>
+    </div>
+    <div class="card">
+      <div class="model-badge mac">MAC</div>
+      <h4>Mandatory Access Control</h4>
+      <p>O <strong>sistema central</strong> define os acessos com base em classificações de segurança (secreto, confidencial, público). Usado em ambientes militares e governamentais.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: documento "Top Secret" só pode ser lido por quem tem credencial de nível "Top Secret". Nem o criador pode mudar isso.</em></p>
+    </div>
+    <div class="card">
+      <div class="model-badge rbac">RBAC</div>
+      <h4>Role-Based Access Control</h4>
+      <p>Acesso baseado no <strong>papel (cargo/função)</strong> do usuário. Mais fácil de gerenciar em empresas — perfis pré-definidos por cargo.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: todo "analista financeiro" acessa relatórios financeiros; nenhum "estagiário de TI" acessa dados de RH.</em></p>
+    </div>
+    <div class="card">
+      <div class="model-badge abac">ABAC</div>
+      <h4>Attribute-Based Access Control</h4>
+      <p>Acesso baseado em <strong>atributos contextuais</strong>: horário, localização, dispositivo, departamento. Mais granular e flexível que RBAC.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: "médico pode acessar prontuários apenas durante o expediente e dentro do hospital — não de casa às 2h da manhã".</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Como Provar Identidade</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Mecanismos de <span class="highlight-green">Autenticação</span>
+  </div>
+  <div class="slide-subtitle anim anim-d3" style="font-size:16px; margin-bottom:0;">
+    Existem três "fatores" de autenticação — combinar mais de um torna o acesso muito mais seguro.
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4">
+    <div class="card">
+      <div class="card-icon cyan">🧠</div>
+      <h4>Algo que você sabe</h4>
+      <p>Senha, PIN, frase secreta, resposta a pergunta de segurança.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Vantagem: fácil de usar. Desvantagem: pode ser adivinhada, esquecida, vazada ou roubada.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">📱</div>
+      <h4>Algo que você tem</h4>
+      <p>Token físico, aplicativo autenticador (Google Authenticator), cartão inteligente, SMS/e-mail com código.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Vantagem: atacante precisa fisicamente do dispositivo. Desvantagem: pode ser perdido ou clonado (SIM swap).</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon green">🖐️</div>
+      <h4>Algo que você é</h4>
+      <p>Biometria: impressão digital, reconhecimento facial, íris, voz, digitação (ritmo de teclas).</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Vantagem: difícil de copiar, sempre com você. Desvantagem: não pode ser "trocado" se comprometido — sua digital é permanente.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon blue">🌍</div>
+      <h4>Onde você está</h4>
+      <p>Geolocalização, endereço IP, rede Wi-Fi. Bloqueia acessos de locais incomuns.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: banco bloqueia login do Brasil e da China ao mesmo tempo — viagem impossível.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon purple">🔏</div>
+      <h4>Certificado Digital</h4>
+      <p>Arquivo criptográfico emitido por autoridade certificadora (AC), vincula identidade a uma chave pública. Usado no ICP-Brasil para assinaturas.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: nota fiscal eletrônica é assinada com certificado digital da empresa emissora.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon rose">🔑</div>
+      <h4>Chave de Hardware (FIDO2)</h4>
+      <p>Dispositivos físicos como YubiKey — resistem a phishing pois a chave nunca sai do dispositivo.</p>
+      <p style="margin-top:10px;"><em style="color:var(--text-muted);">Ex.: Google eliminou phishing internamente ao exigir chaves FIDO2 para todos os funcionários.</em></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Camadas de Segurança</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-amber">Autenticação</span> Multi-fator (MFA/2FA)
+  </div>
+  <div class="two-col anim anim-d3">
+    <div>
+      <div class="callout" style="border-color:rgba(245,158,11,0.24);">
+        <p>
+          <strong style="color:var(--text-primary);">MFA (Multi-Factor Authentication)</strong> exige dois ou mais fatores diferentes para autenticar. Mesmo que um fator seja comprometido, o atacante ainda precisa do outro.
+        </p>
+        <p style="margin-top:12px;">
+          <em style="color:var(--text-muted);">Ex.: login no banco — você informa a senha (algo que sabe) + código no app (algo que tem). Mesmo com senha vazada, o atacante não entra sem o celular.</em>
+        </p>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h4 style="color:var(--accent-rose);">⚠️ 2FA via SMS: cuidado!</h4>
+        <p>Códigos por SMS são vulneráveis a SIM swap — criminoso convence a operadora a transferir seu número para um chip novo. Prefira apps autenticadores ou chaves físicas para sistemas críticos.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:16px;">
+        <h4 style="color:var(--accent-green); margin-bottom:14px;">Por que ativar o 2FA hoje?</h4>
+        <div class="flow-row" style="flex-direction:column; margin-top:0; gap:8px;">
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(52,211,153,0.08); border-color:rgba(52,211,153,0.2);">
+            <strong>+99,9%</strong>
+            <span>de contas protegidas com 2FA não são comprometidas em ataques automatizados</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.2);">
+            <strong>Senhas vazadas</strong>
+            <span>são encontradas em bilhões de combinações em dumps públicos — 2FA invalida esses vazamentos</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2);">
+            <strong>LGPD e ISO 27001</strong>
+            <span>recomendam MFA para sistemas que tratam dados pessoais e críticos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Gestão em Escala</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-purple">IAM</span> — Gestão de Identidade e Acesso
+  </div>
+  <div class="slide-subtitle anim anim-d3" style="font-size:16px; margin-bottom:0;">
+    Em empresas com centenas de colaboradores, gerenciar acesso manualmente é inviável. IAM automatiza esse processo.
+  </div>
+  <div class="two-col anim anim-d4">
+    <div>
+      <div class="callout" style="border-color:rgba(167,139,250,0.24);">
+        <p>
+          <strong style="color:var(--text-primary);">IAM (Identity and Access Management)</strong> é o conjunto de políticas, tecnologias e processos para gerenciar identidades digitais e controlar o acesso a recursos de TI.
+        </p>
+        <p style="margin-top:12px;">
+          Cobre todo o ciclo de vida do acesso: do momento da contratação até o desligamento do colaborador.
+          <em style="color:var(--text-muted);">Ex.: funcionário demitido — IAM revoga todos os acessos em minutos, automaticamente.</em>
+        </p>
+      </div>
+      <div class="cards-grid cols-2" style="margin-top:16px;">
+        <div class="card">
+          <div class="card-icon purple">🔐</div>
+          <h4>SSO</h4>
+          <p>Single Sign-On — um login, acesso a todos os sistemas. Menos senhas para gerenciar e menos brechas.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon cyan">📋</div>
+          <h4>Provisionamento</h4>
+          <p>Automatizar criação e remoção de acessos conforme o colaborador entra, muda de cargo ou sai.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h4 style="margin-bottom:16px;">Ciclo de vida do acesso (IAM)</h4>
+        <div class="flow-row" style="flex-direction:column; margin-top:0; gap:8px;">
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(52,211,153,0.08); border-color:rgba(52,211,153,0.2);">
+            <strong style="color:var(--accent-green);">1. Onboarding</strong>
+            <span>Conta criada, perfil de acesso atribuído conforme o cargo — automático via integração com RH.</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.2);">
+            <strong style="color:var(--accent-blue);">2. Operação</strong>
+            <span>Revisões periódicas de privilégios. Acesso elevado temporário para projetos específicos.</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2);">
+            <strong style="color:var(--accent-amber);">3. Mudança de função</strong>
+            <span>Permissões do cargo anterior são revogadas, novas são concedidas. Evita acúmulo de privilégios.</span>
+          </div>
+          <div class="flow-box" style="width:100%; text-align:left; background:rgba(251,113,133,0.08); border-color:rgba(251,113,133,0.2);">
+            <strong style="color:var(--accent-rose);">4. Offboarding</strong>
+            <span>Desligamento: todos os acessos revogados imediatamente. Conta desativada, não deletada (auditoria).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide" data-section="Aula 3 — Acesso">
+  <div class="slide-tag anim anim-d1">Exercício Prático — Aula 3</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">
+    A <span class="highlight-rose">Organização Financeira</span>
+  </div>
+  <div class="scenario-box anim anim-d3">
+    <div class="scenario-label">Cenário</div>
+    <p>
+      Uma instituição financeira sofreu uma violação de dados. A investigação revelou que um atacante usou credenciais roubadas de um analista para acessar o sistema de transferências. O sistema exigia apenas usuário e senha — sem MFA. Além disso, o analista tinha acesso de leitura e escrita em módulos que não eram necessários para sua função. O atacante realizou 47 transferências fraudulentas antes de ser detectado, 8 horas depois.
+    </p>
+    <ul>
+      <li>O sistema de login não exigia segundo fator de autenticação.</li>
+      <li>O analista tinha permissões além do necessário para sua função (violação do menor privilégio).</li>
+      <li>Nenhum alerta foi disparado por acessos fora do horário comercial.</li>
+      <li>O sistema de log registrava as ações, mas ninguém monitorava em tempo real.</li>
+    </ul>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d4" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-icon rose">❓</div>
+      <h4>Qual modelo de controle de acesso usaria?</h4>
+      <p>RBAC ou ABAC? Como definiria as permissões do analista? Justifique com base nos princípios de menor privilégio.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon amber">❓</div>
+      <h4>Quais controles de autenticação implementaria?</h4>
+      <p>Além do MFA, quais outros fatores ou restrições evitariam o acesso fora do horário comercial de sistemas críticos?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan">❓</div>
+      <h4>Como estruturar o IAM?</h4>
+      <p>Como o ciclo de vida do acesso (IAM) deveria ser configurado para uma instituição financeira? Que revisões periódicas são necessárias?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ENCERRAMENTO ═══════════ -->
+
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Visão Geral</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    Mapa <span class="highlight-cyan">Conceitual</span>
+  </div>
+  <div class="cards-grid cols-3 anim anim-d3">
+    <div class="card">
+      <div class="card-icon purple" style="font-size:14px;font-family:var(--font-mono);">A1</div>
+      <h4 style="color:var(--accent-purple);">Gestão e Políticas</h4>
+      <ul>
+        <li><strong style="color:var(--text-primary);">SGSI</strong> — sistema que organiza a segurança</li>
+        <li><strong style="color:var(--text-primary);">PSI</strong> — documento com as regras</li>
+        <li><strong style="color:var(--text-primary);">PDCA</strong> — melhoria contínua</li>
+        <li><strong style="color:var(--text-primary);">ISO 27001</strong> — certificação do SGSI</li>
+        <li><strong style="color:var(--text-primary);">LGPD</strong> — conformidade legal</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon cyan" style="font-size:14px;font-family:var(--font-mono);">A2</div>
+      <h4 style="color:var(--accent-cyan);">Cultura de Segurança</h4>
+      <ul>
+        <li><strong style="color:var(--text-primary);">Comportamento</strong> — agir seguro sem vigilância</li>
+        <li><strong style="color:var(--text-primary);">Dev seguro</strong> — segurança no código</li>
+        <li><strong style="color:var(--text-primary);">Ética e lei</strong> — LGPD, GDPR, Marco Civil</li>
+        <li><strong style="color:var(--text-primary);">Tendências</strong> — IA, Quântica, IoT, Zero Trust</li>
+        <li><strong style="color:var(--text-primary);">Ameaças</strong> — ransomware, deepfakes, IA ofensiva</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-icon green" style="font-size:14px;font-family:var(--font-mono);">A3</div>
+      <h4 style="color:var(--accent-green);">Controle de Acesso</h4>
+      <ul>
+        <li><strong style="color:var(--text-primary);">Autenticação</strong> — quem você é</li>
+        <li><strong style="color:var(--text-primary);">Autorização</strong> — o que você pode fazer</li>
+        <li><strong style="color:var(--text-primary);">DAC/MAC/RBAC/ABAC</strong> — modelos de controle</li>
+        <li><strong style="color:var(--text-primary);">MFA/2FA</strong> — múltiplos fatores</li>
+        <li><strong style="color:var(--text-primary);">IAM</strong> — gestão do ciclo de vida do acesso</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout anim anim-d4" style="margin-top:24px;">
+    <p>
+      <strong style="color:var(--text-primary);">Segurança eficaz</strong> é a combinação dos três pilares: políticas claras (o que fazer), cultura forte (como as pessoas se comportam) e controles técnicos (quem acessa o quê). Nenhum dos três funciona sozinho.
+    </p>
+  </div>
+</div>
+
+<div class="slide" data-section="Encerramento">
+  <div class="slide-tag anim anim-d1">Referências Bibliográficas</div>
+  <div class="slide-title anim anim-d2" style="font-size:36px;">
+    <span class="highlight-cyan">Referências</span>
+  </div>
+  <div class="cards-grid cols-2 anim anim-d3">
+    <div class="card">
+      <h4>Normas e Legislação</h4>
+      <ul>
+        <li>ABNT NBR ISO/IEC 27001:2013 — Requisitos do SGSI.</li>
+        <li>ABNT NBR ISO/IEC 27002:2013 — Código de prática.</li>
+        <li>ABNT NBR ISO/IEC 27005:2011 — Gestão de riscos.</li>
+        <li>ISO/IEC 27701:2019 — Privacidade (PIMS).</li>
+        <li>ISO 19011:2018 — Diretrizes de auditoria.</li>
+        <li>Lei nº 13.709/2018 — LGPD.</li>
+        <li>Lei nº 12.965/2014 — Marco Civil da Internet.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Bibliografia-base da unidade</h4>
+      <ul>
+        <li>NAKAMURA, E. T. Segurança da informação e de redes, 2016.</li>
+        <li>NAKAMURA, E. T. Segurança de dados, 2020.</li>
+        <li>BARRETO, Jeanine S. et al. Fundamentos de segurança da informação, 2018.</li>
+        <li>MORAES, A. F. D. Redes de computadores: fundamentos, 2020.</li>
+        <li>NIST Special Publication 800-53 — Security and Privacy Controls.</li>
+        <li>NIST Cybersecurity Framework, 2023.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="nav-bar">
+  <div class="nav-section" id="navSection">Abertura</div>
+  <div class="nav-progress">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="current" id="navCounter">1 / 28</div>
+  </div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="prev()" title="Anterior (←)">◀</button>
+    <button class="nav-btn" onclick="next()" title="Próximo (→)">▶</button>
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+
+function goTo(n) {
+  if (n < 0 || n >= total || n === current) return;
+  const prev = current;
+  const dir = n > current;
+  slides[current].classList.remove('active');
+  if (dir) slides[current].classList.add('exit-left');
+  current = n;
+  slides[current].classList.add('active');
+  setTimeout(() => slides[prev].classList.remove('exit-left'), 500);
+  updateNav();
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+function updateNav() {
+  document.getElementById('navCounter').textContent = `${current + 1} / ${total}`;
+  document.getElementById('progressFill').style.width = `${((current + 1) / total) * 100}%`;
+  document.getElementById('navSection').textContent = slides[current].dataset.section || '';
+  document.querySelectorAll('.toc-item').forEach((btn) => {
+    btn.classList.toggle('active', parseInt(btn.dataset.slide, 10) === current);
+  });
+}
+
+function toggleTOC() {
+  document.getElementById('tocPanel').classList.toggle('open');
+}
+
+function closeTOC() {
+  document.getElementById('tocPanel').classList.remove('open');
+}
+
+document.querySelectorAll('.toc-item').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    goTo(parseInt(btn.dataset.slide, 10));
+    closeTOC();
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') {
+    e.preventDefault();
+    next();
+  }
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    prev();
+  }
+  if (e.key === 'Escape') {
+    closeTOC();
+  }
+});
+
+let touchStartX = 0;
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+document.addEventListener('touchend', (e) => {
+  const diff = e.changedTouches[0].screenX - touchStartX;
+  if (Math.abs(diff) > 60) {
+    diff < 0 ? next() : prev();
+  }
+});
+
+updateNav();
+</script>
+</body>
+</html>
