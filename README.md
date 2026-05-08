@@ -10,10 +10,12 @@ Abra o [`index.html`](index.html) no navegador ou acesse via GitHub Pages.
 
 ```
 index.html                                         # Pagina inicial (hub de navegacao)
+poll.html                                          # Pagina de votacao ao vivo (alunos)
 Unidade1_Seguranca_Informacao_Slides.html          # Slides da Unidade 1 (Seg. Auditoria)
 Unidade2_Politica_Cultura_Seguranca_Slides.html    # Slides da Unidade 2 (Seg. Auditoria)
 Unidade3_Componentes_Computador_Slides.html        # Slides da Unidade 3 (Arq. Computadores)
 Unidade4_Algebra_Booleana_Slides.html              # Slides da Unidade 4 (Arq. Computadores)
+Unidade1_Interface_Usabilidade_Slides.html         # Slides da Unidade 1 (Interface e Usabilidade)
 assets/                                            # Logos e imagens
 ```
 
@@ -61,6 +63,21 @@ assets/                                            # Logos e imagens
 - **Aula 1** — SGSI, PSI, ciclo PDCA, aspectos fisico/humano/natural, familia ISO 27000 e LGPD
 - **Aula 2** — Cultura de seguranca, desenvolvimento seguro, etica, aspectos legais, tendencias (IA, Quantica, Blockchain, 5G/IoT) e ameacas emergentes
 - **Aula 3** — Modelos de controle de acesso (DAC, MAC, RBAC, ABAC), autenticacao, MFA/2FA, biometria e IAM
+
+### Interface e Usabilidade
+
+| Unidade | Tema | Slides |
+|---------|------|--------|
+| 1 | Fundamentos de Interface e Usabilidade | 31 |
+
+**Conteudo da Unidade 1 (Interface e Usabilidade):**
+
+- **Aula 1** — Introducao ao DCU: historia da usabilidade, linha do tempo interativa, beneficios e atividade pratica
+- **Aula 2** — Usabilidade e UX: dimensoes da usabilidade, simulador de jornada do usuario, componentes de interface, ciclo PCU
+- **Aula 3** — Ergonomia e Design: ergonomia cognitiva, affordances (quiz interativo), ISO 25010, usabilidade como qualidade
+- **Aula 4** — Heuristicas de Nielsen: 10 heuristicas com flash cards, principios Gestalt, atividade de analise
+- **Enquete ao Vivo** — QR code para votacao em tempo real com grafico de resultados (Firebase ou modo demo)
+- **`poll.html`** — Pagina mobile-first para os alunos votarem; suporta Firebase REST API e previne duplo voto (localStorage)
 
 ## Tutor
 

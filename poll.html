@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquete ao Vivo — Interface e Usabilidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0b0f17;
+    --bg-card: #182233;
+    --bg-card-hover: #1e2d44;
+    --border: rgba(255,255,255,0.08);
+    --text-primary: #f0f4ff;
+    --text-secondary: #8899aa;
+    --accent-indigo: #818cf8;
+    --accent-teal: #2dd4bf;
+    --accent-amber: #fbbf24;
+    --accent-rose: #fb7185;
+    --font-display: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius: 14px;
+    --glow-indigo: 0 0 40px rgba(129,140,248,0.18);
+    --glow-teal: 0 0 40px rgba(45,212,191,0.16);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-display);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+  }
+
+  /* Header */
+  .poll-header {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    margin-bottom: 32px;
+    padding-top: 16px;
+  }
+  .poll-header .discipline-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent-teal);
+    border: 1px solid rgba(45,212,191,.3);
+    border-radius: 99px;
+    padding: 4px 14px;
+    margin-bottom: 14px;
+  }
+  .poll-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .poll-header p {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Card */
+  .poll-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* Question */
+  .question-area {
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .question-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent-indigo);
+    margin-bottom: 10px;
+  }
+  .question-text {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--text-primary);
+  }
+
+  /* Options */
+  .options-area {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .option-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,.03);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: background .18s, border-color .18s, transform .12s;
+    text-align: left;
+    width: 100%;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .option-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(129,140,248,.4);
+  }
+  .option-btn:active { transform: scale(.98); }
+  .option-btn.selected {
+    border-color: var(--accent-indigo);
+    background: rgba(129,140,248,.12);
+  }
+  .option-btn.disabled {
+    cursor: default;
+    opacity: .55;
+  }
+  .option-key {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: background .18s, color .18s, border-color .18s;
+  }
+  .option-btn.selected .option-key {
+    background: var(--accent-indigo);
+    color: var(--bg-primary);
+    border-color: var(--accent-indigo);
+  }
+
+  /* Submit */
+  .submit-area {
+    padding: 0 24px 24px;
+  }
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, var(--accent-indigo), var(--accent-teal));
+    color: var(--bg-primary);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity .18s, transform .12s;
+  }
+  .submit-btn:hover { opacity: .9; }
+  .submit-btn:active { transform: scale(.98); }
+  .submit-btn:disabled { opacity: .4; cursor: default; }
+
+  /* States: loading, success, error */
+  .state-view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .state-view.visible { display: flex; }
+
+  .state-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  .state-icon.success { background: rgba(45,212,191,.15); }
+  .state-icon.error   { background: rgba(251,113,133,.15); }
+  .state-icon.loading {
+    background: rgba(129,140,248,.12);
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .state-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .state-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .state-body strong { color: var(--accent-teal); }
+
+  .retry-btn {
+    padding: 10px 28px;
+    border-radius: 8px;
+    border: 1px solid var(--accent-rose);
+    background: rgba(251,113,133,.1);
+    color: var(--accent-rose);
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .18s;
+  }
+  .retry-btn:hover { background: rgba(251,113,133,.2); }
+
+  /* Already voted */
+  .voted-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-amber);
+    border: 1px solid rgba(251,191,36,.25);
+    border-radius: 99px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+  }
+
+  /* Footer */
+  .poll-footer {
+    margin-top: 24px;
+    font-size: 11px;
+    color: rgba(136,153,170,.5);
+    text-align: center;
+    letter-spacing: .04em;
+  }
+
+  /* Hidden */
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="poll-header">
+  <span class="discipline-tag">Interface e Usabilidade</span>
+  <h1>Enquete ao Vivo</h1>
+  <p>Selecione uma opção e envie sua resposta</p>
+</header>
+
+<div class="poll-card" id="pollCard">
+
+  <!-- Main voting view -->
+  <div id="votingView">
+    <div class="question-area">
+      <div class="question-label">Pergunta da aula</div>
+      <div class="question-text" id="questionText">Carregando pergunta…</div>
+    </div>
+
+    <div class="options-area" id="optionsArea">
+      <!-- Options injected by JS -->
+    </div>
+
+    <div class="submit-area">
+      <button class="submit-btn" id="submitBtn" disabled onclick="submitVote()">
+        Enviar resposta
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div class="state-view" id="loadingView">
+    <div class="state-icon loading">⟳</div>
+    <div class="state-title">Enviando…</div>
+    <div class="state-body">Registrando sua resposta.</div>
+  </div>
+
+  <!-- Success state -->
+  <div class="state-view" id="successView">
+    <div class="state-icon success">✓</div>
+    <div class="state-title">Resposta registrada!</div>
+    <div class="state-body">
+      Você escolheu <strong id="chosenLabel"></strong>.<br>
+      Os resultados aparecerão no projetor em breve.
+    </div>
+  </div>
+
+  <!-- Error state -->
+  <div class="state-view" id="errorView">
+    <div class="state-icon error">!</div>
+    <div class="state-title">Algo deu errado</div>
+    <div class="state-body" id="errorMsg">Não foi possível enviar. Verifique sua conexão.</div>
+    <button class="retry-btn" onclick="retryVote()">Tentar novamente</button>
+  </div>
+
+</div>
+
+<footer class="poll-footer">FAMAC / Unopar · Interface e Usabilidade</footer>
+
+<script>
+// ─────────────────────────────────────────────
+// CONFIGURATION
+// Set firebaseUrl to your Firebase Realtime Database URL.
+// Leave as null for "offline / demo" mode (vote stored locally only).
+// ─────────────────────────────────────────────
+const CONFIG = {
+  firebaseUrl: null,   // e.g. "https://my-project-default-rtdb.firebaseio.com"
+  pollId: 'poll1'
+};
+
+// ─────────────────────────────────────────────
+// POLL DATA
+// The teacher updates POLL_DATA on the slides;
+// this page can read it from the URL hash or use defaults.
+// URL format: poll.html#pollId=poll1&q=...&a=...&b=...&c=...&d=...
+// ─────────────────────────────────────────────
+const POLLS = {
+  poll1: {
+    question: 'Qual princípio garante que a informação esteja disponível quando necessária?',
+    options: {
+      a: 'Confidencialidade',
+      b: 'Integridade',
+      c: 'Disponibilidade',
+      d: 'Autenticidade'
+    }
+  }
+};
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let selectedOption = null;
+let pendingOption  = null;
+let currentPollId  = CONFIG.pollId;
+let currentPoll    = null;
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+function init() {
+  // Parse URL hash for poll data or poll id
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const params = new URLSearchParams(hash);
+    if (params.has('pollId')) currentPollId = params.get('pollId');
+
+    // Inline poll data from URL (teacher can encode full poll in QR)
+    if (params.has('q')) {
+      POLLS[currentPollId] = {
+        question: decodeURIComponent(params.get('q')),
+        options: {
+          a: decodeURIComponent(params.get('a') || 'Opção A'),
+          b: decodeURIComponent(params.get('b') || 'Opção B'),
+          c: decodeURIComponent(params.get('c') || 'Opção C'),
+          d: decodeURIComponent(params.get('d') || 'Opção D')
+        }
+      };
+    }
+  }
+
+  currentPoll = POLLS[currentPollId] || POLLS['poll1'];
+
+  // Check if already voted (prevent double-voting)
+  const votedKey = 'poll_voted_' + currentPollId;
+  if (localStorage.getItem(votedKey)) {
+    showAlreadyVoted(localStorage.getItem(votedKey));
+    return;
+  }
+
+  renderPoll();
+}
+
+// ─────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────
+function renderPoll() {
+  document.getElementById('questionText').textContent = currentPoll.question;
+
+  const area = document.getElementById('optionsArea');
+  area.innerHTML = '';
+
+  Object.entries(currentPoll.options).forEach(([key, text]) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.dataset.key = key;
+    btn.onclick = () => selectOption(key);
+    btn.innerHTML = `
+      <span class="option-key">${key.toUpperCase()}</span>
+      <span>${text}</span>
+    `;
+    area.appendChild(btn);
+  });
+}
+
+function selectOption(key) {
+  selectedOption = key;
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.key === key);
+  });
+  document.getElementById('submitBtn').disabled = false;
+}
+
+// ─────────────────────────────────────────────
+// SUBMIT
+// ─────────────────────────────────────────────
+async function submitVote() {
+  if (!selectedOption) return;
+  pendingOption = selectedOption;
+
+  showState('loading');
+
+  try {
+    if (CONFIG.firebaseUrl) {
+      await postToFirebase(pendingOption);
+    }
+    // Success (Firebase or offline)
+    saveVotedLocally(pendingOption);
+    showSuccess(pendingOption);
+  } catch (err) {
+    showError(err.message || 'Erro desconhecido');
+  }
+}
+
+async function postToFirebase(option) {
+  const url = `${CONFIG.firebaseUrl}/polls/${currentPollId}/votes.json`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ option, ts: Date.now() })
+  });
+  if (!res.ok) throw new Error(`Firebase retornou ${res.status}`);
+}
+
+function saveVotedLocally(option) {
+  const votedKey = 'poll_voted_' + currentPollId;
+  localStorage.setItem(votedKey, option);
+}
+
+// ─────────────────────────────────────────────
+// RETRY
+// ─────────────────────────────────────────────
+function retryVote() {
+  selectedOption = pendingOption;
+  showState('voting');
+  // Re-mark selected option
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.key === selectedOption);
+  });
+  document.getElementById('submitBtn').disabled = !selectedOption;
+}
+
+// ─────────────────────────────────────────────
+// STATE MANAGEMENT
+// ─────────────────────────────────────────────
+function showState(state) {
+  document.getElementById('votingView').classList.toggle('hidden', state !== 'voting');
+  document.getElementById('loadingView').classList.toggle('visible', state === 'loading');
+  document.getElementById('successView').classList.toggle('visible', state === 'success');
+  document.getElementById('errorView').classList.toggle('visible',  state === 'error');
+
+  // Ensure loading/success/error views are hidden when voting
+  ['loadingView','successView','errorView'].forEach(id => {
+    if (state === 'voting') document.getElementById(id).classList.remove('visible');
+  });
+}
+
+function showSuccess(option) {
+  const label = currentPoll.options[option] || option.toUpperCase();
+  document.getElementById('chosenLabel').textContent = `${option.toUpperCase()} — ${label}`;
+  showState('success');
+}
+
+function showError(msg) {
+  document.getElementById('errorMsg').textContent = msg;
+  showState('error');
+}
+
+function showAlreadyVoted(option) {
+  const votingView = document.getElementById('votingView');
+  const label = (currentPoll && currentPoll.options[option])
+    ? `${option.toUpperCase()} — ${currentPoll.options[option]}`
+    : option.toUpperCase();
+
+  // Render the poll in disabled state showing their prior choice
+  renderPoll();
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.classList.toggle('selected', btn.dataset.key === option);
+    btn.classList.add('disabled');
+    btn.disabled = true;
+  });
+
+  // Add already-voted badge above submit
+  const submitArea = document.querySelector('.submit-area');
+  submitArea.innerHTML = `
+    <div style="text-align:center;margin-bottom:12px;">
+      <span class="voted-badge">✓ Você já votou: ${label}</span>
+    </div>
+    <button class="submit-btn" disabled>Resposta enviada</button>
+  `;
+}
+
+// ─────────────────────────────────────────────
+// START
+// ─────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
