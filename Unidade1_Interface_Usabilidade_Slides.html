@@ -217,36 +217,39 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   <button class="toc-item" data-slide="6">Benefícios do DCU</button>
   <button class="toc-item act-item" data-slide="7">✋ Atividade: Julgamento Rápido</button>
   <button class="toc-item" data-slide="8">Exercício: Sistema de Estoque</button>
+  <button class="toc-item" data-slide="9">📊 Enquete: Experiência no App</button>
 
   <div class="toc-section-title">Aula 2 — Usabilidade</div>
-  <button class="toc-item" data-slide="9">Seção: Usabilidade</button>
-  <button class="toc-item" data-slide="10">UX vs Usabilidade</button>
-  <button class="toc-item" data-slide="11">Jornada do Usuário</button>
-  <button class="toc-item" data-slide="12">Componentes da Usabilidade</button>
-  <button class="toc-item" data-slide="13">Projeto Centrado no Usuário</button>
-  <button class="toc-item act-item" data-slide="14">✋ Atividade: Par de Análise</button>
-  <button class="toc-item" data-slide="15">Exercício: App de Compras</button>
+  <button class="toc-item" data-slide="10">Seção: Usabilidade</button>
+  <button class="toc-item" data-slide="11">UX vs Usabilidade</button>
+  <button class="toc-item" data-slide="12">Jornada do Usuário</button>
+  <button class="toc-item" data-slide="13">Componentes da Usabilidade</button>
+  <button class="toc-item" data-slide="14">Projeto Centrado no Usuário</button>
+  <button class="toc-item act-item" data-slide="15">✋ Atividade: Par de Análise</button>
+  <button class="toc-item" data-slide="16">Exercício: App de Compras</button>
+  <button class="toc-item" data-slide="17">📊 Enquete: Componente Crítico</button>
 
   <div class="toc-section-title">Aula 3 — Design Centrado</div>
-  <button class="toc-item" data-slide="16">Seção: Design Centrado</button>
-  <button class="toc-item" data-slide="17">Ergonomia e DCU</button>
-  <button class="toc-item" data-slide="18">Processos Cognitivos</button>
-  <button class="toc-item" data-slide="19">Teste de Affordance</button>
-  <button class="toc-item" data-slide="20">ISO 25010 — Qualidade de Uso</button>
-  <button class="toc-item act-item" data-slide="21">✋ Atividade: Identifique o Princípio</button>
-  <button class="toc-item" data-slide="22">Exercício: App de Streaming</button>
+  <button class="toc-item" data-slide="18">Seção: Design Centrado</button>
+  <button class="toc-item" data-slide="19">Ergonomia e DCU</button>
+  <button class="toc-item" data-slide="20">Processos Cognitivos</button>
+  <button class="toc-item" data-slide="21">Teste de Affordance</button>
+  <button class="toc-item" data-slide="22">ISO 25010 — Qualidade de Uso</button>
+  <button class="toc-item act-item" data-slide="23">✋ Atividade: Identifique o Princípio</button>
+  <button class="toc-item" data-slide="24">Exercício: App de Streaming</button>
+  <button class="toc-item" data-slide="25">📊 Enquete: Affordance</button>
 
   <div class="toc-section-title">Aula 4 — Heurísticas</div>
-  <button class="toc-item" data-slide="23">Seção: Heurísticas</button>
-  <button class="toc-item" data-slide="24">10 Heurísticas de Nielsen</button>
-  <button class="toc-item" data-slide="25">Gestalt e Interface</button>
-  <button class="toc-item act-item" data-slide="26">✋ Atividade: Auditoria Relâmpago</button>
-  <button class="toc-item" data-slide="27">Exercício: Streaming com Heurísticas</button>
+  <button class="toc-item" data-slide="26">Seção: Heurísticas</button>
+  <button class="toc-item" data-slide="27">10 Heurísticas de Nielsen</button>
+  <button class="toc-item" data-slide="28">Gestalt e Interface</button>
+  <button class="toc-item act-item" data-slide="29">✋ Atividade: Auditoria Relâmpago</button>
+  <button class="toc-item" data-slide="30">Exercício: Streaming com Heurísticas</button>
+  <button class="toc-item" data-slide="31">📊 Enquete: Heurísticas</button>
 
   <div class="toc-section-title">Encerramento</div>
-  <button class="toc-item" data-slide="28">📊 Live Poll</button>
-  <button class="toc-item" data-slide="29">Mapa Conceitual</button>
-  <button class="toc-item" data-slide="30">Referências</button>
+  <button class="toc-item" data-slide="32">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="33">Referências</button>
 </div>
 
 <div class="deck" id="deck">
@@ -431,6 +434,32 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   </div>
 </div>
 
+<!-- POLL 1 -->
+<div class="slide poll-slide" data-section="Aula 1" data-poll="1">
+  <div class="slide-tag anim anim-d1">📊 Live Poll — Aula 1</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">A turma <span class="hi">responde</span></div>
+  <div class="poll-layout anim anim-d3">
+    <div class="poll-qr-wrap">
+      <div id="poll-qr-canvas-1"></div>
+      <div class="poll-qr-label">Escaneie para votar</div>
+      <div class="poll-qr-url" id="poll-qr-url-1">Carregando…</div>
+    </div>
+    <div>
+      <p style="font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:18px;" id="poll-question-1">O que mais impacta a sua experiência ao usar um app?</p>
+      <div class="poll-chart" id="poll-chart-1">
+        <div class="poll-bar-row"><div class="poll-bar-label">Design visual bonito</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb1-a"></div></div><div class="poll-bar-count" id="pc1-a">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Velocidade e performance</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb1-b"></div></div><div class="poll-bar-count" id="pc1-b">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Facilidade de uso</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb1-c"></div></div><div class="poll-bar-count" id="pc1-c">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Feedback das ações</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb1-d"></div></div><div class="poll-bar-count" id="pc1-d">0</div></div>
+      </div>
+      <div class="poll-footer">
+        <div class="poll-live-dot"></div>
+        <span id="poll-total-label-1">0 respostas · modo demonstração</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ───────────────── AULA 2 ───────────────── -->
 
 <div class="slide section-divider" data-section="Aula 2">
@@ -586,6 +615,32 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   </div>
 </div>
 
+<!-- POLL 2 -->
+<div class="slide poll-slide" data-section="Aula 2" data-poll="2">
+  <div class="slide-tag anim anim-d1">📊 Live Poll — Aula 2</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">A turma <span class="ht">responde</span></div>
+  <div class="poll-layout anim anim-d3">
+    <div class="poll-qr-wrap">
+      <div id="poll-qr-canvas-2"></div>
+      <div class="poll-qr-label">Escaneie para votar</div>
+      <div class="poll-qr-url" id="poll-qr-url-2">Carregando…</div>
+    </div>
+    <div>
+      <p style="font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:18px;" id="poll-question-2">Qual componente de usabilidade é mais crítico em sistemas corporativos?</p>
+      <div class="poll-chart" id="poll-chart-2">
+        <div class="poll-bar-row"><div class="poll-bar-label">Eficácia (completar tarefas)</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb2-a"></div></div><div class="poll-bar-count" id="pc2-a">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Eficiência (velocidade)</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb2-b"></div></div><div class="poll-bar-count" id="pc2-b">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Satisfação (prazer)</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb2-c"></div></div><div class="poll-bar-count" id="pc2-c">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Memorabilidade</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb2-d"></div></div><div class="poll-bar-count" id="pc2-d">0</div></div>
+      </div>
+      <div class="poll-footer">
+        <div class="poll-live-dot"></div>
+        <span id="poll-total-label-2">0 respostas · modo demonstração</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ───────────────── AULA 3 ───────────────── -->
 
 <div class="slide section-divider" data-section="Aula 3">
@@ -712,6 +767,32 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   </div>
 </div>
 
+<!-- POLL 3 -->
+<div class="slide poll-slide" data-section="Aula 3" data-poll="3">
+  <div class="slide-tag anim anim-d1">📊 Live Poll — Aula 3</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">A turma <span class="hg">responde</span></div>
+  <div class="poll-layout anim anim-d3">
+    <div class="poll-qr-wrap">
+      <div id="poll-qr-canvas-3"></div>
+      <div class="poll-qr-label">Escaneie para votar</div>
+      <div class="poll-qr-url" id="poll-qr-url-3">Carregando…</div>
+    </div>
+    <div>
+      <p style="font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:18px;" id="poll-question-3">Quando um elemento "convida" o usuário a agir sem instrução, chamamos de…</p>
+      <div class="poll-chart" id="poll-chart-3">
+        <div class="poll-bar-row"><div class="poll-bar-label">Affordance</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb3-a"></div></div><div class="poll-bar-count" id="pc3-a">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Feedback</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb3-b"></div></div><div class="poll-bar-count" id="pc3-b">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Consistência</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb3-c"></div></div><div class="poll-bar-count" id="pc3-c">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Memória</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb3-d"></div></div><div class="poll-bar-count" id="pc3-d">0</div></div>
+      </div>
+      <div class="poll-footer">
+        <div class="poll-live-dot"></div>
+        <span id="poll-total-label-3">0 respostas · modo demonstração</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ───────────────── AULA 4 ───────────────── -->
 
 <div class="slide section-divider" data-section="Aula 4">
@@ -820,27 +901,27 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 
 <!-- ───────────────── ENCERRAMENTO ───────────────── -->
 
-<!-- POLL SLIDE -->
-<div class="slide poll-slide" data-section="Encerramento">
-  <div class="slide-tag anim anim-d1">📊 Live Poll — Turma</div>
-  <div class="slide-title anim anim-d2" style="font-size:34px;">A turma <span class="hi">responde</span></div>
+<!-- POLL 4 -->
+<div class="slide poll-slide" data-section="Aula 4" data-poll="4">
+  <div class="slide-tag anim anim-d1">📊 Live Poll — Aula 4</div>
+  <div class="slide-title anim anim-d2" style="font-size:34px;">A turma <span class="ha">responde</span></div>
   <div class="poll-layout anim anim-d3">
     <div class="poll-qr-wrap">
-      <div id="poll-qr-canvas"></div>
+      <div id="poll-qr-canvas-4"></div>
       <div class="poll-qr-label">Escaneie para votar</div>
-      <div class="poll-qr-url" id="poll-qr-url">Configure a URL em POLL_CONFIG</div>
+      <div class="poll-qr-url" id="poll-qr-url-4">Carregando…</div>
     </div>
     <div>
-      <p style="font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:18px;" id="poll-question">O que mais impacta a sua experiência ao usar um app?</p>
-      <div class="poll-chart" id="poll-chart">
-        <div class="poll-bar-row"><div class="poll-bar-label">Design visual bonito</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb-a"></div></div><div class="poll-bar-count" id="pc-a">0</div></div>
-        <div class="poll-bar-row"><div class="poll-bar-label">Velocidade e performance</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb-b"></div></div><div class="poll-bar-count" id="pc-b">0</div></div>
-        <div class="poll-bar-row"><div class="poll-bar-label">Facilidade de uso</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb-c"></div></div><div class="poll-bar-count" id="pc-c">0</div></div>
-        <div class="poll-bar-row"><div class="poll-bar-label">Feedback das ações</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb-d"></div></div><div class="poll-bar-count" id="pc-d">0</div></div>
+      <p style="font-size:17px;font-weight:700;color:var(--text-primary);margin-bottom:18px;" id="poll-question-4">Qual heurística de Nielsen é mais violada em apps do dia a dia?</p>
+      <div class="poll-chart" id="poll-chart-4">
+        <div class="poll-bar-row"><div class="poll-bar-label">Visibilidade do status</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb4-a"></div></div><div class="poll-bar-count" id="pc4-a">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Controle do usuário</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb4-b"></div></div><div class="poll-bar-count" id="pc4-b">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Prevenção de erros</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb4-c"></div></div><div class="poll-bar-count" id="pc4-c">0</div></div>
+        <div class="poll-bar-row"><div class="poll-bar-label">Ajuda e documentação</div><div class="poll-bar-track"><div class="poll-bar-fill" id="pb4-d"></div></div><div class="poll-bar-count" id="pc4-d">0</div></div>
       </div>
       <div class="poll-footer">
         <div class="poll-live-dot"></div>
-        <span id="poll-total-label">0 respostas · modo demonstração</span>
+        <span id="poll-total-label-4">0 respostas · modo demonstração</span>
       </div>
     </div>
   </div>
@@ -918,6 +999,8 @@ function goTo(n) {
   slides[current].classList.add('active');
   setTimeout(() => slides[prev].classList.remove('exit-left'), 500);
   updateNav();
+  const pollN = slides[current].dataset.poll;
+  if (pollN) initPoll(+pollN);
 }
 function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
@@ -1020,68 +1103,63 @@ function resetTimer(id, dur) {
 }
 
 // ─── Live Poll ────────────────────────────────────────────────
-// Set firebaseUrl to your Firebase Realtime Database URL to enable live voting.
-// Leave null to use demo mode (simulated votes).
 const POLL_CONFIG = {
   firebaseUrl: 'https://ads-unopar-default-rtdb.firebaseio.com',
-  pollPageUrl: 'https://jbmaciel.github.io/ads/poll.html',
-  pollId: 'poll1'
+  pollPageUrl: 'https://jbmaciel.github.io/ads/poll.html'
 };
 
-const pollCounts = { a: 0, b: 0, c: 0, d: 0 };
+const pollStates = { 1: null, 2: null, 3: null, 4: null };
 
-function updatePollChart() {
-  const vals = Object.values(pollCounts);
-  const total = vals.reduce((s, v) => s + v, 0);
+function updatePollChart(n) {
+  const state = pollStates[n];
+  const vals = Object.values(state);
+  const tot = vals.reduce((s,v) => s+v, 0);
   const max = Math.max(...vals, 1);
   ['a','b','c','d'].forEach(k => {
-    document.getElementById(`pb-${k}`).style.width = `${(pollCounts[k]/max)*100}%`;
-    document.getElementById(`pc-${k}`).textContent = pollCounts[k];
+    document.getElementById(`pb${n}-${k}`).style.width = `${(state[k]/max)*100}%`;
+    document.getElementById(`pc${n}-${k}`).textContent = state[k];
   });
   const mode = POLL_CONFIG.firebaseUrl ? 'ao vivo' : 'modo demonstração';
-  document.getElementById('poll-total-label').textContent = `${total} respostas · ${mode}`;
+  document.getElementById(`poll-total-label-${n}`).textContent = `${tot} respostas · ${mode}`;
 }
 
-async function fetchPollFirebase() {
+async function fetchPollFirebase(n) {
   try {
-    const res = await fetch(`${POLL_CONFIG.firebaseUrl}/polls/${POLL_CONFIG.pollId}/votes.json`);
+    const res = await fetch(`${POLL_CONFIG.firebaseUrl}/polls/poll${n}/votes.json`);
     const data = await res.json();
-    ['a','b','c','d'].forEach(k => { pollCounts[k] = 0; });
-    if (data) Object.values(data).forEach(v => { if (pollCounts[v.option] !== undefined) pollCounts[v.option]++; });
-    updatePollChart();
+    const state = pollStates[n];
+    ['a','b','c','d'].forEach(k => { state[k] = 0; });
+    if (data) Object.values(data).forEach(v => { if (state[v.option] !== undefined) state[v.option]++; });
+    updatePollChart(n);
   } catch(e) { /* silent */ }
 }
 
-function startDemoMode() {
-  updatePollChart();
-  setInterval(() => {
-    const k = ['a','b','c','d'][Math.floor(Math.random()*4)];
-    pollCounts[k]++;
-    updatePollChart();
-  }, 1800);
-}
+function initPoll(n) {
+  if (pollStates[n]) return;
+  pollStates[n] = { a:0, b:0, c:0, d:0 };
 
-function initPoll() {
-  const urlEl = document.getElementById('poll-qr-url');
-  const qrEl  = document.getElementById('poll-qr-canvas');
-  const fullUrl = POLL_CONFIG.firebaseUrl
-    ? POLL_CONFIG.pollPageUrl
-    : window.location.origin + window.location.pathname.replace(/[^/]+$/, '') + POLL_CONFIG.pollPageUrl;
-  urlEl.textContent = POLL_CONFIG.pollPageUrl;
+  const urlEl = document.getElementById(`poll-qr-url-${n}`);
+  const qrEl  = document.getElementById(`poll-qr-canvas-${n}`);
+  const pollUrl = `${POLL_CONFIG.pollPageUrl}#pollId=poll${n}`;
+  urlEl.textContent = pollUrl;
   try {
-    new QRCode(qrEl, { text: fullUrl, width: 180, height: 180, correctLevel: QRCode.CorrectLevel.M });
+    new QRCode(qrEl, { text: pollUrl, width: 180, height: 180, correctLevel: QRCode.CorrectLevel.M });
   } catch(e) {
-    qrEl.innerHTML = `<div style="width:180px;height:180px;background:rgba(129,140,248,.1);border:2px dashed rgba(129,140,248,.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;color:var(--accent-indigo);text-align:center;padding:16px;">Configure POLL_CONFIG.pollPageUrl</div>`;
+    qrEl.innerHTML = `<div style="width:180px;height:180px;background:rgba(129,140,248,.1);border:2px dashed rgba(129,140,248,.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:12px;color:var(--accent-indigo);text-align:center;padding:16px;">Configure POLL_CONFIG</div>`;
   }
   if (POLL_CONFIG.firebaseUrl) {
-    fetchPollFirebase();
-    setInterval(fetchPollFirebase, 3000);
+    fetchPollFirebase(n);
+    setInterval(() => fetchPollFirebase(n), 3000);
   } else {
-    startDemoMode();
+    updatePollChart(n);
+    setInterval(() => {
+      const k = ['a','b','c','d'][Math.floor(Math.random()*4)];
+      pollStates[n][k]++;
+      updatePollChart(n);
+    }, 1800);
   }
 }
 
-initPoll();
 updateNav();
 </script>
 </body>
