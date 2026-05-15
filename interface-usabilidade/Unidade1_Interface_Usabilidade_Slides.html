@@ -202,7 +202,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 <div class="bg-glow bg-glow-1"></div>
 <div class="bg-glow bg-glow-2"></div>
 <button class="toc-toggle" onclick="toggleTOC()" title="Índice">☰</button>
-<a href="index.html" class="home-btn" title="Início">⌂</a>
+<a href="../index.html" class="home-btn" title="Início">⌂</a>
 
 <div class="toc-panel" id="tocPanel">
   <div class="toc-section-title">Abertura</div>
@@ -256,7 +256,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 
 <!-- ───────────────── ABERTURA ───────────────── -->
 
-<div class="slide section-divider active" data-section="Abertura">
+<div class="slide section-divider active" data-section="Abertura" style="background-image:url('../assets/bg-u-unopar.png');background-repeat:no-repeat;background-position:right center;background-size:auto 100%;">
   <span class="section-number">01</span>
   <div class="slide-tag anim anim-d1">Interface e Usabilidade</div>
   <div class="slide-title anim anim-d2">Fundamentos de<br><span class="hi">Interface</span> e <span class="ht">Usabilidade</span></div>
@@ -1105,7 +1105,7 @@ function resetTimer(id, dur) {
 // ─── Live Poll ────────────────────────────────────────────────
 const POLL_CONFIG = {
   firebaseUrl: 'https://ads-unopar-default-rtdb.firebaseio.com',
-  pollPageUrl: 'https://jbmaciel.github.io/ads/poll.html'
+  pollPageUrl: 'https://jbmaciel.github.io/ads/interface-usabilidade/poll.html'
 };
 
 const pollStates = { 1: null, 2: null, 3: null, 4: null };
