@@ -165,7 +165,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 .dt-step:hover{border-color:rgba(129,140,248,.3);color:var(--text-secondary);}
 .dt-step.dt-active{border-color:rgba(129,140,248,.5);background:rgba(129,140,248,.1);color:var(--text-primary);}
 .dt-step.dt-active .dt-step-num{background:var(--accent-indigo);color:var(--bg-primary);}
-.dt-detail{margin-top:16px;background:var(--bg-card);border:1px solid rgba(129,140,248,.22);border-radius:16px;padding:20px;display:flex;gap:18px;align-items:flex-start;animation:fadeInUp .3s ease;}
+.dt-detail{margin-top:16px;background:var(--bg-card);border:1px solid rgba(129,140,248,.22);border-radius:16px;padding:20px;display:flex;gap:18px;align-items:flex-start;}
 .dt-detail-icon{font-size:32px;flex-shrink:0;}
 .dt-detail-body h5{font-size:17px;font-weight:800;color:var(--accent-indigo);margin-bottom:8px;}
 .dt-detail-body p{font-size:14px;line-height:1.7;color:var(--text-secondary);}
@@ -190,7 +190,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 .sprint-day .sd-num{font-family:var(--font-mono);font-size:10px;font-weight:700;color:var(--accent-indigo);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .sprint-day .sd-name{font-size:13px;font-weight:700;color:var(--text-primary);}
 .sprint-day .sd-emoji{font-size:22px;margin-bottom:6px;}
-.sprint-detail{margin-top:14px;background:var(--bg-card);border:1px solid rgba(129,140,248,.22);border-radius:16px;padding:18px;display:flex;gap:16px;align-items:flex-start;animation:fadeInUp .3s ease;}
+.sprint-detail{margin-top:14px;background:var(--bg-card);border:1px solid rgba(129,140,248,.22);border-radius:16px;padding:18px;display:flex;gap:16px;align-items:flex-start;}
 .sprint-detail-icon{font-size:28px;flex-shrink:0;}
 .sprint-detail-body h5{font-size:16px;font-weight:800;color:var(--accent-indigo);margin-bottom:6px;}
 .sprint-detail-body p{font-size:14px;line-height:1.65;color:var(--text-secondary);}
@@ -367,7 +367,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
     <button class="dt-step" onclick="showDTStep(4)"><div class="dt-step-num">5</div><span>Avaliação</span></button>
     <button class="dt-step" onclick="showDTStep(5)"><div class="dt-step-num">6</div><span>Implementação</span></button>
   </div>
-  <div class="dt-detail anim anim-d5" id="dt-detail">
+  <div class="dt-detail" id="dt-detail">
     <div class="dt-detail-icon" id="dt-icon">🔍</div>
     <div class="dt-detail-body"><h5 id="dt-title">Compreensão</h5><p id="dt-text">Conhecer o usuário, seu contexto, o que fala, faz, pensa e sente. Pesquisa exploratória com empatia. Etapa de descoberta.</p></div>
   </div>
@@ -438,7 +438,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
       <div class="sd-name">Sexta</div>
     </div>
   </div>
-  <div class="sprint-detail anim anim-d5" id="sprint-detail">
+  <div class="sprint-detail" id="sprint-detail">
     <div class="sprint-detail-icon" id="sd-icon">🗺️</div>
     <div class="sprint-detail-body"><h5 id="sd-title">Mapeie o problema</h5><p id="sd-text">Definir objetivo de longo prazo, analisar riscos, mapear a jornada do usuário e determinar o ponto crítico a melhorar.</p></div>
   </div>
