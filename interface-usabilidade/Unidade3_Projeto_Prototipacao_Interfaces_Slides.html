@@ -64,11 +64,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 .micro-demo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}.demo-panel{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:18px;padding:24px;text-align:center}.cart-btn{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:14px 20px;border-radius:12px;border:1px solid rgba(45,212,191,.35);background:rgba(45,212,191,.12);color:var(--accent-teal);font-weight:800;cursor:pointer;transition:all .25s}.cart-btn:hover{transform:translateY(-2px);box-shadow:var(--glow-teal)}.cart-btn.done{background:rgba(74,222,128,.14);border-color:rgba(74,222,128,.45);color:var(--accent-green)}.cart-icon.fly{animation:cartFly .55s ease}@keyframes cartFly{0%{transform:translateX(0) scale(1)}50%{transform:translateX(22px) scale(1.2)}100%{transform:translateX(0) scale(1)}}.toast{min-height:42px;margin-top:16px;font-size:13px;color:var(--text-secondary)}
 .responsive-lab{display:grid;grid-template-columns:180px 1fr;gap:18px;margin-top:20px}.device-buttons{display:flex;flex-direction:column;gap:10px}.device-btn{border:1px solid var(--border-subtle);border-radius:12px;background:var(--bg-card);color:var(--text-secondary);padding:12px;cursor:pointer;font-weight:700}.device-btn.active{background:rgba(45,212,191,.1);border-color:rgba(45,212,191,.4);color:var(--accent-teal)}.viewport{min-height:310px;border:1px solid var(--border-subtle);border-radius:18px;background:rgba(15,23,42,.8);padding:18px;display:flex;align-items:center;justify-content:center}.site-frame{height:260px;border:8px solid rgba(15,23,42,.95);border-radius:22px;background:#e2e8f0;padding:14px;transition:width .3s}.site-frame.mobile{width:170px}.site-frame.tablet{width:300px}.site-frame.desktop{width:520px}.site-head{height:34px;border-radius:10px;background:#334155;margin-bottom:12px}.site-content{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.site-frame.mobile .site-content{grid-template-columns:1fr}.site-frame.tablet .site-content{grid-template-columns:1fr 1fr}.site-card{height:54px;border-radius:10px;background:#94a3b8}
 .wcag-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}.wcag{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:18px;cursor:pointer;transition:all .2s}.wcag:hover,.wcag.active{border-color:rgba(74,222,128,.4);background:rgba(74,222,128,.08)}.wcag h4{font-size:15px;color:var(--accent-green);margin-bottom:8px}.wcag p{font-size:13px;line-height:1.55;color:var(--text-secondary)}
+.solution-slide.locked .solution-content{display:none}.solution-lock{display:none;background:linear-gradient(180deg,rgba(23,32,51,.98),rgba(14,20,31,.98));border:1px solid rgba(251,191,36,.28);border-radius:22px;padding:28px;max-width:720px}.solution-slide.locked .solution-lock{display:block}.solution-lock .lock-icon{width:54px;height:54px;border-radius:16px;background:rgba(251,191,36,.14);color:var(--accent-amber);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;margin-bottom:16px}.solution-lock h3{font-size:26px;font-weight:900;margin-bottom:10px}.solution-lock p{font-size:15px;line-height:1.75;color:var(--text-secondary);margin-bottom:18px}.solution-form{display:flex;gap:10px;align-items:center}.solution-form input{min-width:0;flex:1;height:44px;border-radius:12px;border:1px solid var(--border-subtle);background:rgba(15,23,42,.82);color:var(--text-primary);font-family:var(--font-display);font-size:15px;padding:0 14px;outline:none}.solution-form input:focus{border-color:rgba(251,191,36,.45);box-shadow:var(--glow-amber)}.solution-form button{height:44px;border-radius:12px;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.12);color:var(--accent-amber);font-family:var(--font-mono);font-size:12px;font-weight:800;padding:0 16px;cursor:pointer}.solution-form button:hover{background:rgba(251,191,36,.2)}.solution-error{min-height:20px;margin-top:10px;font-family:var(--font-mono);font-size:11px;color:var(--accent-rose)}
 .toc-toggle,.home-btn{position:fixed;top:18px;z-index:20;width:42px;height:42px;border:1px solid var(--border-subtle);border-radius:12px;background:rgba(11,15,23,.9);color:var(--text-primary);display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;transition:all .2s}.toc-toggle:hover,.home-btn:hover{border-color:rgba(167,139,250,.3);box-shadow:var(--glow-indigo)}.toc-toggle{left:18px}.home-btn{left:70px}.toc-panel{position:fixed;top:0;left:-320px;z-index:19;width:320px;height:100%;padding:72px 18px 18px;background:rgba(11,15,23,.96);border-right:1px solid var(--border-subtle);overflow-y:auto;transition:left .25s}.toc-panel.open{left:0}.toc-section-title{margin:20px 0 10px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-purple)}.toc-item{width:100%;padding:9px 12px;margin-bottom:6px;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--text-secondary);text-align:left;font-size:13px;cursor:pointer;transition:all .2s}.toc-item:hover,.toc-item.active{background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.18);color:var(--text-primary)}.toc-item.act-item{border-left:2px solid var(--accent-amber)}
 .nav-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:20;width:min(880px,calc(100% - 24px));height:56px;padding:0 14px;border-radius:16px;border:1px solid var(--border-subtle);background:rgba(11,15,23,.88);display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(12px)}.nav-section{font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:1px;color:var(--accent-purple);text-transform:uppercase}.nav-progress{flex:1;display:flex;align-items:center;justify-content:center;gap:12px}.progress-bar{width:min(360px,46vw);height:6px;border-radius:999px;background:rgba(148,163,184,.12);overflow:hidden}.progress-fill{width:0;height:100%;background:linear-gradient(90deg,var(--accent-purple),var(--accent-teal))}.current{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary)}.nav-controls{display:flex;align-items:center;gap:8px}.nav-btn{width:34px;height:34px;border-radius:10px;border:1px solid var(--border-subtle);background:var(--bg-card);color:var(--text-primary);cursor:pointer}.nav-btn:hover{border-color:rgba(167,139,250,.3);box-shadow:var(--glow-indigo)}
 .anim{animation:fadeInUp .5s ease forwards;opacity:0}.anim-d1{animation-delay:.1s}.anim-d2{animation-delay:.2s}.anim-d3{animation-delay:.3s}.anim-d4{animation-delay:.4s}.anim-d5{animation-delay:.5s}@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:980px){.slide{justify-content:flex-start;padding:54px 54px 82px}.section-number{right:54px;font-size:72px}.cols-4,.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}.two-col,.prototype-preview,.micro-demo,.responsive-lab{grid-template-columns:1fr}.wcag-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.site-frame.desktop{width:100%}}
-@media(max-width:720px){.slide{justify-content:flex-start;padding:62px 22px 92px}.slide-title{font-size:clamp(26px,8vw,38px)}.slide-subtitle{font-size:17px}.section-number{top:58px;right:22px;font-size:52px}.cols-2,.cols-3,.cols-4,.wcag-grid{grid-template-columns:1fr}.fidelity-tabs{flex-direction:column}.nav-bar{height:52px;padding:0 10px;gap:10px}.nav-section{max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.progress-bar{width:90px}.toc-panel{width:280px;left:-280px}.layer{grid-template-columns:1fr}.device-buttons{flex-direction:row;flex-wrap:wrap}.site-frame.tablet,.site-frame.desktop{width:100%}}
+@media(max-width:720px){.slide{justify-content:flex-start;padding:62px 22px 92px}.slide-title{font-size:clamp(26px,8vw,38px)}.slide-subtitle{font-size:17px}.section-number{top:58px;right:22px;font-size:52px}.cols-2,.cols-3,.cols-4,.wcag-grid{grid-template-columns:1fr}.fidelity-tabs{flex-direction:column}.nav-bar{height:52px;padding:0 10px;gap:10px}.nav-section{max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.progress-bar{width:90px}.toc-panel{width:280px;left:-280px}.layer{grid-template-columns:1fr}.device-buttons{flex-direction:row;flex-wrap:wrap}.site-frame.tablet,.site-frame.desktop{width:100%}.solution-form{flex-direction:column;align-items:stretch}.solution-lock{padding:22px}}
 </style>
 </head>
 <body>
@@ -90,34 +91,39 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   <button class="toc-item" data-slide="5">Microinterações</button>
   <button class="toc-item" data-slide="6">Camadas de UX</button>
   <button class="toc-item act-item" data-slide="7">Atividade: Checkout</button>
+  <button class="toc-item" data-slide="8">Resolução: Checkout</button>
 
   <div class="toc-section-title">Aula 2</div>
-  <button class="toc-item" data-slide="8">Design Responsivo</button>
-  <button class="toc-item" data-slide="9">Responsivo x Adaptativo</button>
-  <button class="toc-item" data-slide="10">Lab Multiplataforma</button>
-  <button class="toc-item" data-slide="11">Estratégia Multiplataforma</button>
-  <button class="toc-item act-item" data-slide="12">Atividade: E-commerce</button>
+  <button class="toc-item" data-slide="9">Design Responsivo</button>
+  <button class="toc-item" data-slide="10">Responsivo x Adaptativo</button>
+  <button class="toc-item" data-slide="11">Lab Multiplataforma</button>
+  <button class="toc-item" data-slide="12">Estratégia Multiplataforma</button>
+  <button class="toc-item act-item" data-slide="13">Atividade: E-commerce</button>
+  <button class="toc-item" data-slide="14">Resolução: E-commerce</button>
 
   <div class="toc-section-title">Aula 3</div>
-  <button class="toc-item" data-slide="13">Prototipação</button>
-  <button class="toc-item" data-slide="14">Fidelidade de Protótipos</button>
-  <button class="toc-item" data-slide="15">Wireframes e Mockups</button>
-  <button class="toc-item" data-slide="16">Ferramentas</button>
-  <button class="toc-item act-item" data-slide="17">Atividade: App de Leitura</button>
+  <button class="toc-item" data-slide="15">Prototipação</button>
+  <button class="toc-item" data-slide="16">Fidelidade de Protótipos</button>
+  <button class="toc-item" data-slide="17">Wireframes e Mockups</button>
+  <button class="toc-item" data-slide="18">Ferramentas</button>
+  <button class="toc-item act-item" data-slide="19">Atividade: App de Leitura</button>
+  <button class="toc-item" data-slide="20">Resolução: App de Leitura</button>
 
   <div class="toc-section-title">Aula 4</div>
-  <button class="toc-item" data-slide="18">Acessibilidade e Inclusão</button>
-  <button class="toc-item" data-slide="19">Design Inclusivo</button>
-  <button class="toc-item" data-slide="20">Tecnologias Assistivas</button>
-  <button class="toc-item" data-slide="21">WCAG</button>
-  <button class="toc-item" data-slide="22">Checklist</button>
-  <button class="toc-item act-item" data-slide="23">Atividade: Pessoas Surdas</button>
+  <button class="toc-item" data-slide="21">Acessibilidade e Inclusão</button>
+  <button class="toc-item" data-slide="22">Design Inclusivo</button>
+  <button class="toc-item" data-slide="23">Tecnologias Assistivas</button>
+  <button class="toc-item" data-slide="24">WCAG</button>
+  <button class="toc-item" data-slide="25">Checklist</button>
+  <button class="toc-item act-item" data-slide="26">Atividade: Pessoas Surdas</button>
+  <button class="toc-item" data-slide="27">Resolução: Pessoas Surdas</button>
 
   <div class="toc-section-title">Encerramento</div>
-  <button class="toc-item" data-slide="24">Tutorial de Prototipação</button>
-  <button class="toc-item" data-slide="25">Prática Final</button>
-  <button class="toc-item" data-slide="26">Mapa Conceitual</button>
-  <button class="toc-item" data-slide="27">Referências</button>
+  <button class="toc-item" data-slide="28">Tutorial de Prototipação</button>
+  <button class="toc-item" data-slide="29">Prática Final</button>
+  <button class="toc-item" data-slide="30">Resolução: Prática Final</button>
+  <button class="toc-item" data-slide="31">Mapa Conceitual</button>
+  <button class="toc-item" data-slide="32">Referências</button>
 </div>
 
 <div class="deck" id="deck">
@@ -213,6 +219,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
     </div>
   </div>
 
+  <div class="slide" data-section="Aula 1">
+    <div class="slide-tag anim anim-d1">Sugestão de Resolução</div>
+    <div class="slide-title anim anim-d2" style="font-size:34px;">Checkout: microinterações que <span class="ha">reduzem incerteza</span></div>
+    <div class="cards-grid cols-3 anim anim-d3">
+      <div class="card"><div class="card-icon ia">1</div><h4>Formulários</h4><p>Validação em tempo real nos campos críticos: cartão, validade, CVV, CEP e cupom. O feedback deve dizer o que está errado e como corrigir.</p></div>
+      <div class="card"><div class="card-icon it">2</div><h4>Botões e carrinho</h4><p>Ao clicar em "Adicionar ao carrinho" ou "Finalizar compra", mostrar mudança de estado, carregamento curto e confirmação visual da ação.</p></div>
+      <div class="card"><div class="card-icon ig">3</div><h4>Progresso e segurança</h4><p>Usar etapas claras no checkout, resumo persistente do pedido e mensagens de sucesso/erro que evitem repetição desnecessária.</p></div>
+    </div>
+    <div class="callout anim anim-d4"><p><strong style="color:var(--text-primary);">Ponto para revisão:</strong> uma boa microinteração não é enfeite. Ela comunica estado, previne erro e ajuda o usuário a continuar com confiança.</p></div>
+  </div>
+
   <div class="slide section-divider" data-section="Aula 2">
     <div class="section-number">02</div>
     <div class="slide-tag anim anim-d1">Aula 2</div>
@@ -268,6 +285,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
       <div class="check-item"><div class="marker">2</div><p>Defina quais componentes e fluxos precisam ser consistentes em todos os canais.</p></div>
       <div class="check-item"><div class="marker">3</div><p>Escolha 3 testes para validar a experiência em contextos diferentes.</p></div>
     </div>
+  </div>
+
+  <div class="slide" data-section="Aula 2">
+    <div class="slide-tag anim anim-d1">Sugestão de Resolução</div>
+    <div class="slide-title anim anim-d2" style="font-size:34px;">Estratégia <span class="ht">multiplataforma</span> para vender melhor</div>
+    <div class="cards-grid cols-3 anim anim-d3">
+      <div class="card"><div class="card-icon it">1</div><h4>Site responsivo primeiro</h4><p>Atualizar o site para funcionar bem em desktop, tablet e smartphone, mantendo catálogo, busca, carrinho e checkout acessíveis.</p></div>
+      <div class="card"><div class="card-icon ib">2</div><h4>App móvel dedicado</h4><p>Criar app para usuários recorrentes, com notificações, pagamento salvo, histórico de compras, rastreamento e experiência otimizada para tela pequena.</p></div>
+      <div class="card"><div class="card-icon ic">3</div><h4>Social commerce</h4><p>Integrar loja a redes sociais para descoberta e compra direta, preservando identidade visual, informações de produto e segurança no pagamento.</p></div>
+    </div>
+    <div class="callout anim anim-d4"><p><strong style="color:var(--text-primary);">Ponto para revisão:</strong> consistência não significa telas idênticas. Significa fluxos, linguagem, marca e padrões de interação reconhecíveis em todos os canais.</p></div>
   </div>
 
   <div class="slide section-divider" data-section="Aula 3">
@@ -326,6 +354,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
     </div>
   </div>
 
+  <div class="slide" data-section="Aula 3">
+    <div class="slide-tag anim anim-d1">Sugestão de Resolução</div>
+    <div class="slide-title anim anim-d2" style="font-size:34px;">App de leitura: prototipar em <span class="ha">ciclos</span></div>
+    <div class="cards-grid cols-3 anim anim-d3">
+      <div class="card"><div class="card-icon ia">1</div><h4>Baixa fidelidade</h4><p>No início, usar papel ou wireframes simples para testar fluxo de leitura, seleção de texto, marcação e criação de notas sem gastar tempo com visual.</p></div>
+      <div class="card"><div class="card-icon ic">2</div><h4>Média fidelidade</h4><p>Quando a arquitetura estiver definida, simular telas com conteúdo realista, navegação, lista de notas, filtros e recuperação das marcações.</p></div>
+      <div class="card"><div class="card-icon ig">3</div><h4>Alta fidelidade</h4><p>Antes do lançamento, testar o produto quase final com tipografia, gestos, microinterações, sincronização e estados de erro/sucesso.</p></div>
+    </div>
+    <div class="callout anim anim-d4"><p><strong style="color:var(--text-primary);">Ponto para revisão:</strong> o tipo de protótipo muda conforme a pergunta. Ideia aberta pede baixa fidelidade; validação fina pede alta fidelidade.</p></div>
+  </div>
+
   <div class="slide section-divider" data-section="Aula 4">
     <div class="section-number">04</div>
     <div class="slide-tag anim anim-d1">Aula 4</div>
@@ -337,9 +376,9 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
     <div class="slide-tag anim anim-d1">Design Inclusivo</div>
     <div class="slide-title anim anim-d2" style="font-size:34px;">Acessibilidade também é <span class="hg">usabilidade</span></div>
     <div class="stats-row cards-grid cols-3 anim anim-d3">
-      <div class="card"><div class="card-icon ig">6,7%</div><h4>População brasileira</h4><p>O material cita cerca de 12 milhões de pessoas com algum tipo de deficiência segundo dados do IBGE.</p></div>
-      <div class="card"><div class="card-icon ir">0,74%</div><h4>Sites acessíveis</h4><p>Estudo do Movimento Web para Todos encontrou sucesso em todos os testes em uma minoria dos sites avaliados.</p></div>
-      <div class="card"><div class="card-icon it">Todos</div><h4>Benefício ampliado</h4><p>Limitações podem ser permanentes, temporárias ou situacionais. Acessibilidade melhora a experiência geral.</p></div>
+      <div class="card"><div class="card-icon ig">12 mi</div><h4>Pessoas com deficiência</h4><p>O material cita aproximadamente 12 milhões de pessoas no Brasil com algum tipo de deficiência segundo dados do IBGE.</p></div>
+      <div class="card"><div class="card-icon ir">&lt;1%</div><h4>Sites aprovados</h4><p>No estudo citado, menos de 1% dos sites brasileiros avaliados passou em todos os testes de acessibilidade aplicados.</p></div>
+      <div class="card"><div class="card-icon it">Todos</div><h4>Benefício ampliado</h4><p>Limitações podem ser permanentes, temporárias ou situacionais. Acessibilidade melhora a experiência de qualquer pessoa.</p></div>
     </div>
   </div>
 
@@ -387,6 +426,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
     </div>
   </div>
 
+  <div class="slide" data-section="Aula 4">
+    <div class="slide-tag anim anim-d1">Sugestão de Resolução</div>
+    <div class="slide-title anim anim-d2" style="font-size:34px;">Acessibilidade para <span class="hg">pessoas surdas</span></div>
+    <div class="cards-grid cols-3 anim anim-d3">
+      <div class="card"><div class="card-icon ig">CC</div><h4>Legendas completas</h4><p>Todo conteúdo em áudio ou vídeo deve ter legenda sincronizada, incluindo falas, identificação de quem fala e sons importantes.</p></div>
+      <div class="card"><div class="card-icon it">L</div><h4>LIBRAS</h4><p>Adicionar recurso de tradução para LIBRAS, como VLibras ou solução equivalente, especialmente em instruções, cardápio e fluxo de pedido.</p></div>
+      <div class="card"><div class="card-icon ia">UX</div><h4>Comunicação visual</h4><p>Evitar depender de áudio para alertas. Usar mensagens visuais claras, ícones, confirmação de pedido, status do preparo e suporte por chat/texto.</p></div>
+    </div>
+    <div class="callout anim anim-d4"><p><strong style="color:var(--text-primary);">Ponto para revisão:</strong> acessibilidade não é recurso separado. Ela precisa estar no fluxo principal para garantir autonomia.</p></div>
+  </div>
+
   <div class="slide" data-section="Encerramento">
     <div class="slide-tag anim anim-d1">Tutorial</div>
     <div class="slide-title anim anim-d2" style="font-size:34px;">Ciclo prático de <span class="ha">prototipação</span></div>
@@ -408,6 +458,17 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
       <div class="card"><div class="card-icon ia">2</div><h4>Teste inicial</h4><p>Defina o roteiro de teste com usuários e quais sinais observar.</p></div>
       <div class="card"><div class="card-icon ig">3</div><h4>Alta fidelidade</h4><p>Liste elementos interativos, microinterações e recomendações personalizadas a prototipar.</p></div>
     </div>
+  </div>
+
+  <div class="slide" data-section="Encerramento">
+    <div class="slide-tag anim anim-d1">Sugestão de Resolução</div>
+    <div class="slide-title anim anim-d2" style="font-size:34px;">Streaming: descobrir, testar e <span class="hi">personalizar</span></div>
+    <div class="cards-grid cols-3 anim anim-d3">
+      <div class="card"><div class="card-icon ic">1</div><h4>Protótipos iniciais</h4><p>Criar duas alternativas de navegação: uma por categorias/temas e outra por recomendações personalizadas na tela inicial.</p></div>
+      <div class="card"><div class="card-icon ia">2</div><h4>Teste com usuários</h4><p>Observar tarefas como encontrar um conteúdo novo, continuar algo iniciado e salvar uma recomendação. Registrar dúvidas, erros e tempo.</p></div>
+      <div class="card"><div class="card-icon ig">3</div><h4>Alta fidelidade</h4><p>Refinar cards, filtros, busca, microinterações de favoritar e algoritmo de recomendação prototipado com dados controlados.</p></div>
+    </div>
+    <div class="callout anim anim-d4"><p><strong style="color:var(--text-primary);">Ponto para revisão:</strong> personalização deve ajudar o usuário a decidir, não esconder caminhos. Sempre mantenha controle, busca e navegação clara.</p></div>
   </div>
 
   <div class="slide" data-section="Encerramento">
@@ -435,7 +496,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
   <div class="nav-section" id="navSection">Abertura</div>
   <div class="nav-progress">
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="current" id="navCounter">1 / 28</div>
+    <div class="current" id="navCounter">1 / 33</div>
   </div>
   <div class="nav-controls">
     <button class="nav-btn" onclick="prev()" title="Anterior (←)">◀</button>
@@ -447,6 +508,44 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg-primary);co
 const slides=document.querySelectorAll('.slide');
 const total=slides.length;
 let current=0;
+const SOLUTION_PASSWORD='famac2026';
+function setupSolutionLocks(){
+  slides.forEach((slide,idx)=>{
+    const tag=slide.querySelector('.slide-tag');
+    if(!tag||!tag.textContent.includes('Sugestão de Resolução'))return;
+    const unlocked=sessionStorage.getItem(`u3-solution-${idx}-unlocked`)==='true';
+    slide.classList.add('solution-slide');
+    if(!unlocked)slide.classList.add('locked');
+    const content=document.createElement('div');
+    content.className='solution-content';
+    while(slide.firstChild)content.appendChild(slide.firstChild);
+    const lock=document.createElement('div');
+    lock.className='solution-lock anim anim-d2';
+    lock.innerHTML=`
+      <div class="lock-icon">🔒</div>
+      <h3>Resolução bloqueada</h3>
+      <p>Use este slide depois que a turma concluir a atividade. A senha libera apenas esta sugestão de resolução nesta sessão.</p>
+      <div class="solution-form">
+        <input type="password" id="solution-pass-${idx}" placeholder="Senha do professor" autocomplete="off" onkeydown="if(event.key==='Enter')unlockSolutions(${idx})">
+        <button onclick="unlockSolutions(${idx})">Liberar</button>
+      </div>
+      <div class="solution-error" id="solution-error-${idx}"></div>
+    `;
+    slide.append(lock,content);
+  });
+}
+function unlockSolutions(idx){
+  const input=document.getElementById(`solution-pass-${idx}`);
+  const error=document.getElementById(`solution-error-${idx}`);
+  if(!input)return;
+  if(input.value===SOLUTION_PASSWORD){
+    sessionStorage.setItem(`u3-solution-${idx}-unlocked`,'true');
+    slides[idx].classList.remove('locked');
+  }else if(error){
+    error.textContent='Senha incorreta. Tente novamente.';
+    input.select();
+  }
+}
 function goTo(n){
   if(n<0||n>=total||n===current)return;
   const prevIdx=current;
@@ -458,6 +557,8 @@ function goTo(n){
   slides[current].scrollTop = 0;
   setTimeout(()=>slides[prevIdx].classList.remove('exit-left'),500);
   updateNav();
+  const pass=slides[current].querySelector('.solution-lock input');
+  if(pass&&slides[current].classList.contains('locked'))setTimeout(()=>pass.focus(),120);
 }
 function next(){goTo(current+1)}
 function prev(){goTo(current-1)}
@@ -530,6 +631,7 @@ function resetTimer(id,dur){
   el.textContent=fmt(dur);
   el.classList.remove('td-warn');
 }
+setupSolutionLocks();
 updateNav();
 </script>
 </body>
