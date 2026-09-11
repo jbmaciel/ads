@@ -16,6 +16,7 @@ Unidade2_Politica_Cultura_Seguranca_Slides.html    # Slides da Unidade 2 (Seg. A
 Unidade3_Componentes_Computador_Slides.html        # Slides da Unidade 3 (Arq. Computadores)
 Unidade4_Algebra_Booleana_Slides.html              # Slides da Unidade 4 (Arq. Computadores)
 Unidade1_Interface_Usabilidade_Slides.html         # Slides da Unidade 1 (Interface e Usabilidade)
+Unidade1_Introducao_Linguagem_Python_Slides.html   # Slides da Unidade 1 (Linguagem de Programacao)
 assets/                                            # Logos e imagens
 ```
 
@@ -78,6 +79,20 @@ assets/                                            # Logos e imagens
 - **Aula 4** — Heuristicas de Nielsen: 10 heuristicas com flash cards, principios Gestalt, atividade de analise
 - **Enquete ao Vivo** — QR code para votacao em tempo real com grafico de resultados (Firebase ou modo demo)
 - **`poll.html`** — Pagina mobile-first para os alunos votarem; suporta Firebase REST API e previne duplo voto (localStorage)
+
+### Linguagem de Programacao
+
+| Unidade | Tema | Slides |
+|---------|------|--------|
+| 1 | Introducao a Linguagem Python | 34 |
+
+**Conteudo da Unidade 1 (Linguagem de Programacao):**
+
+- **Aula 1** — A linguagem Python: historia, ferramentas e interpretadores (PyCharm, VSCode, Anaconda/Jupyter, Google Colab), variaveis, tipos de dados, entrada/saida e formatacao com f-string
+- **Aula 2** — Estruturas condicionais: operadores relacionais, operadores logicos (and, or, not) e estruturas if, elif e else
+- **Aula 3** — Estruturas de repeticao: for, while, a funcao range() e controle de fluxo com break e continue
+- **Aula 4** — Funcoes em Python: funcoes built-in, funcoes definidas pelo usuario (parametros e retorno) e expressoes lambda
+- **Encerramento** — Assimile (infografico-resumo), estudo de caso integrador (calculadora de desconto) e referencias
 
 ## Tutor
 
