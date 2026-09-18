@@ -45,125 +45,125 @@
 
   <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Sequências</div><div class="slide-title anim anim-d2" style="font-size:34px;">Coleções <span class="hi">ordenadas</span> e indexadas</div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">Os objetos do tipo sequência armazenam valores em uma ordem específica: o primeiro elemento fica na posição 0, e o último na posição n-1.</div><div class="kv-table anim anim-d4"><div class="kv-row"><code>x in s</code><span>True caso um item de s seja igual a x, senão false.</span></div><div class="kv-row"><code>s + t</code><span>Concatenação de s e t.</span></div><div class="kv-row"><code>n * s</code><span>Adiciona s a si mesmo n vezes.</span></div><div class="kv-row"><code>s[i]</code><span>Acessa o valor guardado na posição i da sequência.</span></div><div class="kv-row"><code>s[i:j]</code><span>Acessa os valores da posição i até j.</span></div><div class="kv-row"><code>s[i:j:k]</code><span>Acessa os valores da posição i até j, com passo k.</span></div><div class="kv-row"><code>len(s)</code><span>Comprimento de s.</span></div><div class="kv-row"><code>s.count(x)</code><span>Número total de ocorrências de x em s.</span></div></div></div>
 
-  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Strings e Listas</div><div class="slide-title anim anim-d2" style="font-size:34px;">Texto e coleções <span class="hi">mutáveis</span></div><div class="codebox anim anim-d3">texto = "Explorando a diversidade de linguagens de programação com Python."
+  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Strings e Listas</div><div class="slide-title anim anim-d2" style="font-size:34px;">Texto e coleções <span class="hi">mutáveis</span></div><div class="codebox anim anim-d3">texto = <span class="str">"Explorando a diversidade de linguagens de programação com Python."</span>
 
-print(f"Tamanho do texto = {len(texto)}")
-print(f"'Python' in texto = {'Python' in texto}")
-print(f"Quantidade de e no texto = {texto.count('e')}")
-print(f"As 5 primeiras letras são: {texto[:5]}")
+<span class="fn">print</span>(f"Tamanho do texto = {<span class="fn">len</span>(texto)}")
+<span class="fn">print</span>(f"'Python' in texto = {<span class="str">'Python'</span> <span class="kw">in</span> texto}")
+<span class="fn">print</span>(f"Quantidade de e no texto = {texto.<span class="fn">count</span>(<span class="str">'e'</span>)}")
+<span class="fn">print</span>(f"As 5 primeiras letras são: {texto[:5]}")
 <span class="c">#resultado</span>
 <span class="o">Tamanho do texto = 65
 'Python' in texto = True
 Quantidade de e no texto = 5
-As 5 primeiras letras são: Explo</span></div><div class="callout anim anim-d4"><p>Strings são objetos imutáveis: não é possível alterar seu conteúdo atribuindo um novo valor a uma posição específica. Já as listas são mutáveis — você pode adicionar, remover e alterar elementos, como no exemplo com a função <code>index()</code> a seguir.</p></div><div class="codebox anim anim-d4">cores = ['vermelho', 'azul', 'verde', 'amarelo', 'roxo']
+As 5 primeiras letras são: Explo</span></div><div class="callout anim anim-d4"><p>Strings são objetos imutáveis: não é possível alterar seu conteúdo atribuindo um novo valor a uma posição específica. Já as listas são mutáveis — você pode adicionar, remover e alterar elementos, como no exemplo com a função <code>index()</code> a seguir.</p></div><div class="codebox anim anim-d4">cores = [<span class="str">'vermelho'</span>, <span class="str">'azul'</span>, <span class="str">'verde'</span>, <span class="str">'amarelo'</span>, <span class="str">'roxo'</span>]
 
-for cor in cores:
-    print(f'Posição = {cores.index(cor)}, cor = {cor}')
+<span class="kw">for</span> cor <span class="kw">in</span> cores:
+    <span class="fn">print</span>(f'Posição = {cores.<span class="fn">index</span>(cor)}, cor = {cor}')
 <span class="c">#resultado</span>
 <span class="o">Posição = 0, cor = vermelho
 Posição = 1, cor = azul
 Posição = 2, cor = verde
 Posição = 3, cor = amarelo
-Posição = 4, cor = roxo</span></div></div>
+Posição = 4, cor = roxo</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
-  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">List Comprehensions</div><div class="slide-title anim anim-d2" style="font-size:34px;">Uma abordagem <span class="hi">pythônica</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">As listcomps são úteis quando você quer transformar ou filtrar as informações de uma sequência existente para construir uma nova sequência com as informações desejadas.</div><div class="codebox anim anim-d3">linguagens = ["Python", "Java", "JavaScript", "C", "C#", "C++", "Swift", "Go", "Kotlin"]
-print("Antes da listcomp = ", linguagens)
+  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">List Comprehensions</div><div class="slide-title anim anim-d2" style="font-size:34px;">Uma abordagem <span class="hi">pythônica</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">As listcomps são úteis quando você quer transformar ou filtrar as informações de uma sequência existente para construir uma nova sequência com as informações desejadas.</div><div class="codebox anim anim-d3">linguagens = [<span class="str">"Python"</span>, <span class="str">"Java"</span>, <span class="str">"JavaScript"</span>, <span class="str">"C"</span>, <span class="str">"C#"</span>, <span class="str">"C++"</span>, <span class="str">"Swift"</span>, <span class="str">"Go"</span>, <span class="str">"Kotlin"</span>]
+<span class="fn">print</span>(<span class="str">"Antes da listcomp = "</span>, linguagens)
 
-linguagens = [item.lower() for item in linguagens]
-print("\nDepois da listcomp = ", linguagens)
+linguagens = [item.<span class="fn">lower</span>() <span class="kw">for</span> item <span class="kw">in</span> linguagens]
+<span class="fn">print</span>(<span class="str">"\nDepois da listcomp = "</span>, linguagens)
 <span class="c">#resultado</span>
 <span class="o">Antes da listcomp =  ['Python', 'Java', 'JavaScript', 'C', 'C#', 'C++', 'Swift', 'Go', 'Kotlin']
-Depois da listcomp =  ['python', 'java', 'javascript', 'c', 'c#', 'c++', 'swift', 'go', 'kotlin']</span></div></div>
+Depois da listcomp =  ['python', 'java', 'javascript', 'c', 'c#', 'c++', 'swift', 'go', 'kotlin']</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">map() e filter()</div><div class="slide-title anim anim-d2" style="font-size:34px;">Transformar e <span class="hi">filtrar</span> iteráveis</div><div class="codebox anim anim-d3"><span class="c"># map() converte preços em dólares para reais</span>
 precos_em_dolares = [100, 50, 75, 120]
 taxa_de_cambio = 5.25
-precos_em_reais = list(map(lambda x: x * taxa_de_cambio, precos_em_dolares))
-print(precos_em_reais)
+precos_em_reais = <span class="fn">list</span>(<span class="fn">map</span>(<span class="kw">lambda</span> <span class="param">x</span>: <span class="param">x</span> * taxa_de_cambio, precos_em_dolares))
+<span class="fn">print</span>(precos_em_reais)
 <span class="o">#Resultado: [525.0, 262.5, 393.75, 630.0]</span></div><div class="codebox anim anim-d3"><span class="c"># filter() seleciona apenas os números pares</span>
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-numeros_pares = list(filter(lambda x: x % 2 == 0, numeros))
-print(numeros_pares)
-<span class="o">#Resultado: [2, 4, 6, 8, 10]</span></div></div>
+numeros_pares = <span class="fn">list</span>(<span class="fn">filter</span>(<span class="kw">lambda</span> <span class="param">x</span>: <span class="param">x</span> % 2 == 0, numeros))
+<span class="fn">print</span>(numeros_pares)
+<span class="o">#Resultado: [2, 4, 6, 8, 10]</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-amber)"></span>Parâmetro</div></div></div>
 
-  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Tuplas</div><div class="slide-title anim anim-d2" style="font-size:34px;">Sequências <span class="hi">imutáveis</span></div><div class="cards-grid cols-3 anim anim-d3"><div class="card"><div class="card-icon ic">1</div><h4>Tupla vazia</h4><p>Um par de parênteses: <code>tupla1 = ()</code></p></div><div class="card"><div class="card-icon it">2</div><h4>Elementos separados por vírgula</h4><p><code>tupla2 = ('a', 'b', 'c')</code></p></div><div class="card"><div class="card-icon ig">3</div><h4>Construtor de tipo</h4><p><code>tupla3 = tuple(iterável)</code></p></div></div><div class="codebox anim anim-d4">vogais = ('a', 'e', 'i', 'o', 'u')
-print(f"Tipo do objeto vogais = {type(vogais)}")
+  <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Tuplas</div><div class="slide-title anim anim-d2" style="font-size:34px;">Sequências <span class="hi">imutáveis</span></div><div class="cards-grid cols-3 anim anim-d3"><div class="card"><div class="card-icon ic">1</div><h4>Tupla vazia</h4><p>Um par de parênteses: <code>tupla1 = ()</code></p></div><div class="card"><div class="card-icon it">2</div><h4>Elementos separados por vírgula</h4><p><code>tupla2 = ('a', 'b', 'c')</code></p></div><div class="card"><div class="card-icon ig">3</div><h4>Construtor de tipo</h4><p><code>tupla3 = tuple(iterável)</code></p></div></div><div class="codebox anim anim-d4">vogais = (<span class="str">'a'</span>, <span class="str">'e'</span>, <span class="str">'i'</span>, <span class="str">'o'</span>, <span class="str">'u'</span>)
+<span class="fn">print</span>(f"Tipo do objeto vogais = {<span class="fn">type</span>(vogais)}")
 
-for p, x in enumerate(vogais):
-    print(f"Posição = {p}, valor = {x}")
+<span class="kw">for</span> p, x <span class="kw">in</span> <span class="fn">enumerate</span>(vogais):
+    <span class="fn">print</span>(f"Posição = {p}, valor = {x}")
 <span class="c">#Resultado:</span>
 <span class="o">Tipo do objeto vogais = &lt;class 'tuple'&gt;
 Posição = 0, valor = a
 Posição = 1, valor = e
 Posição = 2, valor = i
 Posição = 3, valor = o
-Posição = 4, valor = u</span></div></div>
+Posição = 4, valor = u</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide" data-section="Aula 1"><div class="activity-badge anim anim-d1">Atividade</div><div class="slide-title anim anim-d2" style="font-size:34px;">Confirmação de presença na festa</div><div class="scenario-box anim anim-d3"><div class="scenario-label">Desafio</div><p>Cada venda é registrada como uma tupla de convidados. Identifique, com uma lista, quais convidados ainda não confirmaram presença — comparando a tupla completa de convidados com a lista de quem já confirmou — e exiba lembretes para eles.</p></div><div class="cards-grid cols-3 anim anim-d4"><div class="card"><div class="card-icon ia">1</div><h4>Tupla</h4><p>Guarde todos os convidados em uma tupla imutável.</p></div><div class="card"><div class="card-icon ic">2</div><h4>Lista</h4><p>Guarde os confirmados em uma lista mutável.</p></div><div class="card"><div class="card-icon ig">3</div><h4>List comprehension</h4><p>Filtre quem está na tupla, mas não está na lista de confirmados.</p></div></div></div>
 
   <div class="slide" data-section="Aula 1"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Tupla, lista e list comprehension juntas</div><div class="codebox anim anim-d3"><span class="c"># Tupla de convidados</span>
-convidados = ("Alice", "Bob", "Carol", "David", "Eve")
+convidados = (<span class="str">"Alice"</span>, <span class="str">"Bob"</span>, <span class="str">"Carol"</span>, <span class="str">"David"</span>, <span class="str">"Eve"</span>)
 <span class="c"># Lista de confirmações</span>
-confirmados = ["Bob", "David"]
+confirmados = [<span class="str">"Bob"</span>, <span class="str">"David"</span>]
 <span class="c"># Identificar quem ainda não confirmou</span>
-nao_confirmados = [convidado for convidado in convidados if convidado not in confirmados]
+nao_confirmados = [convidado <span class="kw">for</span> convidado <span class="kw">in</span> convidados <span class="kw">if</span> convidado <span class="kw">not in</span> confirmados]
 <span class="c"># Exibir os convidados que ainda não confirmaram</span>
-print("Convidados que ainda não confirmaram:")
-for pessoa in nao_confirmados:
-    print(pessoa)
+<span class="fn">print</span>(<span class="str">"Convidados que ainda não confirmaram:"</span>)
+<span class="kw">for</span> pessoa <span class="kw">in</span> nao_confirmados:
+    <span class="fn">print</span>(pessoa)
 <span class="c"># Enviar lembretes aos não confirmados</span>
-print("\nEnviando lembretes para os convidados que ainda não confirmaram.")
+<span class="fn">print</span>(<span class="str">"\nEnviando lembretes para os convidados que ainda não confirmaram."</span>)
 <span class="c">#Resultado:</span>
 <span class="o">Convidados que ainda não confirmaram:
 Alice
 Carol
 Eve
-Enviando lembretes para os convidados que ainda não confirmaram.</span></div></div>
+Enviando lembretes para os convidados que ainda não confirmaram.</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide section-divider" data-section="Aula 2"><div class="section-number">02</div><div class="slide-tag anim anim-d1">Aula 2</div><div class="slide-title anim anim-d2">Estruturas de Dados<br>em <span class="ht">Python — Parte II</span></div><div class="slide-subtitle anim anim-d3">Conjuntos (set), dicionários (dict) e arrays da biblioteca NumPy.</div></div>
 
   <div class="slide" data-section="Aula 2"><div class="slide-tag anim anim-d1">Conjuntos (set)</div><div class="slide-title anim anim-d2" style="font-size:34px;">Coleções de itens <span class="ht">únicos</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">Um set habilita operações de conjuntos matemáticos, como união, interseção e diferença. É especialmente útil para testes de associação e para eliminar valores duplicados.</div><div class="codebox anim anim-d3"><span class="c"># Criando um conjunto vazio</span>
-meu_conjunto = set()
+meu_conjunto = <span class="fn">set</span>()
 <span class="c"># Adicionando elementos ao conjunto</span>
-meu_conjunto.add(10)
-meu_conjunto.add(20)
-meu_conjunto.add(30)
+meu_conjunto.<span class="fn">add</span>(10)
+meu_conjunto.<span class="fn">add</span>(20)
+meu_conjunto.<span class="fn">add</span>(30)
 <span class="c"># Verificando se um elemento está no conjunto</span>
 elemento = 20
-if elemento in meu_conjunto:
-    print(f"{elemento} está no conjunto.")
+<span class="kw">if</span> elemento <span class="kw">in</span> meu_conjunto:
+    <span class="fn">print</span>(f"{elemento} está no conjunto.")
 <span class="c"># Removendo um elemento do conjunto</span>
-meu_conjunto.remove(20)
-print("Conjunto após remover o elemento 20:", meu_conjunto)</div></div>
+meu_conjunto.<span class="fn">remove</span>(20)
+<span class="fn">print</span>(<span class="str">"Conjunto após remover o elemento 20:"</span>, meu_conjunto)</div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide" data-section="Aula 2"><div class="slide-tag anim anim-d1">Dicionários (dict)</div><div class="slide-title anim anim-d2" style="font-size:34px;">Objetos do tipo <span class="ht">mapping</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">Dicionários associam chaves a valores e são mutáveis: você pode modificar o valor de uma chave existente ou adicionar novas chaves.</div><div class="codebox anim anim-d3"><span class="c"># Quatro formas de criar o mesmo dicionário</span>
 dici_1 = {}
-dici_1['nome'] = "Maria"
-dici_1['idade'] = 25
+dici_1[<span class="str">'nome'</span>] = <span class="str">"Maria"</span>
+dici_1[<span class="str">'idade'</span>] = 25
 
-dici_2 = {'nome': 'Maria', 'idade': 25}
-dici_3 = dict([('nome', "Maria"), ('idade', 25)])
-dici_4 = dict(zip(['nome', 'idade'], ["Maria", 25]))
+dici_2 = {<span class="str">'nome'</span>: <span class="str">'Maria'</span>, <span class="str">'idade'</span>: 25}
+dici_3 = <span class="fn">dict</span>([(<span class="str">'nome'</span>, <span class="str">"Maria"</span>), (<span class="str">'idade'</span>, 25)])
+dici_4 = <span class="fn">dict</span>(<span class="fn">zip</span>([<span class="str">'nome'</span>, <span class="str">'idade'</span>], [<span class="str">"Maria"</span>, 25]))
 
-print(dici_1 == dici_2 == dici_3 == dici_4)
-<span class="o">#Resultado: True</span></div><div class="callout anim anim-d4"><p>Para acessar um valor, use <code>nome_dicionario[chave]</code>. Para atribuir um novo valor, use <code>nome_dicionario[chave] = novo_valor</code>.</p></div></div>
+<span class="fn">print</span>(dici_1 == dici_2 == dici_3 == dici_4)
+<span class="o">#Resultado: True</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div><div class="callout anim anim-d4"><p>Para acessar um valor, use <code>nome_dicionario[chave]</code>. Para atribuir um novo valor, use <code>nome_dicionario[chave] = novo_valor</code>.</p></div></div>
 
-  <div class="slide" data-section="Aula 2"><div class="slide-tag anim anim-d1">Arrays NumPy</div><div class="slide-title anim anim-d2" style="font-size:34px;">Computação científica <span class="ht">eficiente</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">O NumPy oferece arrays multidimensionais e funções sofisticadas para álgebra linear e cálculos numéricos. Instale com <code>pip install numpy</code> — no Anaconda e no Google Colab, já vem incluído.</div><div class="codebox anim anim-d3">import numpy as np
+  <div class="slide" data-section="Aula 2"><div class="slide-tag anim anim-d1">Arrays NumPy</div><div class="slide-title anim anim-d2" style="font-size:34px;">Computação científica <span class="ht">eficiente</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">O NumPy oferece arrays multidimensionais e funções sofisticadas para álgebra linear e cálculos numéricos. Instale com <code>pip install numpy</code> — no Anaconda e no Google Colab, já vem incluído.</div><div class="codebox anim anim-d3"><span class="kw">import</span> numpy <span class="kw">as</span> np
 
-my_array = np.array([1, 2, 3, 4, 5])
+my_array = np.<span class="fn">array</span>([1, 2, 3, 4, 5])
 squared_array = my_array ** 2
-sum_of_elements = np.sum(my_array)
+sum_of_elements = np.<span class="fn">sum</span>(my_array)
 element_at_index_2 = my_array[2]
 
-print("Array original:", my_array)
-print("Array ao quadrado:", squared_array)
-print("Soma dos elementos:", sum_of_elements)
-print("Elemento no índice 2:", element_at_index_2)
+<span class="fn">print</span>(<span class="str">"Array original:"</span>, my_array)
+<span class="fn">print</span>(<span class="str">"Array ao quadrado:"</span>, squared_array)
+<span class="fn">print</span>(<span class="str">"Soma dos elementos:"</span>, sum_of_elements)
+<span class="fn">print</span>(<span class="str">"Elemento no índice 2:"</span>, element_at_index_2)
 <span class="c">#resultado</span>
 <span class="o">Array original: [1 2 3 4 5]
 Array ao quadrado: [1 4 9 16 25]
 Soma dos elementos: 15
-Elemento no índice 2: 3</span></div></div>
+Elemento no índice 2: 3</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide" data-section="Aula 2"><div class="activity-badge anim anim-d1">Atividade</div><div class="slide-title anim anim-d2" style="font-size:34px;">Evento científico internacional</div><div class="scenario-box anim anim-d3"><div class="scenario-label">Desafio</div><p>Participantes de diferentes regiões se inscreveram em um evento científico, informando localização, afiliação e áreas de interesse. Use conjuntos para identificar as regiões, dicionários para categorizar as afiliações e arrays NumPy para analisar as áreas de interesse.</p></div><div class="cards-grid cols-3 anim anim-d4"><div class="card"><div class="card-icon ia">set</div><h4>Regiões</h4><p>Identifique as diferentes regiões sem repetição.</p></div><div class="card"><div class="card-icon ic">dict</div><h4>Afiliações</h4><p>Agrupe os nomes dos participantes por instituição.</p></div><div class="card"><div class="card-icon ig">NumPy</div><h4>Interesses</h4><p>Descubra a área de interesse mais popular.</p></div></div></div>
 
@@ -175,23 +175,23 @@ participantes = [
   {"nome": "Charlie", "localizacao": "Índia", "afiliacao": "Instituto C", "interesses": ["Química", "Engenharia"]}
 ]
 <span class="c"># Usando sets para identificar diferentes regiões</span>
-regioes = set(p["localizacao"] for p in participantes)
+regioes = <span class="fn">set</span>(p["localizacao"] <span class="kw">for</span> p <span class="kw">in</span> participantes)
 <span class="c"># Usando um dicionário para categorizar afiliações</span>
 afiliacoes = {}
-for p in participantes:
-    afiliacoes.setdefault(p["afiliacao"], []).append(p["nome"])
+<span class="kw">for</span> p <span class="kw">in</span> participantes:
+    afiliacoes.<span class="fn">setdefault</span>(p["afiliacao"], []).<span class="fn">append</span>(p["nome"])
 <span class="c"># Usando NumPy para achar a área de interesse mais popular</span>
-areas = np.array([i for p in participantes for i in p["interesses"]])
-unicas, contagem = np.unique(areas, return_counts=True)
-area_mais_popular = unicas[np.argmax(contagem)]
+areas = np.<span class="fn">array</span>([i <span class="kw">for</span> p <span class="kw">in</span> participantes <span class="kw">for</span> i <span class="kw">in</span> p["interesses"]])
+unicas, contagem = np.<span class="fn">unique</span>(areas, return_counts=True)
+area_mais_popular = unicas[np.<span class="fn">argmax</span>(contagem)]
 
-print("Regiões:", regioes)
-print("Afiliações:", afiliacoes)
-print("Área de interesse mais popular:", area_mais_popular)
+<span class="fn">print</span>(<span class="str">"Regiões:"</span>, regioes)
+<span class="fn">print</span>(<span class="str">"Afiliações:"</span>, afiliacoes)
+<span class="fn">print</span>(<span class="str">"Área de interesse mais popular:"</span>, area_mais_popular)
 <span class="c">#resultado</span>
 <span class="o">Regiões: {'Índia', 'EUA', 'Brasil'}
 Afiliações: {'Universidade A': ['Alice'], 'Instituto B': ['Bob'], 'Instituto C': ['Charlie']}
-Área de interesse mais popular: Astronomia</span></div></div>
+Área de interesse mais popular: Astronomia</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide section-divider" data-section="Aula 3"><div class="section-number">03</div><div class="slide-tag anim anim-d1">Aula 3</div><div class="slide-title anim anim-d2">Classes e Métodos<br>em <span class="ha">Python</span></div><div class="slide-subtitle anim anim-d3">Orientação a objetos, criação de classes, atributos, métodos e herança.</div></div>
 
@@ -221,137 +221,137 @@ Nova idade: 31</span></div><div class="code-legend anim anim-d4"><div class="cod
 
   <div class="slide" data-section="Aula 3"><div class="slide-tag anim anim-d1">Componentes das Classes</div><div class="slide-title anim anim-d2" style="font-size:34px;">Peças que <span class="ha">montam</span> um objeto</div><div class="cards-grid cols-3 anim anim-d3"><div class="card"><div class="card-icon ia">self</div><h4>Convenção self</h4><p>Refere-se à própria instância da classe dentro dos métodos.</p></div><div class="card"><div class="card-icon ic">init</div><h4>Construtor __init__</h4><p>Chamado quando um objeto é criado; inicializa os atributos da instância.</p></div><div class="card"><div class="card-icon ig">def</div><h4>Métodos</h4><p>Funções definidas dentro da classe, que descrevem comportamentos.</p></div></div><div class="callout anim anim-d4"><p>O construtor <code>__init__()</code> pode receber um valor diferente para cada objeto criado — nesse caso, definimos dois tipos de atributos: duas strings (nome e gênero) e um inteiro (idade).</p></div></div>
 
-  <div class="slide" data-section="Aula 3"><div class="slide-tag anim anim-d1">Herança em Python</div><div class="slide-title anim anim-d2" style="font-size:34px;">Classes-filhas herdam de <span class="ha">classes-pai</span></div><div class="codebox anim anim-d3">class ClasseFilha(ClassePai):
+  <div class="slide" data-section="Aula 3"><div class="slide-tag anim anim-d1">Herança em Python</div><div class="slide-title anim anim-d2" style="font-size:34px;">Classes-filhas herdam de <span class="ha">classes-pai</span></div><div class="codebox anim anim-d3"><span class="kw">class</span> <span class="cls">ClasseFilha</span>(<span class="cls">ClassePai</span>):
     <span class="c"># Definição da classe-filha</span>
 
-class ClasseFilha(ClassePai1, ClassePai2, ClassePai3):
-    <span class="c"># Herança múltipla</span></div><div class="codebox anim anim-d3">class Animal:
-    def __init__(self, nome):
-        self.nome = nome
-    def fazer_barulho(self):
-        pass
+<span class="kw">class</span> <span class="cls">ClasseFilha</span>(<span class="cls">ClassePai1</span>, <span class="cls">ClassePai2</span>, <span class="cls">ClassePai3</span>):
+    <span class="c"># Herança múltipla</span></div><div class="codebox anim anim-d3"><span class="kw">class</span> <span class="cls">Animal</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="slf">self</span>, <span class="param">nome</span>):
+        <span class="slf">self</span>.nome = <span class="param">nome</span>
+    <span class="kw">def</span> <span class="fn">fazer_barulho</span>(<span class="slf">self</span>):
+        <span class="kw">pass</span>
 
-class Cachorro(Animal):
-    def fazer_barulho(self):
-        return "Latir"
+<span class="kw">class</span> <span class="cls">Cachorro</span>(<span class="cls">Animal</span>):
+    <span class="kw">def</span> <span class="fn">fazer_barulho</span>(<span class="slf">self</span>):
+        <span class="kw">return</span> <span class="str">"Latir"</span>
 
-class Gato(Animal):
-    def fazer_barulho(self):
-        return "Miar"
+<span class="kw">class</span> <span class="cls">Gato</span>(<span class="cls">Animal</span>):
+    <span class="kw">def</span> <span class="fn">fazer_barulho</span>(<span class="slf">self</span>):
+        <span class="kw">return</span> <span class="str">"Miar"</span>
 
-rex = Cachorro("Rex")
-print(f"{rex.nome} faz: {rex.fazer_barulho()}")
-<span class="o">#Resultado: Rex faz: Latir</span></div><div class="callout anim anim-d4"><p>Reutilização de código, extensibilidade e hierarquia de classes são os três principais benefícios da herança em Python.</p></div></div>
+rex = <span class="cls">Cachorro</span>(<span class="str">"Rex"</span>)
+<span class="fn">print</span>(f"{rex.nome} faz: {rex.<span class="fn">fazer_barulho</span>()}")
+<span class="o">#Resultado: Rex faz: Latir</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-cyan)"></span>Classe</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-rose)"></span>self</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-amber)"></span>Parâmetro</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div><div class="callout anim anim-d4"><p>Reutilização de código, extensibilidade e hierarquia de classes são os três principais benefícios da herança em Python.</p></div></div>
 
   <div class="slide" data-section="Aula 3"><div class="activity-badge anim anim-d1">Atividade</div><div class="slide-title anim anim-d2" style="font-size:34px;">Frota de veículos com herança</div><div class="scenario-box anim anim-d3"><div class="scenario-label">Desafio</div><p>Crie a classe Veiculo com marca, modelo, ano e os métodos acelerar, frear e status. Depois, crie as classes-filhas Carro (com potência) e Bicicleta (com tipo), cada uma reutilizando e adaptando o comportamento da classe-pai.</p></div><div class="cards-grid cols-3 anim anim-d4"><div class="card"><div class="card-icon ia">Veiculo</div><h4>Classe-pai</h4><p>Atributos gerais e os métodos acelerar, frear e status.</p></div><div class="card"><div class="card-icon ic">Carro</div><h4>super().__init__()</h4><p>Herda de Veiculo e sobrescreve acelerar com a potência do motor.</p></div><div class="card"><div class="card-icon ig">Bicicleta</div><h4>Atributo extra</h4><p>Herda de Veiculo e sobrescreve status com o tipo da bicicleta.</p></div></div></div>
 
-  <div class="slide" data-section="Aula 3"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Veiculo, Carro e Bicicleta</div><div class="codebox anim anim-d3">class Veiculo:
-    def __init__(self, marca, modelo, ano):
-        self.marca = marca; self.modelo = modelo; self.ano = ano
-        self.velocidade = 0
-    def acelerar(self, incremento):
-        self.velocidade += incremento
-    def frear(self, decremento):
-        self.velocidade -= decremento
-    def status(self):
-        return f"Marca: {self.marca}, Modelo: {self.modelo}, Velocidade: {self.velocidade} km/h"
+  <div class="slide" data-section="Aula 3"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Veiculo, Carro e Bicicleta</div><div class="codebox anim anim-d3"><span class="kw">class</span> <span class="cls">Veiculo</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="slf">self</span>, <span class="param">marca</span>, <span class="param">modelo</span>, <span class="param">ano</span>):
+        <span class="slf">self</span>.marca = <span class="param">marca</span>; <span class="slf">self</span>.modelo = <span class="param">modelo</span>; <span class="slf">self</span>.ano = <span class="param">ano</span>
+        <span class="slf">self</span>.velocidade = 0
+    <span class="kw">def</span> <span class="fn">acelerar</span>(<span class="slf">self</span>, <span class="param">incremento</span>):
+        <span class="slf">self</span>.velocidade += <span class="param">incremento</span>
+    <span class="kw">def</span> <span class="fn">frear</span>(<span class="slf">self</span>, <span class="param">decremento</span>):
+        <span class="slf">self</span>.velocidade -= <span class="param">decremento</span>
+    <span class="kw">def</span> <span class="fn">status</span>(<span class="slf">self</span>):
+        <span class="kw">return</span> f"Marca: {self.marca}, Modelo: {self.modelo}, Velocidade: {self.velocidade} km/h"
 
-class Carro(Veiculo):
-    def __init__(self, marca, modelo, ano, potencia):
-        super().__init__(marca, modelo, ano)
-        self.potencia = potencia
-    def acelerar(self, incremento):
+<span class="kw">class</span> <span class="cls">Carro</span>(<span class="cls">Veiculo</span>):
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="slf">self</span>, <span class="param">marca</span>, <span class="param">modelo</span>, <span class="param">ano</span>, <span class="param">potencia</span>):
+        <span class="fn">super</span>().<span class="fn">__init__</span>(<span class="param">marca</span>, <span class="param">modelo</span>, <span class="param">ano</span>)
+        <span class="slf">self</span>.potencia = <span class="param">potencia</span>
+    <span class="kw">def</span> <span class="fn">acelerar</span>(<span class="slf">self</span>, <span class="param">incremento</span>):
         <span class="c"># Carros podem acelerar mais rápido</span>
-        self.velocidade += incremento + self.potencia
+        <span class="slf">self</span>.velocidade += <span class="param">incremento</span> + <span class="slf">self</span>.potencia
 
-class Bicicleta(Veiculo):
-    def __init__(self, marca, modelo, ano, tipo):
-        super().__init__(marca, modelo, ano)
-        self.tipo = tipo
+<span class="kw">class</span> <span class="cls">Bicicleta</span>(<span class="cls">Veiculo</span>):
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="slf">self</span>, <span class="param">marca</span>, <span class="param">modelo</span>, <span class="param">ano</span>, <span class="param">tipo</span>):
+        <span class="fn">super</span>().<span class="fn">__init__</span>(<span class="param">marca</span>, <span class="param">modelo</span>, <span class="param">ano</span>)
+        <span class="slf">self</span>.tipo = <span class="param">tipo</span>
 
-carro1 = Carro("Toyota", "Corolla", 2022, 150)
-bicicleta1 = Bicicleta("Trek", "Mountain Bike", 2021, "MTB")
-carro1.acelerar(50)
-bicicleta1.acelerar(20)
-print(carro1.status())
-print(bicicleta1.status())
+carro1 = <span class="cls">Carro</span>(<span class="str">"Toyota"</span>, <span class="str">"Corolla"</span>, 2022, 150)
+bicicleta1 = <span class="cls">Bicicleta</span>(<span class="str">"Trek"</span>, <span class="str">"Mountain Bike"</span>, 2021, <span class="str">"MTB"</span>)
+carro1.<span class="fn">acelerar</span>(50)
+bicicleta1.<span class="fn">acelerar</span>(20)
+<span class="fn">print</span>(carro1.<span class="fn">status</span>())
+<span class="fn">print</span>(bicicleta1.<span class="fn">status</span>())
 <span class="c">#resultado</span>
 <span class="o">Marca: Toyota, Modelo: Corolla, Velocidade: 200 km/h
-Marca: Trek, Modelo: Mountain Bike, Velocidade: 20 km/h</span></div></div>
+Marca: Trek, Modelo: Mountain Bike, Velocidade: 20 km/h</span></div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-cyan)"></span>Classe</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-rose)"></span>self</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-amber)"></span>Parâmetro</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide section-divider" data-section="Aula 4"><div class="section-number">04</div><div class="slide-tag anim anim-d1">Aula 4</div><div class="slide-title anim anim-d2">Bibliotecas e<br><span class="hp">Módulos em Python</span></div><div class="slide-subtitle anim anim-d3">Módulos built-in, de terceiros e próprios, além da biblioteca Matplotlib.</div></div>
 
   <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Módulos em Python</div><div class="slide-title anim anim-d2" style="font-size:34px;">Bibliotecas de funções <span class="hp">reutilizáveis</span></div><div class="slide-subtitle anim anim-d3" style="font-size:15px;">Módulos são componentes de código que servem como conjuntos de funções, facilitando a organização e a reutilização em várias aplicações. Um módulo pode ser considerado uma biblioteca de códigos.</div><div class="codebox anim anim-d3"><span class="c">#primeiro modo — importa tudo</span>
-import math
-math.sqrt(25)
+<span class="kw">import</span> math
+math.<span class="fn">sqrt</span>(25)
 
 <span class="c">#segundo modo — com apelido</span>
-import math as m
-m.sqrt(25)
+<span class="kw">import</span> math <span class="kw">as</span> m
+m.<span class="fn">sqrt</span>(25)
 
 <span class="c">#terceiro modo — importa funções específicas</span>
-from math import sqrt, log2, cos
-sqrt(25)</div></div>
+<span class="kw">from</span> math <span class="kw">import</span> <span class="fn">sqrt</span>, log2, cos
+<span class="fn">sqrt</span>(25)</div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div></div></div>
 
   <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Classificação dos Módulos</div><div class="slide-title anim anim-d2" style="font-size:34px;">Built-in, de <span class="hp">terceiros</span> e próprios</div><div class="cards-grid cols-3 anim anim-d3"><div class="card"><div class="card-icon ic">1</div><h4>Built-in</h4><p>Embutidos no interpretador, sem instalação adicional. Exemplos: math, os, random, datetime, re.</p></div><div class="card"><div class="card-icon it">2</div><h4>De terceiros</h4><p>Criados por desenvolvedores externos e disponibilizados via PyPI. Instalação com <code>pip install</code>. Exemplos: NumPy, pandas, Matplotlib.</p></div><div class="card"><div class="card-icon ig">3</div><h4>Próprios</h4><p>Criados pelo desenvolvedor para organizar e reutilizar seu próprio código em arquivos .py.</p></div></div><div class="callout anim anim-d4"><p>Um arquivo <code>requirements.txt</code> facilita a instalação de todas as dependências de terceiros com um único comando pip, e ambientes virtuais evitam conflitos entre versões de módulos diferentes.</p></div></div>
 
-  <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Matplotlib</div><div class="slide-title anim anim-d2" style="font-size:34px;">A biblioteca de <span class="hp">visualização</span> mais popular</div><div class="codebox anim anim-d3">import matplotlib.pyplot as plt
+  <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Matplotlib</div><div class="slide-title anim anim-d2" style="font-size:34px;">A biblioteca de <span class="hp">visualização</span> mais popular</div><div class="codebox anim anim-d3"><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
 
 x = [1, 2, 3, 4, 5]
 y = [2, 4, 1, 3, 5]
 
-plt.plot(x, y)
-plt.xlabel('Eixo X')
-plt.ylabel('Eixo Y')
-plt.title('Exemplo de Gráfico de Linha')
-plt.show()</div><div class="callout anim anim-d4"><p>Instale com <code>pip install matplotlib</code>. O módulo <code>pyplot</code>, importado com o apelido <code>plt</code>, fornece uma interface de alto nível para criar e personalizar gráficos de forma conveniente.</p></div></div>
+plt.<span class="fn">plot</span>(x, y)
+plt.<span class="fn">xlabel</span>(<span class="str">'Eixo X'</span>)
+plt.<span class="fn">ylabel</span>(<span class="str">'Eixo Y'</span>)
+plt.<span class="fn">title</span>(<span class="str">'Exemplo de Gráfico de Linha'</span>)
+plt.<span class="fn">show</span>()</div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div><div class="callout anim anim-d4"><p>Instale com <code>pip install matplotlib</code>. O módulo <code>pyplot</code>, importado com o apelido <code>plt</code>, fornece uma interface de alto nível para criar e personalizar gráficos de forma conveniente.</p></div></div>
 
   <div class="slide" data-section="Aula 4"><div class="activity-badge anim anim-d1">Atividade</div><div class="slide-title anim anim-d2" style="font-size:34px;">Vendas mensais em gráfico de barras</div><div class="scenario-box anim anim-d3"><div class="scenario-label">Desafio</div><p>Você precisa visualizar a contagem de vendas de um produto hipotético ao longo de cinco meses. Use o Matplotlib para construir um gráfico de barras com rótulos nos eixos e um título.</p></div><div class="cards-grid cols-3 anim anim-d4"><div class="card"><div class="card-icon ia">plt.bar</div><h4>Gráfico de barras</h4><p>Passe os meses e as vendas para plt.bar().</p></div><div class="card"><div class="card-icon ic">xlabel/ylabel</div><h4>Rótulos</h4><p>Identifique os eixos Mês e Vendas.</p></div><div class="card"><div class="card-icon ig">title</div><h4>Título</h4><p>Dê um nome ao gráfico com plt.title().</p></div></div></div>
 
-  <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Gráfico de barras com Matplotlib</div><div class="codebox anim anim-d3">import matplotlib.pyplot as plt
+  <div class="slide" data-section="Aula 4"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Gráfico de barras com Matplotlib</div><div class="codebox anim anim-d3"><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
 <span class="c"># Dados de exemplo</span>
-meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio']
+meses = [<span class="str">'Janeiro'</span>, <span class="str">'Fevereiro'</span>, <span class="str">'Março'</span>, <span class="str">'Abril'</span>, <span class="str">'Maio'</span>]
 vendas = [120, 90, 150, 80, 200]
 <span class="c"># Criar um gráfico de barras</span>
-plt.bar(meses, vendas, color='royalblue')
+plt.<span class="fn">bar</span>(meses, vendas, color=<span class="str">'royalblue'</span>)
 <span class="c"># Adicionar rótulos aos eixos</span>
-plt.xlabel('Mês')
-plt.ylabel('Vendas (em unidades)')
+plt.<span class="fn">xlabel</span>(<span class="str">'Mês'</span>)
+plt.<span class="fn">ylabel</span>(<span class="str">'Vendas (em unidades)'</span>)
 <span class="c"># Adicionar um título ao gráfico</span>
-plt.title('Vendas Mensais')
+plt.<span class="fn">title</span>(<span class="str">'Vendas Mensais'</span>)
 <span class="c"># Mostrar o gráfico</span>
-plt.show()</div><div class="callout anim anim-d4"><p>O gráfico resultante mostra o mês de Maio com o maior volume de vendas (200 unidades) e Abril com o menor (80 unidades) — um retrato imediato do desempenho ao longo do período.</p></div></div>
+plt.<span class="fn">show</span>()</div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div><div class="callout anim anim-d4"><p>O gráfico resultante mostra o mês de Maio com o maior volume de vendas (200 unidades) e Abril com o menor (80 unidades) — um retrato imediato do desempenho ao longo do período.</p></div></div>
 
   <div class="slide" data-section="Encerramento"><div class="slide-tag anim anim-d1">Assimile</div><div class="slide-title anim anim-d2" style="font-size:34px;">Um mapa da <span class="hi">Unidade 2</span></div><div class="flow anim anim-d3"><div class="flow-step"><strong>1 · Estruturas de Dados I</strong><span>Uma linguagem orientada a objetos; sequência, listas e tuplas.</span></div><div class="flow-step"><strong>2 · Estruturas de Dados II</strong><span>Avançando em objetos como set, dict e arrays NumPy.</span></div><div class="flow-step"><strong>3 · Classes e Métodos</strong><span>Sintaxe da construção de classes e reutilização via herança.</span></div><div class="flow-step"><strong>4 · Bibliotecas e Módulos</strong><span>Aproveitar ferramentas prontas, módulos e bibliotecas em Python.</span></div></div><div class="callout anim anim-d4"><p>Ao longo desta unidade, você conectou os tipos de objetos em Python com a construção de scripts e aprendeu o conceito de classe e sua importância para um código bem estruturado, reutilizável e modificável.</p></div></div>
 
   <div class="slide" data-section="Encerramento"><div class="activity-badge anim anim-d1">É Hora de Praticar</div><div class="slide-title anim anim-d2" style="font-size:34px;">Sistema de catalogação de livros</div><div class="scenario-box anim anim-d3"><div class="scenario-label">Problema integrador</div><p>Você está desenvolvendo um programa para gerenciar informações sobre livros em uma biblioteca e contar quantos livros existem por ano de publicação. Como aplicar estruturas de dados, classes e bibliotecas para resolver esse problema?</p></div><div class="cards-grid cols-2 anim anim-d4"><div class="card"><div class="card-icon ia">1</div><h4>Modelagem</h4><p>Como criar uma classe Livro e uma lista para representar a biblioteca?</p></div><div class="card"><div class="card-icon ic">2</div><h4>Visualização</h4><p>Como usar um conjunto e o Matplotlib para contar e exibir livros por ano?</p></div></div></div>
 
-  <div class="slide" data-section="Encerramento"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Classe Livro, lista e gráfico</div><div class="codebox anim anim-d3">import matplotlib.pyplot as plt
+  <div class="slide" data-section="Encerramento"><div class="slide-tag anim anim-d1">Sugestão de Resolução</div><div class="slide-title anim anim-d2" style="font-size:34px;">Classe Livro, lista e gráfico</div><div class="codebox anim anim-d3"><span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
 
-class Livro:
-    def __init__(self, titulo, autor, ano_publicacao):
-        self.titulo = titulo; self.autor = autor; self.ano_publicacao = ano_publicacao
-    def __str__(self):
-        return f"{self.titulo} por {self.autor}, Publicado em {self.ano_publicacao}"
+<span class="kw">class</span> <span class="cls">Livro</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="slf">self</span>, <span class="param">titulo</span>, <span class="param">autor</span>, <span class="param">ano_publicacao</span>):
+        <span class="slf">self</span>.titulo = <span class="param">titulo</span>; <span class="slf">self</span>.autor = <span class="param">autor</span>; <span class="slf">self</span>.ano_publicacao = <span class="param">ano_publicacao</span>
+    <span class="kw">def</span> <span class="fn">__str__</span>(<span class="slf">self</span>):
+        <span class="kw">return</span> f"{self.titulo} por {self.autor}, Publicado em {self.ano_publicacao}"
 
 biblioteca = []
-def adicionar_livro(titulo, autor, ano_publicacao):
-    biblioteca.append(Livro(titulo, autor, ano_publicacao))
-    print(f"'{titulo}' foi adicionado à biblioteca.")
+<span class="kw">def</span> <span class="fn">adicionar_livro</span>(<span class="param">titulo</span>, <span class="param">autor</span>, <span class="param">ano_publicacao</span>):
+    biblioteca.<span class="fn">append</span>(<span class="cls">Livro</span>(<span class="param">titulo</span>, <span class="param">autor</span>, <span class="param">ano_publicacao</span>))
+    <span class="fn">print</span>(f"'{titulo}' foi adicionado à biblioteca.")
 
-adicionar_livro("Dom Quixote", "Miguel de Cervantes", 1605)
-adicionar_livro("1984", "George Orwell", 1949)
-adicionar_livro("Cem Anos de Solidão", "Gabriel Garcia Marquez", 1967)
+<span class="fn">adicionar_livro</span>(<span class="str">"Dom Quixote"</span>, <span class="str">"Miguel de Cervantes"</span>, 1605)
+<span class="fn">adicionar_livro</span>(<span class="str">"1984"</span>, <span class="str">"George Orwell"</span>, 1949)
+<span class="fn">adicionar_livro</span>(<span class="str">"Cem Anos de Solidão"</span>, <span class="str">"Gabriel Garcia Marquez"</span>, 1967)
 
-for livro in biblioteca:
-    print(livro)
+<span class="kw">for</span> livro <span class="kw">in</span> biblioteca:
+    <span class="fn">print</span>(livro)
 <span class="c"># Gráfico de livros por ano</span>
-anos = sorted(set(l.ano_publicacao for l in biblioteca))
-contagem_por_ano = [1 for _ in anos]
-plt.plot(anos, contagem_por_ano, marker='o', linestyle='-')
-plt.xlabel('Ano de Publicação'); plt.ylabel('Número de Livros')
-plt.title('Distribuição de Livros na Biblioteca por Ano')
-plt.show()</div></div>
+anos = <span class="fn">sorted</span>(<span class="fn">set</span>(l.ano_publicacao <span class="kw">for</span> l <span class="kw">in</span> biblioteca))
+contagem_por_ano = [1 <span class="kw">for</span> _ <span class="kw">in</span> anos]
+plt.<span class="fn">plot</span>(anos, contagem_por_ano, marker=<span class="str">'o'</span>, linestyle=<span class="str">'-'</span>)
+plt.<span class="fn">xlabel</span>(<span class="str">'Ano de Publicação'</span>); plt.<span class="fn">ylabel</span>(<span class="str">'Número de Livros'</span>)
+plt.<span class="fn">title</span>(<span class="str">'Distribuição de Livros na Biblioteca por Ano'</span>)
+plt.<span class="fn">show</span>()</div><div class="code-legend anim anim-d4"><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-purple)"></span>Palavra-chave</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-cyan)"></span>Classe</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-blue)"></span>Função / método</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-rose)"></span>self</div><div class="code-legend-item"><span class="code-legend-dot" style="background:var(--accent-amber)"></span>Parâmetro</div><div class="code-legend-item"><span class="code-legend-dot" style="background:#86efac"></span>String</div></div></div>
 
   <div class="slide" data-section="Encerramento"><div class="slide-tag anim anim-d1">Reflita</div><div class="slide-title anim anim-d2" style="font-size:34px;">Para consolidar o aprendizado</div><div class="checklist anim anim-d3"><div class="check-item"><div class="marker">1</div><p>Como as estruturas de dados em Python podem ser usadas para tomar decisões em programas de forma correta?</p></div><div class="check-item"><div class="marker">2</div><p>Qual é a importância de reutilizar e modificar classes para otimizar códigos em Python?</p></div><div class="check-item"><div class="marker">3</div><p>Como você pode aplicar o conhecimento das estruturas de dados e das bibliotecas do Python para resolver problemas complexos em sua trajetória acadêmica e profissional?</p></div></div></div>
 
