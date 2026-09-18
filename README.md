@@ -17,6 +17,8 @@ Unidade3_Componentes_Computador_Slides.html        # Slides da Unidade 3 (Arq. C
 Unidade4_Algebra_Booleana_Slides.html              # Slides da Unidade 4 (Arq. Computadores)
 Unidade1_Interface_Usabilidade_Slides.html         # Slides da Unidade 1 (Interface e Usabilidade)
 Unidade1_Introducao_Linguagem_Python_Slides.html   # Slides da Unidade 1 (Linguagem de Programacao)
+Unidade2_Explorando_Recursos_Python_Slides.html    # Slides da Unidade 2 (Linguagem de Programacao)
+Unidade3_Introducao_Analise_Dados_Python_Slides.html # Slides da Unidade 3 (Linguagem de Programacao)
 assets/                                            # Logos e imagens
 ```
 
@@ -85,6 +87,8 @@ assets/                                            # Logos e imagens
 | Unidade | Tema | Slides |
 |---------|------|--------|
 | 1 | Introducao a Linguagem Python | 34 |
+| 2 | Explorando Recursos do Python | 35 |
+| 3 | Introducao a Analise de Dados com Python | 34 |
 
 **Conteudo da Unidade 1 (Linguagem de Programacao):**
 
@@ -93,6 +97,22 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Estruturas de repeticao: for, while, a funcao range() e controle de fluxo com break e continue
 - **Aula 4** — Funcoes em Python: funcoes built-in, funcoes definidas pelo usuario (parametros e retorno) e expressoes lambda
 - **Encerramento** — Assimile (infografico-resumo), estudo de caso integrador (calculadora de desconto) e referencias
+
+**Conteudo da Unidade 2 (Linguagem de Programacao):**
+
+- **Aula 1** — Estruturas de dados I: sequencias, strings, listas, list comprehensions e as funcoes map() e filter()
+- **Aula 2** — Estruturas de dados II: conjuntos (set), dicionarios (dict) e arrays da biblioteca NumPy
+- **Aula 3** — Classes e metodos: orientacao a objetos, criacao de classes, atributos, metodos e heranca
+- **Aula 4** — Bibliotecas e modulos: modulos built-in, de terceiros e proprios, e a biblioteca Matplotlib
+- **Encerramento** — Assimile, estudo de caso integrador (catalogacao de livros) e referencias
+
+**Conteudo da Unidade 3 (Linguagem de Programacao):**
+
+- **Aula 1** — Aplicacao de banco de dados com Python: SQL (DDL/DML/DCL), conexao com SGBD e o modelo CRUD com sqlite3
+- **Aula 2** — Introducao a biblioteca pandas: DataFrames, Series e leitura de dados estruturados (read_html)
+- **Aula 3** — Manipulacao de dados em pandas: metodos de leitura/escrita, captura, transformacao e extracao de informacoes
+- **Aula 4** — Visualizacao de dados: Matplotlib, o metodo plot() do pandas e a biblioteca Seaborn
+- **Encerramento** — Assimile, estudo de caso integrador (cadastro de funcionarios em SQLite) e referencias
 
 ## Tutor
 
