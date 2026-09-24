@@ -19,6 +19,7 @@ Unidade1_Interface_Usabilidade_Slides.html         # Slides da Unidade 1 (Interf
 Unidade1_Introducao_Linguagem_Python_Slides.html   # Slides da Unidade 1 (Linguagem de Programacao)
 Unidade2_Explorando_Recursos_Python_Slides.html    # Slides da Unidade 2 (Linguagem de Programacao)
 Unidade3_Introducao_Analise_Dados_Python_Slides.html # Slides da Unidade 3 (Linguagem de Programacao)
+Unidade4_Aplicacoes_Python_Slides.html             # Slides da Unidade 4 (Linguagem de Programacao)
 assets/                                            # Logos e imagens
 ```
 
@@ -89,6 +90,7 @@ assets/                                            # Logos e imagens
 | 1 | Introducao a Linguagem Python | 34 |
 | 2 | Explorando Recursos do Python | 35 |
 | 3 | Introducao a Analise de Dados com Python | 34 |
+| 4 | Aplicacoes com Python | 32 |
 
 **Conteudo da Unidade 1 (Linguagem de Programacao):**
 
@@ -113,6 +115,14 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Manipulacao de dados em pandas: metodos de leitura/escrita, captura, transformacao e extracao de informacoes
 - **Aula 4** — Visualizacao de dados: Matplotlib, o metodo plot() do pandas e a biblioteca Seaborn
 - **Encerramento** — Assimile, estudo de caso integrador (cadastro de funcionarios em SQLite) e referencias
+
+**Conteudo da Unidade 4 (Linguagem de Programacao):**
+
+- **Aula 1** — Programacao web: front-end vs back-end, geracao de HTML com Python, servidor Flask com ngrok e estilizacao com CSS
+- **Aula 2** — Programacao mobile: Kivy e KivyMD, Material Design, MDTabs e um aplicativo de calculadora
+- **Aula 3** — Testes com Python: assertions, doctests e o modulo unittest
+- **Aula 4** — Machine learning: aprendizado supervisionado/nao supervisionado/por reforco e a biblioteca TensorFlow
+- **Encerramento** — Assimile, estudo de caso integrador (classificador de digitos MNIST) e referencias
 
 ## Tutor
 
