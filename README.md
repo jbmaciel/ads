@@ -20,6 +20,7 @@ Unidade1_Introducao_Linguagem_Python_Slides.html   # Slides da Unidade 1 (Lingua
 Unidade2_Explorando_Recursos_Python_Slides.html    # Slides da Unidade 2 (Linguagem de Programacao)
 Unidade3_Introducao_Analise_Dados_Python_Slides.html # Slides da Unidade 3 (Linguagem de Programacao)
 Unidade4_Aplicacoes_Python_Slides.html             # Slides da Unidade 4 (Linguagem de Programacao)
+Unidade1_Explorando_Logica_Matematica_Slides.html  # Slides da Unidade 1 (Logica e Matematica Computacional)
 assets/                                            # Logos e imagens
 ```
 
@@ -123,6 +124,20 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Testes com Python: assertions, doctests e o modulo unittest
 - **Aula 4** — Machine learning: aprendizado supervisionado/nao supervisionado/por reforco e a biblioteca TensorFlow
 - **Encerramento** — Assimile, estudo de caso integrador (classificador de digitos MNIST) e referencias
+
+### Logica e Matematica Computacional
+
+| Unidade | Tema | Slides |
+|---------|------|--------|
+| 1 | Explorando a Logica Matematica | 33 |
+
+**Conteudo da Unidade 1 (Logica e Matematica Computacional):**
+
+- **Aula 1** — Fundamentos da logica matematica: proposicoes, premissas, argumentos, conectivos logicos e os raciocinios dedutivo e indutivo
+- **Aula 2** — Arranjos: arranjos simples e com repeticao, formulas A(n,p) e AR(n,p)
+- **Aula 3** — Permutacoes: formula P(n) = n! e exemplos de aplicacao
+- **Aula 4** — Combinacoes: formula C(n,k), diferenca entre combinacao, arranjo e permutacao
+- **Encerramento** — Assimile (infografico-resumo), estudo de caso integrador (torneio de xadrez) e referencias
 
 ## Tutor
 
