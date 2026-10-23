@@ -130,6 +130,7 @@ assets/                                            # Logos e imagens
 | Unidade | Tema | Slides |
 |---------|------|--------|
 | 1 | Explorando a Logica Matematica | 33 |
+| 2 | Algebra de Conjuntos | 39 |
 
 **Conteudo da Unidade 1 (Logica e Matematica Computacional):**
 
@@ -138,6 +139,14 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Permutacoes: formula P(n) = n! e exemplos de aplicacao
 - **Aula 4** — Combinacoes: formula C(n,k), diferenca entre combinacao, arranjo e permutacao
 - **Encerramento** — Assimile (infografico-resumo), estudo de caso integrador (torneio de xadrez) e referencias
+
+**Conteudo da Unidade 2 (Logica e Matematica Computacional):**
+
+- **Aula 1** — Introducao a algebra de conjuntos: definicao, notacao e as operacoes uniao, intersecao, diferenca e diferenca simetrica
+- **Aula 2** — Teoria dos conjuntos: diagramas de Venn, cardinalidade, conjuntos numericos, quantificadores e subconjuntos
+- **Aula 3** — Algebra de conjuntos na pratica: uniao e intersecao com diagramas, problemas de contagem com conjuntos
+- **Aula 4** — Aplicacoes: complemento, diferenca simetrica, produto cartesiano e relacoes arbitrarias entre conjuntos
+- **Encerramento** — Assimile, estudo de caso integrador (planejamento financeiro com conjuntos numericos) e referencias
 
 ## Tutor
 
