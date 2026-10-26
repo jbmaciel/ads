@@ -21,6 +21,9 @@ Unidade2_Explorando_Recursos_Python_Slides.html    # Slides da Unidade 2 (Lingua
 Unidade3_Introducao_Analise_Dados_Python_Slides.html # Slides da Unidade 3 (Linguagem de Programacao)
 Unidade4_Aplicacoes_Python_Slides.html             # Slides da Unidade 4 (Linguagem de Programacao)
 Unidade1_Explorando_Logica_Matematica_Slides.html  # Slides da Unidade 1 (Logica e Matematica Computacional)
+Unidade2_Algebra_Conjuntos_Slides.html             # Slides da Unidade 2 (Logica e Matematica Computacional)
+Unidade3_Fundamentos_Logica_Slides.html            # Slides da Unidade 3 (Logica e Matematica Computacional)
+Unidade4_Tabela_Verdade_Slides.html                # Slides da Unidade 4 (Logica e Matematica Computacional)
 assets/                                            # Logos e imagens
 ```
 
@@ -131,6 +134,8 @@ assets/                                            # Logos e imagens
 |---------|------|--------|
 | 1 | Explorando a Logica Matematica | 33 |
 | 2 | Algebra de Conjuntos | 39 |
+| 3 | Fundamentos da Logica | 32 |
+| 4 | Tabela Verdade | 33 |
 
 **Conteudo da Unidade 1 (Logica e Matematica Computacional):**
 
@@ -147,6 +152,22 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Algebra de conjuntos na pratica: uniao e intersecao com diagramas, problemas de contagem com conjuntos
 - **Aula 4** — Aplicacoes: complemento, diferenca simetrica, produto cartesiano e relacoes arbitrarias entre conjuntos
 - **Encerramento** — Assimile, estudo de caso integrador (planejamento financeiro com conjuntos numericos) e referencias
+
+**Conteudo da Unidade 3 (Logica e Matematica Computacional):**
+
+- **Aula 1** — Introducao a logica proposicional: argumentos, proposicoes, principios da logica e silogismos
+- **Aula 2** — Conectivos e classificacao textual: formulas bem-formadas (fbf), ordem de precedencia e valoracao passo a passo
+- **Aula 3** — Metodos dedutivos: validade dedutiva, tautologia e sequencias de demonstracao
+- **Aula 4** — Inferencia logica: regras de equivalencia (comutatividade, De Morgan, etc.) e regras de inferencia (Modus Ponens, Modus Tollens, Silogismo Hipotetico)
+- **Encerramento** — Assimile, estudo de caso integrador (sistema de aprovacao de emprestimos) e referencias
+
+**Conteudo da Unidade 4 (Logica e Matematica Computacional):**
+
+- **Aula 1** — Fundamentos da tabela verdade: definicao, proposicoes intermediarias e a Lei de De Morgan
+- **Aula 2** — Construcao da tabela verdade: conjuncao (AND), disjuncao (OR) e negacao
+- **Aula 3** — Resultados da tabela verdade: implicacao logica (condicional), tautologia, contradicao, contingencia e equivalencia
+- **Aula 4** — Aplicacoes: regras de precedencia, resolucao de formulas complexas por partes e a ponte entre logica formal e logica de programacao
+- **Encerramento** — Assimile, estudo de caso integrador (teste de qualificacao de candidatos) e referencias
 
 ## Tutor
 
