@@ -24,6 +24,7 @@ Unidade1_Explorando_Logica_Matematica_Slides.html  # Slides da Unidade 1 (Logica
 Unidade2_Algebra_Conjuntos_Slides.html             # Slides da Unidade 2 (Logica e Matematica Computacional)
 Unidade3_Fundamentos_Logica_Slides.html            # Slides da Unidade 3 (Logica e Matematica Computacional)
 Unidade4_Tabela_Verdade_Slides.html                # Slides da Unidade 4 (Logica e Matematica Computacional)
+Unidade1_Fundamentos_Algoritmos_Programacao_Slides.html # Slides da Unidade 1 (Algoritmos e Programacao Estruturada)
 assets/                                            # Logos e imagens
 ```
 
@@ -168,6 +169,20 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Resultados da tabela verdade: implicacao logica (condicional), tautologia, contradicao, contingencia e equivalencia
 - **Aula 4** — Aplicacoes: regras de precedencia, resolucao de formulas complexas por partes e a ponte entre logica formal e logica de programacao
 - **Encerramento** — Assimile, estudo de caso integrador (teste de qualificacao de candidatos) e referencias
+
+### Algoritmos e Programacao Estruturada
+
+| Unidade | Tema | Slides |
+|---------|------|--------|
+| 1 | Fundamentos de Algoritmos e Programacao | 52 |
+
+**Conteudo da Unidade 1 (Algoritmos e Programacao Estruturada):**
+
+- **Aula 1** — Definicao e representacao de algoritmos: entrada, processamento e saida, linguagem natural, variaveis, atribuicao e fluxogramas
+- **Aula 2** — Conceitos basicos de linguagem de programacao: estrutura de um programa em C, bibliotecas, funcao main, printf() e scanf()
+- **Aula 3** — Variaveis e constantes: tipos primitivos, regras de nomes, modificadores, enderecos de memoria, #define e const
+- **Aula 4** — Operadores e expressoes: aritmeticos, incremento e decremento, relacionais, logicos e ordem de precedencia
+- **Encerramento** — Assimile (algoritmos passo a passo), estudo de caso integrador (caixa da pizzaria) e referencias
 
 ## Tutor
 
