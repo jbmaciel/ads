@@ -25,6 +25,7 @@ Unidade2_Algebra_Conjuntos_Slides.html             # Slides da Unidade 2 (Logica
 Unidade3_Fundamentos_Logica_Slides.html            # Slides da Unidade 3 (Logica e Matematica Computacional)
 Unidade4_Tabela_Verdade_Slides.html                # Slides da Unidade 4 (Logica e Matematica Computacional)
 Unidade1_Fundamentos_Algoritmos_Programacao_Slides.html # Slides da Unidade 1 (Algoritmos e Programacao Estruturada)
+Unidade2_Estruturas_Controle_Repeticao_Slides.html # Slides da Unidade 2 (Algoritmos e Programacao Estruturada)
 assets/                                            # Logos e imagens
 ```
 
@@ -175,6 +176,7 @@ assets/                                            # Logos e imagens
 | Unidade | Tema | Slides |
 |---------|------|--------|
 | 1 | Fundamentos de Algoritmos e Programacao | 52 |
+| 2 | Estruturas de Controle e Repeticao | 60 |
 
 **Conteudo da Unidade 1 (Algoritmos e Programacao Estruturada):**
 
@@ -183,6 +185,14 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Variaveis e constantes: tipos primitivos, regras de nomes, modificadores, enderecos de memoria, #define e const
 - **Aula 4** — Operadores e expressoes: aritmeticos, incremento e decremento, relacionais, logicos e ordem de precedencia
 - **Encerramento** — Assimile (algoritmos passo a passo), estudo de caso integrador (caixa da pizzaria) e referencias
+
+**Conteudo da Unidade 2 (Algoritmos e Programacao Estruturada):**
+
+- **Aula 1** — Estrutura de decisao condicional: if, if-else, if-else-if encadeado e switch-case (default, break e fall-through)
+- **Aula 2** — Estruturas de repeticao: while (teste no inicio), do-while (teste no fim), contador, acumulador, condicao de parada e atribuicao composta
+- **Aula 3** — Estruturas deterministicas: laco for, equivalencia com while, for aninhado, multiplas variaveis de controle e fatorial
+- **Aula 4** — Controle de repeticao: break, continue e goto (e por que preferir estruturas de controle)
+- **Encerramento** — Assimile (infografico das estruturas), estudo de caso integrador (sequencia de Fibonacci) e referencias
 
 ## Tutor
 
