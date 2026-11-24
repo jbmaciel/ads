@@ -26,6 +26,8 @@ Unidade3_Fundamentos_Logica_Slides.html            # Slides da Unidade 3 (Logica
 Unidade4_Tabela_Verdade_Slides.html                # Slides da Unidade 4 (Logica e Matematica Computacional)
 Unidade1_Fundamentos_Algoritmos_Programacao_Slides.html # Slides da Unidade 1 (Algoritmos e Programacao Estruturada)
 Unidade2_Estruturas_Controle_Repeticao_Slides.html # Slides da Unidade 2 (Algoritmos e Programacao Estruturada)
+Unidade3_Vetores_Matrizes_Structs_Ponteiros_Slides.html # Slides da Unidade 3 (Algoritmos e Programacao Estruturada)
+Unidade4_Funcoes_Passagem_Parametros_Slides.html # Slides da Unidade 4 (Algoritmos e Programacao Estruturada)
 assets/                                            # Logos e imagens
 ```
 
@@ -177,6 +179,8 @@ assets/                                            # Logos e imagens
 |---------|------|--------|
 | 1 | Fundamentos de Algoritmos e Programacao | 52 |
 | 2 | Estruturas de Controle e Repeticao | 60 |
+| 3 | Vetores, Matrizes, Structs e Ponteiros | 57 |
+| 4 | Funcoes e Passagem de Parametros | 48 |
 
 **Conteudo da Unidade 1 (Algoritmos e Programacao Estruturada):**
 
@@ -193,6 +197,22 @@ assets/                                            # Logos e imagens
 - **Aula 3** — Estruturas deterministicas: laco for, equivalencia com while, for aninhado, multiplas variaveis de controle e fatorial
 - **Aula 4** — Controle de repeticao: break, continue e goto (e por que preferir estruturas de controle)
 - **Encerramento** — Assimile (infografico das estruturas), estudo de caso integrador (sequencia de Fibonacci) e referencias
+
+**Conteudo da Unidade 3 (Algoritmos e Programacao Estruturada):**
+
+- **Aula 1** — Vetores: variaveis compostas homogeneas, indices, percurso com for, strings, terminador \0, scanf x fgets
+- **Aula 2** — Matrizes: linhas e colunas, leitura com for aninhado, diagonais, multiplicacao de matrizes e #define
+- **Aula 3** — Structs: definicao, operador ponto, inicializacao, vetores de structs e typedef
+- **Aula 4** — Ponteiros: operadores * e &, NULL, aritmetica de ponteiros, ponteiros para structs (->), vetores e matrizes
+- **Encerramento** — Assimile, estudo de caso integrador (gerenciamento de turmas com ponteiros) e referencias
+
+**Conteudo da Unidade 4 (Algoritmos e Programacao Estruturada):**
+
+- **Aula 1** — Funcoes: dividir para conquistar, sintaxe, parametros e retorno, procedimentos (void) e retorno de vetores
+- **Aula 2** — Passagem por valor: escopo local e global, extern e copias dos argumentos
+- **Aula 3** — Passagem por referencia: ponteiros como parametros, vetores, matrizes e structs
+- **Aula 4** — Recursividade: caso base, pilha de chamadas, fatorial, recursao x iteracao e metodo de Newton
+- **Encerramento** — Assimile, estudo de caso integrador (sistema bancario com structs e ponteiros) e referencias
 
 ## Tutor
 
